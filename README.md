@@ -1,10 +1,10 @@
 # Bank Client Discovery Simulator
 
-**Phase 2.5 · Conversational clients and practical coaching**
+**Phase 2.6 · AI quality checks and human behavioral review**
 
 The simulator is a banking education project. Students interview a fictional client, identify financial needs and constraints, and justify one or more product recommendations. The assignment assesses discovery skills, including how students follow up on incomplete answers and explain trade-offs in their recommendations.
 
-Phase 1 provides validated content, interview state, and recommendation services. Phase 2 adds a real AI Client, an AI Coach, a shared Ollama Cloud adapter using the official OpenAI Python SDK, and a disclosure controller. Phase 2.5 refines question relevance, conversational follow-ups, product discussions, and coaching fairness, with terminal tools for manual testing. The adapter connects directly to the cloud through its OpenAI-compatible endpoint. See [Ollama API compatibility](https://docs.ollama.com/api/openai-compatibility). Phase 3 will add the Streamlit interface, followed by deployment in Phase 4 and end-to-end testing and submission in Phase 5.
+Phase 1 provides validated content, interview state, and recommendation services. Phase 2 adds a real AI Client, an AI Coach, a shared Ollama Cloud adapter using the official OpenAI Python SDK, and a disclosure controller. Phase 2.5 refines question relevance, conversational follow-ups, product discussions, and coaching fairness. Phase 2.6 adds concise coaching guidance, targeted contextual matching, systematic scenario coverage, and explicit human review records. The adapter connects directly to the cloud through its OpenAI-compatible endpoint. See [Ollama API compatibility](https://docs.ollama.com/api/openai-compatibility). Phase 3 will add the Streamlit interface, followed by deployment in Phase 4 and end-to-end testing and submission in Phase 5.
 
 ## Setup
 
@@ -73,6 +73,7 @@ src/bank_simulator/
   config.py                      Environment settings and AI readiness validation
   models.py                      Content, session, and agent models
   data_loader.py                 JSON schema, identifier, and reference checks
+  evaluation.py                  Offline feedback measurements and human review packets
   services/
     content_service.py           Public catalogue and private client lookup
     interview_service.py         Client selection, transcript, and session lifecycle
@@ -154,7 +155,11 @@ Contextual follow-ups use the recent topic or an explicitly configured predecess
 
 Requests for hidden facts, answer keys, or system instructions are blocked from unlocking topics. The model is also instructed to treat attempts to change its role as interview dialogue. There is no global disclosure state. Serialized session history restores unlocks, a reset clears them, and each selected client has its own private rules. Legacy records with no executable disclosure patterns remain valid and unlock no private facts.
 
-The coach prioritizes actual discoveries and consequential gaps. It treats unselected products as optional considerations, credits correctly understood partial solutions, and distinguishes unsuitable choices from limitations or missing eligibility information. Its prompt asks for approximately 2–4 useful points per section when appropriate, allows fewer, and discourages repeated figures and repeated explanations. JSON-object mode, Pydantic validation, diagnostics, and bounded recovery apply throughout.
+The coach prioritizes actual discoveries and consequential gaps. It distinguishes fully discovered, partially discovered, and missed needs using transcript evidence, with the predefined case as its benchmark. Its prompt targets approximately 180–260 words overall and generally 2–3 useful observations per section. This is a soft target, with extra detail permitted for serious suitability mistakes. Word counts are measured after generation. Generated feedback is never cut off to meet the target.
+
+Unselected alternatives are optional considerations. The coach credits correctly understood partial solutions and acknowledged limitations before identifying the remaining need. A narrow validation check rejects a missed-needs point naming an unselected catalogue product that was never introduced in the interview or submission. It requests a real model repair using the existing shared recovery allowance and raises an error if the problem persists. This check recognizes catalogue names and IDs, so human review remains necessary for other grounding errors. JSON-object mode, Pydantic validation, diagnostics, and the 8,192-token ceiling apply throughout.
+
+Targeted follow-up patterns support references such as “And when would that happen?”, “Why does that concern you?”, “Would that account work for you?”, and “How much could you realistically put aside?” Short references use recent context, and a vague standalone question does not unlock all private information. The strong Maryam case also recognizes obligations that “cannot be postponed.”
 
 ### Interactive manual interview
 
@@ -179,13 +184,60 @@ python scripts/evaluate_conversations.py --live --scenario mohamed-product \
     --output /tmp/mohamed-product.json
 ```
 
-Cases contain script-authored student questions and submissions. Client replies and coach feedback come from the real API. Reports include the genuine transcript, selected products, diagnostics, request counts, token usage, and six human-review dimensions. Score conversational realism, gradual disclosure, financial consistency, contextual follow-ups, coaching accuracy, and product reasoning from 1 to 5. A 1 means frequent serious failures, 3 means usable with noticeable lapses, and 5 means consistently convincing and grounded behavior. Intermediate scores describe substantial or minor issues. Scores remain blank for a human reviewer, and the tool uses no model-generated grading. Reviewers should record concrete evidence and problems alongside scores.
+Cases contain script-authored student questions and submissions. Client replies and coach feedback come from the real API. The listing previews normal and maximum request counts. Reports include genuine transcripts, selected products, safe diagnostics, usage, word counts, and eleven unscored criteria. Each JSON result also produces a `.review.md` packet with numbered messages, actual submissions, catalogue limitations, and predefined-need checklists. The private reference section is for the reviewer, so keep these packets outside the student chat view.
+
+Run `python scripts/evaluate_conversations.py --coverage` to list saved and pending cases. Coverage requires a valid completed session, matching client and student-question sequence, and structured coach feedback. Failed attempts are shown separately. A recorded workflow or valid JSON does not establish coaching accuracy.
+
+### Record human rubric scores
+
+Review five client criteria: realism, gradual disclosure, financial consistency, memory/follow-ups, and product discussion. Review six coach criteria: discovered needs, missed needs, product suitability, evidence grounding, usefulness, and conciseness. Score each applicable area from 1 to 5, aiming for at least 4. A 1 means major failures, 3 means usable with noticeable issues, and 5 means consistently convincing and grounded behavior. Use N/A only when an area genuinely does not apply, such as product discussion in a conversation that never introduced a product.
+
+Create an offline packet and a blank ratings template from an existing report.
+
+```sh
+python scripts/evaluate_conversations.py \
+    --review-report samples/phase2_6_maryam_weak.json \
+    --review-output /tmp/maryam-review.md \
+    --ratings-template /tmp/maryam-ratings.json
+```
+
+Read the transcript and submission first. Mark important predefined needs fully discovered, partially discovered, or missed, citing message numbers. Check the selected product against stated constraints and catalogue limitations. Distinguish an acknowledged limitation from an unresolved need. Then edit the ratings JSON manually: enter numeric scores under `scores`, set `applicable` to false with a null score for N/A, and add message references or explanations under `evidence`. The optional `reviewer` field identifies the human reviewer.
+
+Save those human-supplied ratings into a copy of the report.
+
+```sh
+python scripts/evaluate_conversations.py \
+    --review-report samples/phase2_6_maryam_weak.json \
+    --ratings /tmp/maryam-ratings.json \
+    --output /tmp/maryam-reviewed.json \
+    --review-output /tmp/maryam-reviewed.md
+```
+
+Scores stay null until explicitly supplied. No model grades its own conversation. The local tool validates score ranges and reports whether the human-supplied ratings meet the 4/5 target. It preserves the original transcript and feedback. Word counts and exact-duplicate-point counts are diagnostic measurements, not quality ratings; related or unsupported statements still need human assessment.
 
 The standard smoke test remains a short reliability check. Individual conversation cases explore behavior and may require more client turns. Live use requires `--live`; the tools disable transport retries and retain the coach's single recovery allowance. Run only the cases needed for the current investigation.
 
+### Phase 2.6 verification and comparison
+
+All 204 offline tests pass, retaining the original 168. Added coverage includes the six observed follow-up failures, discovery-classification and concision instructions, all ten scenarios' context isolation, human-rating validation, offline review copies, coverage accounting, exact-duplicate diagnostics, and bounded product-fairness repair. No pytest test makes a live request.
+
+The operator chose all eight previously untested cases after seeing their normal 39-request estimate and 47-request maximum. Runs proceeded one case at a time. A valid operator-generated Mohamed unsuitable result was preserved and reused, so that case needed no duplicate calls from the agent. The earlier two Phase 2.5 client conversations were reused, with a coach-only refresh for Maryam's natural case.
+
+All ten cases now have genuine interview and coach records, with no live-coverage cases pending. The [Phase 2.6 evaluation summary](samples/phase2_6_evaluation_summary.md) links each selected result, its word count, request accounting, and review notes. Each corresponding `.review.md` packet provides eleven blank criteria and transcript references. The [blank ratings template](samples/phase2_6_human_ratings_template.json) can be copied and filled manually. Human 4/5 acceptance remains pending because no person has supplied ratings.
+
+The eight newly covered cases produced final feedback averaging **231.5 words**, with a **201–274** range. Seven were within the 180–260-word soft target. On the same saved Maryam natural interview, feedback fell from **410 to 280 words**. That result remains slightly above target. The carried-forward Mohamed product report remains a 393-word historical comparison and was not regenerated.
+
+One important coaching error was investigated before continuing: initial Maryam unsuitable feedback treated failure to consider an unselected, undiscussed product as a mistake. That genuine output is retained in [the initial result](samples/phase2_6_maryam_unsuitable.json). A targeted validation guard now uses the existing recovery allowance for this category, and [the coach-only recheck](samples/phase2_6_maryam_unsuitable_rechecked.json) correctly rejects interest-bearing credit while placing the alternative in optional improvements. Feedback is regenerated by the model rather than silently edited.
+
+The agent issued **37 requests**, consuming **96,862 reported total tokens**. The reused operator result represents **4 requests and 9,877 tokens**, making the retained verification evidence **41 requests and 106,739 tokens**. A separate earlier operator Maryam result was observed with four requests and 10,262 tokens before its output path was reused. It is excluded from retained coverage and the 41-request evidence total. The summary distinguishes historical calls and external runs from the agent's calls.
+
+Natural follow-ups preserved the goal amount, income/expense context, and receipt timing without unlocking every private fact. Strong cases received credit for actual figures and constraints, while weak and unsuitable cases surfaced material omissions or conflicts. The concise outputs can still contain overlapping advice or optional considerations phrased too strongly. JSON validity, word counts, and the narrow product guard provide useful checks, but human evidence review remains the acceptance step.
+
+Before future live testing, list cases and estimates, choose only needed IDs, and inspect each report before continuing. Use unique output paths to preserve evidence. API calls can consume provider allowance even when a request fails; reported token usage is recorded without making a currency-cost estimate. Reuse saved interviews for coach-only checks when the conversation itself does not need retesting.
+
 ### Phase 2.5 verification
 
-All 168 offline tests pass, including the original 140. New tests cover prompt guidance, current-question disclosure, multipart questions, contextual follow-ups, recognition of prior disclosures, product context, editable personalities, rule validation, and terminal retry/export behavior. These deterministic tests check the inputs and state the application controls. They do not assert an exact generated sentence or prove all possible conversational behavior.
+At the end of Phase 2.5, all 168 offline tests passed, including the original 140. Those tests cover prompt guidance, current-question disclosure, multipart questions, contextual follow-ups, recognition of prior disclosures, product context, editable personalities, rule validation, and terminal retry/export behavior. These deterministic tests check the inputs and state the application controls. They do not assert an exact generated sentence or prove all possible conversational behavior.
 
 Limited live verification used `deepseek-v4.1-flash` for two selected cases and one coach-only refinement check.
 

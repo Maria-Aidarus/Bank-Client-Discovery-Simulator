@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "mode": "coach_only",
+  "configured_model": "deepseek-v4.1-flash",
+  "api_calls": 1,
+  "token_usage": {
+    "prompt_tokens": 5325,
+    "completion_tokens": 2375,
+    "total_tokens": 7700
+  },
+  "events": [
+    {
+      "stage": "api_response",
+      "request_number": 1,
+      "max_tokens": 8192,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 2007,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 10131
+      },
+      "usage": {
+        "prompt_tokens": 5325,
+        "completion_tokens": 2375,
+        "total_tokens": 7700
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "coach_feedback",
+      "validation_failure_category": null
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "status": "completed",
+  "scenario_id": "mohamed-unsuitable",
+  "evaluation_version": "2.6",
+  "planned_requests": {
+    "normal": 4,
+    "maximum": 5
+  },
+  "recorded_at": "2026-11-19T20:35:29.272310+00:00",
+  "interview_source": "live_ollama_cloud",
+  "student_submission_source": "script_authored",
+  "manual_review": {
+    "dimensions": {
+      "client_realism": "Natural customer language, relevant length, and a consistent personality.",
+      "client_disclosure": "Requested details are answered without unrelated private facts being volunteered.",
+      "client_financial_consistency": "Figures and financial constraints agree with the case and previous replies.",
+      "client_memory": "References and contextual follow-ups are resolved or clarified appropriately.",
+      "client_product_discussion": "Product reactions use catalogue terms and relevant customer concerns.",
+      "coach_discovered_needs": "Fully and partially discovered needs are credited accurately.",
+      "coach_missed_needs": "Significant missed needs are identified without falsely marking known facts missing.",
+      "coach_product_suitability": "Actual selections, acknowledged limitations, and optional alternatives are judged fairly.",
+      "coach_evidence": "Claims are supported by transcript, submission, predefined needs, or catalogue limitations.",
+      "coach_usefulness": "Feedback is clear, constructive, prioritized, and gives practical next questions.",
+      "coach_conciseness": "Feedback is focused, avoids repeated critique, and uses extra detail only where needed."
+    },
+    "scale": {
+      "1": "Major failures undermine the exercise.",
+      "2": "Important errors or omissions require substantial correction.",
+      "3": "Usable, with noticeable issues that affect learning.",
+      "4": "Accurate and useful, with only minor issues.",
+      "5": "Consistently convincing, grounded, and useful throughout."
+    },
+    "target": 4,
+    "scores": {
+      "client_realism": null,
+      "client_disclosure": null,
+      "client_financial_consistency": null,
+      "client_memory": null,
+      "client_product_discussion": null,
+      "coach_discovered_needs": null,
+      "coach_missed_needs": null,
+      "coach_product_suitability": null,
+      "coach_evidence": null,
+      "coach_usefulness": null,
+      "coach_conciseness": null
+    },
+    "applicable": {
+      "client_realism": null,
+      "client_disclosure": null,
+      "client_financial_consistency": null,
+      "client_memory": null,
+      "client_product_discussion": null,
+      "coach_discovered_needs": null,
+      "coach_missed_needs": null,
+      "coach_product_suitability": null,
+      "coach_evidence": null,
+      "coach_usefulness": null,
+      "coach_conciseness": null
+    },
+    "evidence": {
+      "client_realism": "",
+      "client_disclosure": "",
+      "client_financial_consistency": "",
+      "client_memory": "",
+      "client_product_discussion": "",
+      "coach_discovered_needs": "",
+      "coach_missed_needs": "",
+      "coach_product_suitability": "",
+      "coach_evidence": "",
+      "coach_usefulness": "",
+      "coach_conciseness": ""
+    },
+    "reviewer": null,
+    "reviewed_at": null
+  },
+  "manual_review_status": "unscored",
+  "feedback": {
+    "what_went_well": [
+      "You opened on emergency savings and established QAR 1,200, surfacing that a repair could use most of it.",
+      "You tested same-day access, and your Goal Saver withdrawal-delay question led Mohamed to state clearly that a several-day wait was unsuitable for emergency money.",
+      "In the conversation you separated emergency access from planned savings, which was the right line of enquiry."
+    ],
+    "what_was_missed": [
+      "Your final submission recommends placing all emergency money in Goal Saver despite Mohamed's explicit rejection of its withdrawal delay for emergencies; this is a serious suitability error.",
+      "You did not establish the separate certification goal (QAR 9,000 in 18 months), so the need for distinct goal savings and the required contribution were not assessed.",
+      "Income, fixed bills, irregular car/travel costs, and contribution flexibility were not explored, leaving affordability and pause/adjust needs unresolved."
+    ],
+    "how_to_improve": [
+      "Correct the recommendation: do not use Goal Saver for the QAR 1,200 emergency reserve; it can only be a partial fit for a separate dated goal with another accessible reserve. Optional: review the Everyday Access Account for same-day emergency access.",
+      "Ask what he is saving for, the target amount and deadline, then test the required monthly contribution against his fixed bills and irregular expenses before proposing Goal Saver.",
+      "Ask how he wants to adjust or pause contributions in higher-expense months and confirm he needs separate visibility for emergency versus certification savings."
+    ]
+  },
+  "feedback_metrics": {
+    "word_count": 222,
+    "soft_word_target": [
+      180,
+      260
+    ],
+    "within_soft_word_target": true,
+    "section_point_counts": {
+      "what_went_well": 3,
+      "what_was_missed": 3,
+      "how_to_improve": 3
+    },
+    "exact_duplicate_points": 0,
+    "human_accuracy_review_required": true
+  },
+  "configured_model": "deepseek-v4.1-flash",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "api_calls": 4,
+  "token_usage": {
+    "prompt_tokens": 7012,
+    "completion_tokens": 2865,
+    "total_tokens": 9877
+  },
+  "session": {
+    "session_id": "724d3ce0-c528-4f62-8530-76ee3ff5f59a",
+    "client_id": "mohamed",
+    "transcript": [
+      {
+        "role": "student",
+        "content": "How much emergency money do you have set aside?",
+        "timestamp": "2026-11-19T20:35:29.272567Z"
+      },
+      {
+        "role": "client",
+        "content": "I currently have about QAR 1,200 set aside for emergencies. That’s why I’m being cautious—an unexpected repair could use up most of it.",
+        "timestamp": "2026-11-19T20:35:30.818710Z"
+      },
+      {
+        "role": "student",
+        "content": "How quickly would you need access if an unexpected bill arrived?",
+        "timestamp": "2026-11-19T20:35:30.818810Z"
+      },
+      {
+        "role": "client",
+        "content": "I’d need it available the same day, really—unexpected bills usually can’t wait. That’s why easy access matters to me for emergency money.",
+        "timestamp": "2026-11-19T20:35:31.682545Z"
+      },
+      {
+        "role": "student",
+        "content": "Goal Saver Account withdrawals take several business days. Would that work for your emergency money?",
+        "timestamp": "2026-11-19T20:35:31.682789Z"
+      },
+      {
+        "role": "client",
+        "content": "No, that wouldn’t work for my emergency money—I’d need same-day access, and a several-day wait is too risky for an unexpected bill. It might be more suitable for a separate planned savings goal, but not for my emergency reserve.",
+        "timestamp": "2026-11-19T20:35:32.690940Z"
+      }
+    ],
+    "status": "completed",
+    "student_summary": "Mohamed needs same-day access to his emergency reserve.",
+    "selected_recommendations": [
+      {
+        "product_id": "goal-saver-account",
+        "justification": "Put all emergency money here to encourage saving despite the withdrawal delay."
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "stage": "api_response",
+      "request_number": 1,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 135,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 125
+      },
+      "usage": {
+        "prompt_tokens": 685,
+        "completion_tokens": 67,
+        "total_tokens": 752
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 2,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 137,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 311
+      },
+      "usage": {
+        "prompt_tokens": 780,
+        "completion_tokens": 99,
+        "total_tokens": 879
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 3,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 228,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 212
+      },
+      "usage": {
+        "prompt_tokens": 1057,
+        "completion_tokens": 100,
+        "total_tokens": 1157
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 4,
+      "max_tokens": 8192,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 1556,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 11262
+      },
+      "usage": {
+        "prompt_tokens": 4490,
+        "completion_tokens": 2599,
+        "total_tokens": 7089
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "coach_feedback",
+      "validation_failure_category": null
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "status": "completed",
+  "scenario_id": "mohamed-natural",
+  "evaluation_version": "2.6",
+  "planned_requests": {
+    "normal": 6,
+    "maximum": 7
+  },
+  "recorded_at": "2026-11-19T20:50:28.570660+00:00",
+  "interview_source": "live_ollama_cloud",
+  "student_submission_source": "script_authored",
+  "manual_review": {
+    "dimensions": {
+      "client_realism": "Natural customer language, relevant length, and a consistent personality.",
+      "client_disclosure": "Requested details are answered without unrelated private facts being volunteered.",
+      "client_financial_consistency": "Figures and financial constraints agree with the case and previous replies.",
+      "client_memory": "References and contextual follow-ups are resolved or clarified appropriately.",
+      "client_product_discussion": "Product reactions use catalogue terms and relevant customer concerns.",
+      "coach_discovered_needs": "Fully and partially discovered needs are credited accurately.",
+      "coach_missed_needs": "Significant missed needs are identified without falsely marking known facts missing.",
+      "coach_product_suitability": "Actual selections, acknowledged limitations, and optional alternatives are judged fairly.",
+      "coach_evidence": "Claims are supported by transcript, submission, predefined needs, or catalogue limitations.",
+      "coach_usefulness": "Feedback is clear, constructive, prioritized, and gives practical next questions.",
+      "coach_conciseness": "Feedback is focused, avoids repeated critique, and uses extra detail only where needed."
+    },
+    "scale": {
+      "1": "Major failures undermine the exercise.",
+      "2": "Important errors or omissions require substantial correction.",
+      "3": "Usable, with noticeable issues that affect learning.",
+      "4": "Accurate and useful, with only minor issues.",
+      "5": "Consistently convincing, grounded, and useful throughout."
+    },
+    "target": 4,
+    "scores": {
+      "client_realism": null,
+      "client_disclosure": null,
+      "client_financial_consistency": null,
+      "client_memory": null,
+      "client_product_discussion": null,
+      "coach_discovered_needs": null,
+      "coach_missed_needs": null,
+      "coach_product_suitability": null,
+      "coach_evidence": null,
+      "coach_usefulness": null,
+      "coach_conciseness": null
+    },
+    "applicable": {
+      "client_realism": null,
+      "client_disclosure": null,
+      "client_financial_consistency": null,
+      "client_memory": null,
+      "client_product_discussion": null,
+      "coach_discovered_needs": null,
+      "coach_missed_needs": null,
+      "coach_product_suitability": null,
+      "coach_evidence": null,
+      "coach_usefulness": null,
+      "coach_conciseness": null
+    },
+    "evidence": {
+      "client_realism": "",
+      "client_disclosure": "",
+      "client_financial_consistency": "",
+      "client_memory": "",
+      "client_product_discussion": "",
+      "coach_discovered_needs": "",
+      "coach_missed_needs": "",
+      "coach_product_suitability": "",
+      "coach_evidence": "",
+      "coach_usefulness": "",
+      "coach_conciseness": ""
+    },
+    "reviewer": null,
+    "reviewed_at": null
+  },
+  "manual_review_status": "unscored",
+  "feedback": {
+    "what_went_well": [
+      "You established the core goal: QAR 9,000 in 18 months for certification, kept separate from the emergency fund.",
+      "You captured take-home salary of QAR 8,000 and fixed bills of about QAR 4,600 before groceries and irregular costs.",
+      "Your car-repair question surfaced the QAR 1,200 emergency reserve and the risk that maintenance can wipe out monthly savings."
+    ],
+    "what_was_missed": [
+      "You did not ask what Mohamed can comfortably save each month after groceries and irregular expenses, so the required contribution was not tested for feasibility.",
+      "The need for same-day emergency access and adjustable or pausable goal contributions was left unconfirmed; the client only hinted that a bad month could derail the plan.",
+      "Your recommendation uses Everyday Access for bills and emergency money but does not explain how the separate certification goal will be tracked or funded."
+    ],
+    "how_to_improve": [
+      "Next, ask: “After groceries and irregular costs, how much can you comfortably put aside monthly, and would about QAR 500 fit?”",
+      "Ask how quickly emergency funds must be available and how often he may need to pause or adjust goal transfers.",
+      "Optional: consider the Goal Saver Account for the certification goal—separate target, progress, and adjustable transfers—while keeping the emergency reserve in Everyday Access; verify its withdrawal delay against his access need and note any bonus forfeiture."
+    ]
+  },
+  "feedback_metrics": {
+    "word_count": 208,
+    "soft_word_target": [
+      180,
+      260
+    ],
+    "within_soft_word_target": true,
+    "section_point_counts": {
+      "what_went_well": 3,
+      "what_was_missed": 3,
+      "how_to_improve": 3
+    },
+    "exact_duplicate_points": 0,
+    "human_accuracy_review_required": true
+  },
+  "configured_model": "deepseek-v4.1-flash",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "api_calls": 6,
+  "token_usage": {
+    "prompt_tokens": 8723,
+    "completion_tokens": 3109,
+    "total_tokens": 11832
+  },
+  "session": {
+    "session_id": "85de3ff4-5061-44fa-9b4b-2b335547f057",
+    "client_id": "mohamed",
+    "transcript": [
+      {
+        "role": "student",
+        "content": "What are you saving for?",
+        "timestamp": "2026-11-19T20:50:28.570781Z"
+      },
+      {
+        "role": "client",
+        "content": "I’m saving QAR 9,000 over 18 months for a professional certification course and exam fees. I’d like to keep that separate from my emergency fund so I don’t dip into it.",
+        "timestamp": "2026-11-19T20:50:30.338828Z"
+      },
+      {
+        "role": "student",
+        "content": "How much is it?",
+        "timestamp": "2026-11-19T20:50:30.339062Z"
+      },
+      {
+        "role": "client",
+        "content": "The amount I’m aiming for is QAR 9,000 over 18 months.",
+        "timestamp": "2026-11-19T20:50:31.419099Z"
+      },
+      {
+        "role": "student",
+        "content": "What comes in each month?",
+        "timestamp": "2026-11-19T20:50:31.419314Z"
+      },
+      {
+        "role": "client",
+        "content": "My regular take-home salary is QAR 8,000 a month; that’s the main income coming in.",
+        "timestamp": "2026-11-19T20:50:32.309864Z"
+      },
+      {
+        "role": "student",
+        "content": "And what goes out?",
+        "timestamp": "2026-11-19T20:50:32.309917Z"
+      },
+      {
+        "role": "client",
+        "content": "My fixed monthly bills come to about QAR 4,600 before groceries and irregular expenses. So after those bills, I still need to account for everyday spending and anything unexpected.",
+        "timestamp": "2026-11-19T20:50:33.348372Z"
+      },
+      {
+        "role": "student",
+        "content": "What happens if an unexpected car bill comes up?",
+        "timestamp": "2026-11-19T20:50:33.348513Z"
+      },
+      {
+        "role": "client",
+        "content": "An unexpected car repair could use most of my QAR 1,200 emergency savings, and car maintenance can also wipe out what I’d planned to set aside that month. That’s why I want the certification savings kept separate, though I’d still need to think through how to handle months like that without derailing the plan.",
+        "timestamp": "2026-11-19T20:50:34.676602Z"
+      }
+    ],
+    "status": "completed",
+    "student_summary": "Mohamed has a dated certification goal and irregular expenses; clarify emergency liquidity and affordable contributions.",
+    "selected_recommendations": [
+      {
+        "product_id": "everyday-access-account",
+        "justification": "Accessible money for bills and a potential emergency reserve; clarify the full plan."
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "stage": "api_response",
+      "request_number": 1,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 168,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 372
+      },
+      "usage": {
+        "prompt_tokens": 684,
+        "completion_tokens": 123,
+        "total_tokens": 807
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 2,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 54,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 124
+      },
+      "usage": {
+        "prompt_tokens": 766,
+        "completion_tokens": 56,
+        "total_tokens": 822
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 3,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 83,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 370
+      },
+      "usage": {
+        "prompt_tokens": 808,
+        "completion_tokens": 116,
+        "total_tokens": 924
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 4,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 180,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 296
+      },
+      "usage": {
+        "prompt_tokens": 850,
+        "completion_tokens": 103,
+        "total_tokens": 953
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 5,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 311,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 352
+      },
+      "usage": {
+        "prompt_tokens": 944,
+        "completion_tokens": 145,
+        "total_tokens": 1089
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 6,
+      "max_tokens": 8192,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 1416,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 11062
+      },
+      "usage": {
+        "prompt_tokens": 4671,
+        "completion_tokens": 2566,
+        "total_tokens": 7237
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "coach_feedback",
+      "validation_failure_category": null
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "reviewer": null,
+  "scores": {
+    "client_realism": null,
+    "client_disclosure": null,
+    "client_financial_consistency": null,
+    "client_memory": null,
+    "client_product_discussion": null,
+    "coach_discovered_needs": null,
+    "coach_missed_needs": null,
+    "coach_product_suitability": null,
+    "coach_evidence": null,
+    "coach_usefulness": null,
+    "coach_conciseness": null
+  },
+  "applicable": {
+    "client_realism": null,
+    "client_disclosure": null,
+    "client_financial_consistency": null,
+    "client_memory": null,
+    "client_product_discussion": null,
+    "coach_discovered_needs": null,
+    "coach_missed_needs": null,
+    "coach_product_suitability": null,
+    "coach_evidence": null,
+    "coach_usefulness": null,
+    "coach_conciseness": null
+  },
+  "evidence": {
+    "client_realism": "",
+    "client_disclosure": "",
+    "client_financial_consistency": "",
+    "client_memory": "",
+    "client_product_discussion": "",
+    "coach_discovered_needs": "",
+    "coach_missed_needs": "",
+    "coach_product_suitability": "",
+    "coach_evidence": "",
+    "coach_usefulness": "",
+    "coach_conciseness": ""
+  }
+}
