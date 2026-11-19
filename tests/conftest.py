@@ -1,4 +1,5 @@
 import shutil
+import socket
 from pathlib import Path
 
 import pytest
@@ -10,6 +11,14 @@ from bank_simulator.services.interview_service import InterviewService
 from bank_simulator.services.recommendation_service import RecommendationService
 
 
+@pytest.fixture(autouse=True)
+def block_network(monkeypatch):
+    """Every pytest test must use an injected transport or agent double."""
+    def reject_connection(*args, **kwargs):
+        raise AssertionError("Network access is disabled during offline tests.")
+
+    monkeypatch.setattr(socket.socket, "connect", reject_connection)
+    monkeypatch.setattr(socket, "create_connection", reject_connection)
 
 
 

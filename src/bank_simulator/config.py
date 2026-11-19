@@ -11,6 +11,7 @@ from .data_loader import PROJECT_ROOT
 
 
 DEFAULT_AI_API_URL = "https://ollama.com/v1"
+DEFAULT_AI_MODEL = "deepseek-v4.1-flash"
 DEFAULT_ENV_FILE = PROJECT_ROOT / ".env"
 _HTTP_URL = TypeAdapter(AnyHttpUrl)
 
@@ -22,7 +23,7 @@ class Settings(BaseModel):
 
     ai_api_url: str = Field(default=DEFAULT_AI_API_URL, repr=False)
     ai_api_key: SecretStr = Field(default=SecretStr(""), repr=False)
-    ai_model: str = ""
+    ai_model: str = DEFAULT_AI_MODEL
 
     def require_ai_configuration(self) -> Self:
         """Validate settings when constructing a provider integration."""
@@ -49,5 +50,5 @@ def load_settings(env_file: Path | None = DEFAULT_ENV_FILE) -> Settings:
     return Settings(
         ai_api_url=read("AI_API_URL", DEFAULT_AI_API_URL),
         ai_api_key=SecretStr(read("AI_API_KEY")),
-        ai_model=read("AI_MODEL"),
+        ai_model=read("AI_MODEL", DEFAULT_AI_MODEL),
     )
