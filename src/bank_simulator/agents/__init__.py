@@ -1,1 +1,1 @@
-"""Contracts for client and coaching agents."""
+"""Ollama Cloud agents, shared API access, and integration contracts."""
