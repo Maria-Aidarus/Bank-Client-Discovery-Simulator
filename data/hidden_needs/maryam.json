@@ -1,0 +1,59 @@
+{
+  "client_id": "maryam",
+  "private_financial_facts": [
+    "Invoices are due in 30 days, but several retailers regularly take 45 to 60 days from the invoice date to pay.",
+    "The business has QAR 25,000 available, with QAR 40,000 in supplier and payroll payments due in the next three weeks.",
+    "Maryam expects the business to receive QAR 60,000 from outstanding invoices over the next four to six weeks, but the receipt dates are uncertain."
+  ],
+  "financial_concerns": [
+    "Late customer payments can leave the business short of cash for payroll and supplier invoices.",
+    "Taking on a larger order could widen the cash gap if the business needs to buy stock upfront."
+  ],
+  "important_constraints": [
+    "Payroll has fixed dates and cannot be postponed.",
+    "Maryam has neither a supplier quotation nor a purchase order for the larger retail orders under consideration. Any immediate solution needs to account for scheduled obligations and uncertain receipts.",
+    "Maryam would decline a conventional interest-bearing credit facility."
+  ],
+  "banking_preferences": [
+    "Prefers Sharia-compliant banking and wants to understand the structure before considering financing.",
+    "Values a clear view of upcoming payments and wants to keep control over supplier payment timing."
+  ],
+  "hidden_needs": [
+    "Improve short-term working-capital visibility and follow up on late invoices.",
+    "Plan for a QAR 15,000 near-term cash gap if expected receipts arrive after upcoming payments.",
+    "Assess Sharia-compliant financing for eligible future stock purchases once there is a supplier quotation or purchase order."
+  ],
+  "disclosure_topics": [
+    {
+      "topic": "Invoice payment timing",
+      "reveal_when": "When asked how promptly customers pay or how customer receipts line up with expenses, explain that several customers pay late."
+    },
+    {
+      "topic": "Size and timing of the cash gap",
+      "reveal_when": "After a follow-up on cash available, near-term obligations, or expected receipts, share the relevant figures and the uncertainty around payment dates."
+    },
+    {
+      "topic": "Banking preference",
+      "reveal_when": "When asked about banking preferences or when a financing option is raised, explain the preference for Sharia-compliant banking and the objection to conventional interest."
+    },
+    {
+      "topic": "Expansion purchase documentation",
+      "reveal_when": "When asked which expenses the expansion would create or whether any supplier quotes or orders are in place, explain that the business has no supplier quotation or purchase order for the potential expansion."
+    }
+  ],
+  "discovery_expectations": [
+    {
+      "description": "Distinguish the near-term cash gap from expansion financing and assess whether cash visibility and collections tracking could help. Cash management does not fund the gap.",
+      "related_product_ids": [
+        "business-cash-management"
+      ]
+    },
+    {
+      "description": "Confirm Sharia-compliance preferences and determine whether a proposed facility can cover existing obligations or requires a qualifying future purchase.",
+      "related_product_ids": [
+        "islamic-trade-finance",
+        "business-flex-credit"
+      ]
+    }
+  ]
+}

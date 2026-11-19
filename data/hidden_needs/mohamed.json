@@ -1,0 +1,57 @@
+{
+  "client_id": "mohamed",
+  "private_financial_facts": [
+    "Mohamed takes home QAR 8,000 per month and spends about QAR 4,600 on fixed monthly bills before groceries and irregular expenses.",
+    "He has QAR 1,200 in emergency savings. Car maintenance and family travel can reduce or eliminate what he saves in a given month.",
+    "He wants to save QAR 9,000 in 18 months for professional certification course and exam fees, separately from his emergency fund."
+  ],
+  "financial_concerns": [
+    "An unexpected repair could use most of his current emergency savings.",
+    "A fixed savings commitment could strain his budget in a month with higher expenses."
+  ],
+  "important_constraints": [
+    "Emergency money needs to be available the same day.",
+    "He wants to adjust or pause monthly goal contributions when irregular bills come up."
+  ],
+  "banking_preferences": [
+    "Prefers easy access to emergency funds and separate visibility for goal savings.",
+    "Wants a simple way to track how much is available after bills and planned expenses."
+  ],
+  "hidden_needs": [
+    "Build an accessible emergency reserve while planning for irregular expenses.",
+    "Save separately for certification. Check whether an average of QAR 500 per month is feasible after accounting for irregular expenses and emergency savings."
+  ],
+  "disclosure_topics": [
+    {
+      "topic": "Savings and irregular expenses",
+      "reveal_when": "When asked about emergency savings or unexpected bills, share the current savings balance and examples of irregular expenses."
+    },
+    {
+      "topic": "Savings goal and deadline",
+      "reveal_when": "When asked what he is saving for, or about the amount or deadline, describe the certification and share the target amount and timeframe."
+    },
+    {
+      "topic": "Liquidity and contribution flexibility",
+      "reveal_when": "When asked how quickly he might need his savings or how predictable his budget is, explain the need for same-day emergency access and adjustable goal contributions."
+    },
+    {
+      "topic": "Income and essential bills",
+      "reveal_when": "When asked what comes in and what must go out each month, share salary and fixed bills, and explain that the remaining balance still covers groceries and irregular expenses."
+    }
+  ],
+  "discovery_expectations": [
+    {
+      "description": "Ask about cash available for emergencies and irregular expenses. Distinguish same-day access from goal savings with withdrawal delays.",
+      "related_product_ids": [
+        "everyday-access-account",
+        "goal-saver-account"
+      ]
+    },
+    {
+      "description": "Establish the savings target and deadline, then check whether the required average contribution fits his budget. Discuss how he can adjust transfers and review progress after irregular expenses.",
+      "related_product_ids": [
+        "goal-saver-account"
+      ]
+    }
+  ]
+}

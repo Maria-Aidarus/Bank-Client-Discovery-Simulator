@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bank-client-discovery-simulator"
+version = "0.1.0"
+description = "Educational backend for fictional bank client interviews and recommendations"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.12,<3",
+    "python-dotenv>=1,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.setuptools]
+packages = ["bank_simulator", "bank_simulator.agents", "bank_simulator.services", "bank_simulator.data"]
+package-dir = {"" = "src", "bank_simulator.data" = "data"}
+
+[tool.setuptools.package-data]
+"bank_simulator.data" = ["products.json", "clients/*.json", "hidden_needs/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,75 @@
+[
+  {
+    "id": "business-flex-credit",
+    "name": "Business Flex Credit",
+    "description": "A fictional conventional revolving credit line for short business cash gaps.",
+    "key_features": [
+      "Draw and repay funds within an agreed limit.",
+      "Conventional interest applies to the amount drawn."
+    ],
+    "benefits": ["Can cover a temporary mismatch between receipts and operating payments."],
+    "limitations": [
+      "The business must be able to repay each draw from expected receipts.",
+      "Approval and an available limit are required before drawing."
+    ],
+    "eligibility_requirements": [
+      "Established, registered business with a record of regular transactions.",
+      "Business financial statements and a successful credit assessment."
+    ],
+    "suitable_use_cases": ["Short-term operating payments where receipts are reasonably predictable and interest is acceptable."],
+    "unsuitable_use_cases": ["Customers who require Sharia-compliant financing.", "Persistent losses or long-term expansion funding."]
+  },
+  {
+    "id": "islamic-trade-finance",
+    "name": "Islamic Trade Finance",
+    "description": "A fictional Sharia-compliant facility for a documented business purchase of eligible goods.",
+    "key_features": [
+      "The provider buys approved goods from the supplier and resells them to the business at an agreed price payable over time.",
+      "The sale price and payment schedule are disclosed upfront."
+    ],
+    "benefits": ["Helps an eligible business spread the cost of a specific inventory purchase."],
+    "limitations": [
+      "Finance is tied to an approved purchase and is subject to a transaction review.",
+      "It does not provide cash against invoices already issued to customers."
+    ],
+    "eligibility_requirements": [
+      "Registered business, supplier quotation or purchase order, and eligible goods.",
+      "Credit and Sharia-compliance approval for the proposed transaction."
+    ],
+    "suitable_use_cases": ["Documented inventory purchases where the business needs Sharia-compliant financing."],
+    "unsuitable_use_cases": ["Payroll, existing bills unrelated to a new purchase, or unrestricted working capital."]
+  },
+  {
+    "id": "business-cash-management",
+    "name": "Business Cash Management",
+    "description": "A fictional service for monitoring business balances, collections, and upcoming payments.",
+    "key_features": ["Track overdue invoices and tag receipts against invoices.", "Schedule supplier payments and view projected balances."],
+    "benefits": ["Helps a business follow up on late payments and spot funding gaps before payments fall due."],
+    "limitations": ["Provides no funding or guarantee of collection.", "Projections depend on the accuracy of invoice and payment information."],
+    "eligibility_requirements": ["Registered business with a compatible business transaction account and an authorized account operator."],
+    "suitable_use_cases": ["Businesses with recurring supplier payments and variable collection dates."],
+    "unsuitable_use_cases": ["A business seeking immediate funding or a personal account for household expenses."]
+  },
+  {
+    "id": "goal-saver-account",
+    "name": "Goal Saver Account",
+    "description": "A fictional personal savings account for building toward a planned expense.",
+    "key_features": ["Set a target amount and date for a savings goal.", "Schedule transfers that can be adjusted or paused."],
+    "benefits": ["Keeps planned savings separate and shows progress toward the target."],
+    "limitations": ["Early withdrawals take several business days and may forfeit a goal bonus.", "The account does not support day-to-day purchases."],
+    "eligibility_requirements": ["Adult personal customer with verified identification and a linked everyday account for transfers."],
+    "suitable_use_cases": ["Saving for a planned purchase, course, or other dated goal with a separate emergency reserve."],
+    "unsuitable_use_cases": ["Emergency funds that need same-day access or money reserved for upcoming bills."]
+  },
+  {
+    "id": "everyday-access-account",
+    "name": "Everyday Access Account",
+    "description": "A fictional personal transaction account for salary, bills, and readily available reserves.",
+    "key_features": ["Supports salary deposits, card payments, and transfers.", "Offers an instant-access space for setting aside emergency money."],
+    "benefits": ["Lets customers access their own funds when an unplanned expense arises."],
+    "limitations": ["Has no goal bonus or withdrawal friction to encourage saving.", "Card and transfer limits may apply."],
+    "eligibility_requirements": ["Adult personal customer with verified identification."],
+    "suitable_use_cases": ["Routine expenses, irregular bills, and emergency savings that must be available quickly."],
+    "unsuitable_use_cases": ["Business payment processing or customers primarily seeking a structured goal plan with a bonus."]
+  }
+]
