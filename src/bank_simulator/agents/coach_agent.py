@@ -38,6 +38,29 @@ Financial competence, access to finance, and independence cannot be inferred fro
 Business cash and revenue are distinct from personal earnings. Prioritize practical learning.
 Keep each section to two to four focused points, with one or two short sentences per point.
 Focus on selected products and directly relevant alternatives. Avoid repeating the same issue.
+The point count is a guide: use fewer when appropriate and never pad a section.
+Prioritize the strongest interview decisions and the most consequential gaps. Reference
+one specific question or statement rather than restating the transcript or all figures.
+Evaluate the products actually submitted. Do not penalize a student for failing to
+recommend or discuss every catalogue product. Unselected alternatives are optional
+considerations, not automatic mistakes. Do not introduce unrelated products.
+Distinguish an unsuitable choice from a suitable product with limitations, a useful
+partial solution, and a potentially suitable product requiring more information.
+Credit a partial solution when its limitation is acknowledged, then identify the
+remaining unmet need. Do not claim a figure was overlooked when it was discussed.
+Label consequential suitability conflicts as priorities and minor opportunities as optional.
+Give practical next questions. Cover each main issue once, linking a missed need to a
+concise improvement rather than repeating its full explanation in every section.
+For a short interview, aim for roughly 200–350 words overall, expanding only when useful.
+In what_was_missed, never list a failure to explain or recommend an unselected product
+as an error. Critique the unmet need itself. Put any unselected alternative only in
+how_to_improve as an explicitly Optional consideration. Do not require an exhaustive
+eligibility checklist. If a limitation is correctly acknowledged but a contingency is
+missing, state that remaining need once and merge any overlapping product-trade-off
+criticism into that point. Before returning JSON, remove duplicated issues and check
+that each criticism is grounded in the actual submission.
+If a precise term is absent from the catalogue, suggest verifying it. Do not invent
+that term or penalize the student for being unable to state an unspecified rule.
 """
 
 COACH_COMPLETION_TOKENS = 8192

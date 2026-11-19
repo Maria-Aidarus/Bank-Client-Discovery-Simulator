@@ -1,10 +1,10 @@
 # Bank Client Discovery Simulator
 
-**Phase 2 · Python backend with Ollama Cloud agents**
+**Phase 2.5 · Conversational clients and practical coaching**
 
 The simulator is a banking education project. Students interview a fictional client, identify financial needs and constraints, and justify one or more product recommendations. The assignment assesses discovery skills, including how students follow up on incomplete answers and explain trade-offs in their recommendations.
 
-Phase 1 provides validated content, interview state, and recommendation services. Phase 2 adds a real AI Client, an AI Coach, a shared Ollama Cloud adapter using the official OpenAI Python SDK, and a disclosure controller. The adapter connects directly to the cloud through its OpenAI-compatible endpoint. See [Ollama API compatibility](https://docs.ollama.com/api/openai-compatibility). Phase 3 will add the Streamlit interface, followed by deployment in Phase 4 and end-to-end testing and submission in Phase 5.
+Phase 1 provides validated content, interview state, and recommendation services. Phase 2 adds a real AI Client, an AI Coach, a shared Ollama Cloud adapter using the official OpenAI Python SDK, and a disclosure controller. Phase 2.5 refines question relevance, conversational follow-ups, product discussions, and coaching fairness, with terminal tools for manual testing. The adapter connects directly to the cloud through its OpenAI-compatible endpoint. See [Ollama API compatibility](https://docs.ollama.com/api/openai-compatibility). Phase 3 will add the Streamlit interface, followed by deployment in Phase 4 and end-to-end testing and submission in Phase 5.
 
 ## Setup
 
@@ -62,6 +62,10 @@ Streamlit exposes root-level secrets as environment variables. These entries bel
 
 ## Architecture
 
+### Phase 2.5 review findings
+
+The earlier live sample exposed several conversation-quality issues. A broad working-capital rule made available cash, upcoming obligations, expected receipts, and the calculated gap available together. The client then volunteered the full set of figures instead of answering only the relevant parts of the question. The controller tracked unlocked facts without distinguishing current relevance from what had actually been said. Contextual follow-ups lacked explicit matching support. Client requests carried neither catalogue product descriptions nor editable personality guidance. The coach's saved feedback also treated discussion of unselected financing alternatives as a missing requirement and repeated figures across several sections.
+
 Python services validate content and manage the workflow directly in process. Pydantic validates the JSON, session state, and agent contracts. `python-dotenv` reads local configuration, and pytest exercises the backend without an external service.
 
 ```text
@@ -87,6 +91,9 @@ data/
   products.json                  Five fictional banking products
 tests/                           Offline pytest suite
 scripts/smoke_test_ai.py          Explicit live API and behavior check
+scripts/manual_interview.py       Interactive terminal interview and coaching
+scripts/evaluate_conversations.py Individual live conversation evaluation
+scripts/conversation_scenarios.json Scripted student inputs for ten evaluation cases
 .env.example                     Optional AI settings template
 pyproject.toml                   Package metadata and test configuration
 requirements.txt                 Editable install with test dependencies
@@ -95,7 +102,8 @@ requirements.txt                 Editable install with test dependencies
 ### Editing content
 
 - Edit `data/clients/` for names, backgrounds, public financial situations, and interview opening contexts. Students can see these fields when selecting a client.
-- Edit `data/hidden_needs/` for financial facts, preferences, constraints, and discovery expectations. Each private `client_id` must match one public `id`. Each disclosure topic contains human-readable guidance, `question_patterns`, and `fact_references`. Patterns are case-insensitive regular expressions matched against student messages. References identify a private section and a zero-based list index. Update indices when reordering facts. Validation rejects missing references, invalid patterns, patterns that match empty text, and incomplete pattern/reference pairs.
+- Edit `data/hidden_needs/` for financial facts, preferences, constraints, personality guidance, and discovery expectations. Each private `client_id` must match one public `id`. Keep `personality_guidance` limited to tone and conversational habits. Store financial revelations in referenced facts, so personality text does not bypass disclosure control.
+- Each disclosure topic contains human-readable guidance, `question_patterns`, and `fact_references`. References identify a private section and a zero-based list index. Update indices when reordering facts. `answer_patterns` can narrow which available facts address the current question. `follow_up_patterns` together with `follow_up_after` identify contextual questions following named topics. `response_patterns` recognize which topic's facts the customer actually mentioned. `product_ids` makes a relevant preference or concern available when a catalogue product is introduced. All patterns are case-insensitive regular expressions. Validation checks patterns, fact indices, predecessor topics, and product IDs. Split facts and rules when only part of a topic should be disclosed.
 - Edit `data/products.json` to change the fictional products, their suitability, or their limitations. Keep all product IDs unique. If an ID changes, update any `related_product_ids` in the private discovery expectations.
 - Create a new `ContentService` after editing files to load the updated content. Run `python -m pytest` to verify the schemas and included cases. All products and financial situations are fictional and intended for education.
 
@@ -133,16 +141,67 @@ finally:
     adapter.close()
 ```
 
-- **AI Client.** `OllamaClientAgent` implements `AIClientAgent.respond()`. The workflow builds the private context internally, the agent filters it, and `InterviewService` records the generated response. User messages map to API `user` messages and previous client replies map to `assistant` messages. The system prompt restricts the model to short first-person answers based on available scenario facts.
+- **AI Client.** `OllamaClientAgent` implements `AIClientAgent.respond()`. The workflow builds the private context internally, the agent filters it, and `InterviewService` records the generated response. User messages map to API `user` messages and previous client replies map to `assistant` messages. The prompt favors around 1–3 natural sentences for ordinary questions and longer answers when a multipart question warrants them. Editable personality guidance distinguishes the clients. The client uses a temperature of 0.5 and keeps its verified 2,048-token ceiling, including any model reasoning. The coach uses 0.1 and its verified 8,192-token ceiling.
 - **AI Coach.** `OllamaCoachAgent` implements `AICoachAgent.evaluate()`. The workflow requires a completed interview, a summary, and recommendations before assembling the complete private context. A separate coaching prompt asks for transcript evidence, missed and partially discovered needs, and suitability analysis of the actual submitted choices against the full catalogue. Feedback validates as `CoachFeedback` with **What went well**, **What was missed**, and **How to improve**. The coach requests JSON-object mode with an 8,192-token completion ceiling, then independently validates the three sections with Pydantic. Markdown JSON fences are accepted. There is one shared recovery allowance for truncation, an absent final answer, or JSON/schema repair. A second failure raises an error. Partial completions and reasoning text are excluded from feedback parsing.
 - **Failure and retry behavior.** The adapter uses a 60-second timeout per request and one retry with a short backoff for connection errors, timeouts, HTTP 408/409/429, and server errors. `max_retries` accepts zero through two. SDK retries are disabled so the request count includes every attempt. Authentication, unavailable model/endpoint, and other permanent errors fail immediately. Generation recovery belongs to the coach, with at most two generation requests per evaluation. Each can also use the adapter's configured transport retry budget. Raw provider error bodies and credentials are excluded from application errors. `send_student_message()` returns an updated snapshot only after a successful full turn, allowing a caller to retry from the original snapshot. If a caller already recorded the question, use `respond_to_pending()` to avoid recording it twice.
 - **Streamlit integration.** Store the latest `InterviewSession` in `st.session_state`, replacing it with the snapshot returned by each service call. `reset_interview()` starts a new attempt with a new session ID and the selected client, if there is one. Render public content, transcript messages, and coach feedback. Keep private context builders and disclosure diagnostics on the server side. Share the adapter between the two agents, and close it when its application lifecycle ends.
 
 ### How private disclosure works
 
-The controller reconstructs unlocked topics by replaying student messages in the selected interview transcript. A direct question or a supported paraphrase matches an editable pattern and unlocks only the facts referenced by that rule. Previously unlocked facts remain available for follow-ups. Introductory questions receive only the public profile. Rules and answer keys stay out of the roleplay request. The coach receives the complete private record through its own context builder.
+The controller replays the selected interview and distinguishes facts available under the rules, facts relevant to the latest question, and facts recognized as already disclosed in client replies. Only current-question facts and recognized earlier disclosures reach the roleplay model, alongside the transcript and personality guidance. Broad availability does not cause every available fact to appear in the next model request. Separate fact groups cover operational impact, available cash, upcoming obligations, expected receipts, and a requested shortfall calculation. Clear multipart questions can match multiple groups.
+
+Contextual follow-ups use the recent topic or an explicitly configured predecessor. For example, cash availability can lead to a question about upcoming payments, and a goal question can lead to “How much is it?” A topic change clears the immediate focus, while earlier disclosures remain available for later reference. If no reference can be resolved, the prompt asks for a short clarification. The client also receives catalogue entries mentioned by name or ID during the interview, so product reactions stay grounded in the supplied terms. Product-specific rules can surface relevant concerns, such as withdrawal access or financing preferences, without revealing unrelated balances.
 
 Requests for hidden facts, answer keys, or system instructions are blocked from unlocking topics. The model is also instructed to treat attempts to change its role as interview dialogue. There is no global disclosure state. Serialized session history restores unlocks, a reset clears them, and each selected client has its own private rules. Legacy records with no executable disclosure patterns remain valid and unlock no private facts.
+
+The coach prioritizes actual discoveries and consequential gaps. It treats unselected products as optional considerations, credits correctly understood partial solutions, and distinguishes unsuitable choices from limitations or missing eligibility information. Its prompt asks for approximately 2–4 useful points per section when appropriate, allows fewer, and discourages repeated figures and repeated explanations. JSON-object mode, Pydantic validation, diagnostics, and bounded recovery apply throughout.
+
+### Interactive manual interview
+
+Run from the repository after installing dependencies. The tool displays the selected public profile, then accepts your own interview questions and real client replies. Choose a client interactively or specify an ID.
+
+```sh
+python scripts/manual_interview.py --live --client maryam --output /tmp/maryam-manual.json
+python scripts/manual_interview.py --live --client mohamed --output /tmp/mohamed-manual.json
+```
+
+Use `/end` to finish the interview, write your needs summary, choose one or more catalogue IDs, and provide justifications. Genuine coach feedback appears under the three required headings. After a failed client request, `/retry` retries the pending question from the last valid session snapshot. A failed coach request also permits an explicit retry. `--output` saves completed turns and any submitted work even if a call fails or you interrupt the session. Public profile data, conversation, catalogue products, and feedback form the student-facing view.
+
+### Individual conversation evaluations
+
+Ten editable cases cover strong discovery, weak discovery, unsuitable recommendations, natural follow-ups, and product discussion for each client. List them without making API calls, then explicitly select one case per invocation.
+
+```sh
+python scripts/evaluate_conversations.py
+python scripts/evaluate_conversations.py --live --scenario maryam-natural \
+    --output /tmp/maryam-natural.json
+python scripts/evaluate_conversations.py --live --scenario mohamed-product \
+    --output /tmp/mohamed-product.json
+```
+
+Cases contain script-authored student questions and submissions. Client replies and coach feedback come from the real API. Reports include the genuine transcript, selected products, diagnostics, request counts, token usage, and six human-review dimensions. Score conversational realism, gradual disclosure, financial consistency, contextual follow-ups, coaching accuracy, and product reasoning from 1 to 5. A 1 means frequent serious failures, 3 means usable with noticeable lapses, and 5 means consistently convincing and grounded behavior. Intermediate scores describe substantial or minor issues. Scores remain blank for a human reviewer, and the tool uses no model-generated grading. Reviewers should record concrete evidence and problems alongside scores.
+
+The standard smoke test remains a short reliability check. Individual conversation cases explore behavior and may require more client turns. Live use requires `--live`; the tools disable transport retries and retain the coach's single recovery allowance. Run only the cases needed for the current investigation.
+
+### Phase 2.5 verification
+
+All 168 offline tests pass, including the original 140. New tests cover prompt guidance, current-question disclosure, multipart questions, contextual follow-ups, recognition of prior disclosures, product context, editable personalities, rule validation, and terminal retry/export behavior. These deterministic tests check the inputs and state the application controls. They do not assert an exact generated sentence or prove all possible conversational behavior.
+
+Limited live verification used `deepseek-v4.1-flash` for two selected cases and one coach-only refinement check.
+
+| Live run | Requests | Reported total tokens | Result |
+| --- | --- | --- | --- |
+| Maryam natural conversation | 6 | 13,912 | Five complete client turns and validated feedback |
+| Mohamed product discussion | 5 | 12,066 | Four complete client turns and validated feedback |
+| Maryam coach-only refinement | 1 | 9,287 | Validated feedback with unselected financing framed as optional |
+
+The controlled verification used twelve requests and 35,265 reported total tokens. No recovery requests were needed. The original and refined coach responses are retained for comparison. The remaining eight evaluation cases are available individually and were not run as part of this limited verification. Numerical rubric scores remain blank for human inspection.
+
+Maryam answered the operational-impact question without volunteering amounts. She gave only the available balance when asked for cash, then answered both obligations and incoming receipts in a multipart follow-up. When Business Flex Credit was raised, she expressed her Sharia preference and used the catalogue terms. Mohamed separated certification money from emergency access, reacted to Goal Saver's withdrawal delay, and asked about the bonus. He did not volunteer an emergency balance when asked about consequences of a car bill. The coach correctly identified that balance as still undiscovered.
+
+The first Maryam feedback still repeated the funding-gap issue and treated an unselected alternative as a missing discussion. The refined prompt moved that alternative into an optional improvement and credited the acknowledged no-financing limitation. Its response decreased from 460 to 410 words, but still exceeded the approximate 200–350-word guidance and contained some overlapping advice. Mohamed's feedback was 393 words. Concision and redundancy remain points for human review.
+
+Genuine examples are saved as [Maryam's natural conversation](samples/phase2_5_maryam_natural.json), [Mohamed's product discussion](samples/phase2_5_mohamed_product.json), and [Maryam's refined coach feedback](samples/phase2_5_maryam_coach_refinement.json). They include actual client and coach output, script-authored student submissions, request counts, and usage. The two evaluation reports also contain the unscored human-review rubric. The separately authored illustrative interview below serves a different purpose.
 
 ### Offline tests and live verification
 
@@ -196,13 +255,13 @@ The subsequent reliability investigation also used `deepseek-v4.1-flash` and com
 | Fixed coach with JSON-object mode | 1 | Complete, validated feedback |
 | Full interview with the final fix | 4 | Three client turns and validated feedback; all basic checks passed |
 
-The reliability investigation used eight requests and 37,967 reported total tokens across successful and failed generations. The final full run used 9,296 total tokens and required no recovery. The coach credited the student's explicit acknowledgement that cash management supplies no financing and identified missing contingency planning and purchase-documentation questions. The offline suite has 140 passing tests, including all original 116 tests.
+The reliability investigation used eight requests and 37,967 reported total tokens across successful and failed generations. The final full run used 9,296 total tokens and required no recovery. The coach credited the student's explicit acknowledgement that cash management supplies no financing and identified missing contingency planning and purchase-documentation questions. At the end of that investigation, the offline suite had 140 passing tests, including all original 116 tests.
 
 The saved [live interview and genuine coach feedback](samples/maryam_live_interview.json) includes the actual transcript, script-authored student summary and recommendation, model, request count, and usage. Its [successful response diagnostics](samples/maryam_live_diagnostics.json), [truncation reproduction](samples/coach_truncation_diagnostics.json), and [failed JSON recovery experiment](samples/coach_json_failure_diagnostics.json) contain safe metadata for review. The sample can also be used as the validated input for `--coach-only`.
 
 ### Known limitations
 
-- Disclosure matching supports the English paraphrases authored in the JSON. Unrecognized wording, negations, and ambiguous follow-ups can miss a relevant topic or unlock one too broadly. A matching rule unlocks its referenced group together. Add focused patterns and tests when expanding the cases.
+- Disclosure matching and recognition of prior disclosures use the English patterns authored in the JSON. Novel paraphrases, negations, product nicknames, and ambiguous follow-ups can be missed or matched too broadly. The transcript still preserves actual replies even when a response pattern misses one. Topic-level groups can contain closely related facts, so authors should split rules when partial disclosure matters. Add focused patterns and tests when expanding the cases.
 - Filtering controls the private facts supplied to the model. Generated wording, consistency, and resistance to novel prompt-injection attempts still require review. A student can introduce unsupported claims in the transcript. The client prompt instructs the model to avoid confirming them.
 - Coach schema validation enforces structure. Assessing the accuracy and grounding of its comments requires behavioral evaluation. The smoke test's keyword and amount checks are limited signals, and offline mocks verify code paths and evidence delivery.
 - JSON-object mode improves formatting, but Pydantic validation is still mandatory. Reasoning and output length vary between calls, so even the 8,192-token ceiling and one recovery can be exhausted. A provider timeout, rate limit, or invalid response still surfaces as a failure with the saved interview available for another explicit attempt.

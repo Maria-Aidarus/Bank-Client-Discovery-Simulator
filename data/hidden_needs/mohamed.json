@@ -1,8 +1,10 @@
 {
   "client_id": "mohamed",
   "private_financial_facts": [
-    "Mohamed takes home QAR 8,000 per month and spends about QAR 4,600 on fixed monthly bills before groceries and irregular expenses.",
-    "He has QAR 1,200 in emergency savings. Car maintenance and family travel can reduce or eliminate what he saves in a given month.",
+    "Mohamed takes home QAR 8,000 per month.",
+    "His fixed monthly bills total about QAR 4,600 before groceries and irregular expenses.",
+    "He has QAR 1,200 in emergency savings.",
+    "Car maintenance and family travel can reduce or eliminate what he saves in a given month.",
     "He wants to save QAR 9,000 in 18 months for professional certification course and exam fees, separately from his emergency fund."
   ],
   "financial_concerns": [
@@ -33,16 +35,22 @@
       "fact_references": [
         {
           "section": "private_financial_facts",
-          "index": 1
+          "index": 2
         },
         {
           "section": "financial_concerns",
           "index": 0
-        },
-        {
-          "section": "hidden_needs",
-          "index": 0
         }
+      ],
+      "answer_patterns": [
+        "\\b(?:emergency|rainy[ -]day|buffer|cushion|reserve|set aside)\\b",
+        "\\bwhat happens if\\b.{0,45}\\b(?:repair|bill|expense)\\b",
+        "\\bwhat would happen if\\b.{0,55}\\b(?:repair|bill|expense)\\b",
+        "\\b(?:handle|cope|cover|manage)\\b.{0,40}\\b(?:unexpected|unplanned|emergency|repair)\\b"
+      ],
+      "response_patterns": [
+        "\\b1,?200\\b",
+        "\\btwelve hundred\\b"
       ]
     },
     {
@@ -57,12 +65,17 @@
       "fact_references": [
         {
           "section": "private_financial_facts",
-          "index": 2
-        },
-        {
-          "section": "hidden_needs",
-          "index": 1
+          "index": 4
         }
+      ],
+      "answer_patterns": [
+        "\\b(?:saving for|save for|savings? goal|goal amount|goal deadline|certification|course|exam)\\b",
+        "\\bwhat\\b.{0,30}\\bsav(?:e|ing)\\b",
+        "\\b(?:how much|when|how long)\\b.{0,30}\\b(?:goal|target|need)\\b"
+      ],
+      "response_patterns": [
+        "\\b9,?000\\b",
+        "\\bcertification\\b"
       ]
     },
     {
@@ -79,17 +92,20 @@
           "index": 0
         },
         {
-          "section": "important_constraints",
-          "index": 1
-        },
-        {
-          "section": "financial_concerns",
-          "index": 1
-        },
-        {
           "section": "banking_preferences",
           "index": 0
         }
+      ],
+      "answer_patterns": [
+        "\\b(?:access|withdraw\\w*|lock\\w*|liquidity|restrict\\w*)\\b",
+        "\\b(?:how quickly|how soon|same[ -]day|right away|immediately)\\b"
+      ],
+      "response_patterns": [
+        "\\b(?:same day|right away|immediate\\w*|access)\\b"
+      ],
+      "product_ids": [
+        "goal-saver-account",
+        "everyday-access-account"
       ]
     },
     {
@@ -104,11 +120,106 @@
         {
           "section": "private_financial_facts",
           "index": 0
+        }
+      ],
+      "answer_patterns": [
+        "\\b(?:salary|income|take[ -]home|earn\\w*)\\b",
+        "\\b(?:comes? in|monthly pay)\\b"
+      ],
+      "response_patterns": [
+        "\\b8,?000\\b",
+        "\\beight thousand\\b"
+      ]
+    },
+    {
+      "topic": "Essential monthly bills",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\b(?:fixed|essential|monthly|regular)\\b.{0,30}\\b(?:bills?|expenses?|outgoings?)\\b",
+        "\\b(?:goes out|must go out|need to pay|must pay)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 1
         },
         {
           "section": "banking_preferences",
           "index": 1
         }
+      ],
+      "response_patterns": [
+        "\\b4,?600\\b"
+      ],
+      "follow_up_after": [
+        "Income and essential bills",
+        "Essential monthly bills"
+      ],
+      "follow_up_patterns": [
+        "\\b(?:what|how much)\\b.{0,25}\\b(?:goes out|pay|bills|expenses)\\b"
+      ]
+    },
+    {
+      "topic": "Irregular personal expenses",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\b(?:irregular|unexpected|unplanned|surprise|repair\\w*|maintenance|family travel)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 3
+        }
+      ],
+      "response_patterns": [
+        "\\b(?:car|maintenance|family travel|repairs?)\\b"
+      ]
+    },
+    {
+      "topic": "Contribution flexibility",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\b(?:pause|adjust\\w*|flexib\\w*|afford\\w*)\\b",
+        "\\b(?:budget|contributions?|transfers?|expenses?)\\b.{0,35}\\b(?:predictable|vary|variable|change|fixed)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "important_constraints",
+          "index": 1
+        },
+        {
+          "section": "financial_concerns",
+          "index": 1
+        }
+      ],
+      "response_patterns": [
+        "\\b(?:pause|adjust|flexib\\w*)\\b"
+      ]
+    },
+    {
+      "topic": "Monthly goal contribution",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\bhow much\\b.{0,35}\\b(?:can|could|comfortable)\\b.{0,25}\\bsav\\w*\\b",
+        "\\b(?:monthly|per month)\\b.{0,25}\\b(?:contribution|sav\\w*|target)\\b",
+        "\\b(?:contribution|sav\\w*)\\b.{0,25}\\b(?:each|a|per) month\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "hidden_needs",
+          "index": 1
+        }
+      ],
+      "response_patterns": [
+        "\\b500\\b",
+        "\\bfive hundred\\b"
+      ],
+      "follow_up_after": [
+        "Savings goal and deadline",
+        "Monthly goal contribution"
+      ],
+      "follow_up_patterns": [
+        "\\b(?:per month|each month|a month|monthly|contribut\\w*|afford)\\b"
       ]
     }
   ],
@@ -126,5 +237,10 @@
         "goal-saver-account"
       ]
     }
+  ],
+  "personality_guidance": [
+    "Friendly and thoughtful. Comfortable describing basic income and regular expenses.",
+    "Interested in planning and willing to ask questions about unfamiliar account terms.",
+    "Discuss the affordability of a savings plan cautiously until the relevant expenses have been explored."
   ]
 }

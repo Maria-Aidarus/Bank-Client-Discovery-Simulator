@@ -1,0 +1,265 @@
+{
+  "status": "completed",
+  "scenario_id": "maryam-natural",
+  "recorded_at": "2026-11-19T20:04:10.950307+00:00",
+  "interview_source": "live_ollama_cloud",
+  "student_submission_source": "script_authored",
+  "manual_review": {
+    "dimensions": {
+      "conversational_realism": "Natural customer language, relevant length, and consistent personality.",
+      "gradual_disclosure": "Answers requested details without volunteering unrelated facts.",
+      "financial_consistency": "Figures and constraints agree with the scenario and earlier answers.",
+      "contextual_follow_ups": "Resolves references and asks clarification only when needed.",
+      "coaching_accuracy": "Credits actual discoveries and prioritizes genuine gaps fairly.",
+      "product_reasoning": "Grounds product discussions and feedback in catalogue features and constraints."
+    },
+    "scale": {
+      "1": "Frequent serious failures.",
+      "2": "Substantial issues requiring correction.",
+      "3": "Usable with noticeable lapses.",
+      "4": "Consistent with minor issues.",
+      "5": "Convincing, accurate, and well grounded throughout."
+    },
+    "scores": {
+      "conversational_realism": null,
+      "gradual_disclosure": null,
+      "financial_consistency": null,
+      "contextual_follow_ups": null,
+      "coaching_accuracy": null,
+      "product_reasoning": null
+    },
+    "notes": ""
+  },
+  "feedback": {
+    "what_went_well": [
+      "The opening question about late payments elicited the core operational impact: Maryam said late customer payments 'leave us short of cash when payroll and supplier invoices are due' and linked this to larger orders.",
+      "The cash questions were well sequenced: after QAR 25,000 available cash, the student asked about payments due and receipts, obtaining QAR 40,000 due in three weeks and QAR 60,000 over four to six weeks with uncertain timing.",
+      "Asking whether Business Flex Credit would work usefully surfaced the Sharia constraint; Maryam explicitly declined a 'conventional interest-bearing facility' and asked to understand structure, amounts, and timing before financing.",
+      "The submitted recommendation selects Business Cash Management for monitoring collections/payments and explicitly acknowledges it 'supplies no financing; agree a separate contingency,' which is a suitable partial solution with its limitation stated."
+    ],
+    "what_was_missed": [
+      "The QAR 15,000 near-term gap was not made explicit or planned: the student heard QAR 25,000 cash versus QAR 40,000 due within three weeks, but the summary only says 'timing gap' and gives no shortfall or payroll/supplier contingency.",
+      "Invoice timing and collections were not followed up: the client mentioned late payments but not the 30-day terms versus 45-60-day receipt pattern, and no question asked which overdue invoices to track or how Maryam wants payment visibility/control.",
+      "Expansion documentation was not checked. The client mentioned larger orders, but the student never asked whether a supplier quotation or purchase order exists, so Islamic Trade Finance eligibility for future stock could not be assessed.",
+      "After the Sharia objection, no product trade-off was explained: Islamic Trade Finance is tied to a documented eligible purchase and does not fund payroll/existing bills, while Business Cash Management provides visibility only; the recommendation leaves the funding gap unresolved."
+    ],
+    "how_to_improve": [
+      "Ask a direct shortfall question: 'If the QAR 60,000 arrives after the QAR 40,000 due in three weeks, what is the exact gap, and which payments—especially payroll—are fixed and cannot move?' Then state the QAR 15,000 gap and separate payroll timing from supplier timing.",
+      "Ask: 'What payment terms do you offer, and how late do retailers usually pay against those terms?' Follow with 'Which invoices should be followed up first, and do you want projected balances or payment scheduling?' to tie Business Cash Management to discovered needs.",
+      "Ask: 'For the larger retail orders, do you have a supplier quotation or purchase order, and is the need stock purchase or payroll/existing bills?' This distinguishes a future documented purchase from the current cash gap.",
+      "Explain the trade-off explicitly: Business Flex Credit conflicts with Maryam's Sharia requirement; Islamic Trade Finance can only finance approved eligible goods with documentation and cannot cover payroll or existing bills; Business Cash Management gives visibility but no funding. Use it for monitoring/collections and state that without a qualifying purchase the supplied Sharia-compliant facility cannot close the current gap."
+    ]
+  },
+  "configured_model": "deepseek-v4.1-flash",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "api_calls": 6,
+  "token_usage": {
+    "prompt_tokens": 9785,
+    "completion_tokens": 4127,
+    "total_tokens": 13912
+  },
+  "session": {
+    "session_id": "de1e4263-9255-450f-af77-60ad0de20b5a",
+    "client_id": "maryam",
+    "transcript": [
+      {
+        "role": "student",
+        "content": "How do late payments affect your business?",
+        "timestamp": "2026-11-19T20:04:10.950414Z"
+      },
+      {
+        "role": "client",
+        "content": "Late customer payments can leave us short of cash when payroll and supplier invoices are due. That timing mismatch is the main thing I want to get a better handle on as we take on larger orders.",
+        "timestamp": "2026-11-19T20:04:12.858840Z"
+      },
+      {
+        "role": "student",
+        "content": "How much cash do you have available?",
+        "timestamp": "2026-11-19T20:04:12.859052Z"
+      },
+      {
+        "role": "client",
+        "content": "The business currently has QAR 25,000 in available cash.",
+        "timestamp": "2026-11-19T20:04:13.573672Z"
+      },
+      {
+        "role": "student",
+        "content": "And how much do you need to pay? What about the payments coming in?",
+        "timestamp": "2026-11-19T20:04:13.573877Z"
+      },
+      {
+        "role": "client",
+        "content": "We have QAR 40,000 in supplier and payroll payments due over the next three weeks. We’re expecting QAR 60,000 from outstanding invoices over the next four to six weeks, though I can’t be certain exactly when those receipts will arrive.",
+        "timestamp": "2026-11-19T20:04:15.307645Z"
+      },
+      {
+        "role": "student",
+        "content": "Would Business Flex Credit work for you?",
+        "timestamp": "2026-11-19T20:04:15.307845Z"
+      },
+      {
+        "role": "client",
+        "content": "For a short cash gap the timing sounds relevant, but I’d decline a conventional interest-bearing facility. I prefer Sharia-compliant banking, so I’d need to understand the structure clearly before considering any financing.",
+        "timestamp": "2026-11-19T20:04:17.354790Z"
+      },
+      {
+        "role": "student",
+        "content": "Can you explain?",
+        "timestamp": "2026-11-19T20:04:17.354962Z"
+      },
+      {
+        "role": "client",
+        "content": "Yes — the issue is that Business Flex Credit is conventional and applies interest to the amount drawn, and I wouldn’t take that. I’m looking for Sharia-compliant arrangements, and before considering one I’d want the bank to explain clearly how the structure works, what I’d actually owe and when, and how it would handle a temporary gap between customer receipts and payroll or supplier payments.",
+        "timestamp": "2026-11-19T20:04:19.197449Z"
+      }
+    ],
+    "status": "completed",
+    "student_summary": "Maryam needs to manage a timing gap between business receipts and obligations. Her financing preferences need to guide any funding discussion.",
+    "selected_recommendations": [
+      {
+        "product_id": "business-cash-management",
+        "justification": "Helps monitor collections and payments. This service supplies no financing; agree a separate contingency."
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "stage": "api_response",
+      "request_number": 1,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 194,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 275
+      },
+      "usage": {
+        "prompt_tokens": 666,
+        "completion_tokens": 95,
+        "total_tokens": 761
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 2,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 56,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 92
+      },
+      "usage": {
+        "prompt_tokens": 731,
+        "completion_tokens": 39,
+        "total_tokens": 770
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 3,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 235,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 521
+      },
+      "usage": {
+        "prompt_tokens": 819,
+        "completion_tokens": 173,
+        "total_tokens": 992
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 4,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 223,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 864
+      },
+      "usage": {
+        "prompt_tokens": 1108,
+        "completion_tokens": 212,
+        "total_tokens": 1320
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 5,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 396,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 1257
+      },
+      "usage": {
+        "prompt_tokens": 1209,
+        "completion_tokens": 337,
+        "total_tokens": 1546
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 6,
+      "max_tokens": 8192,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 3196,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 13302
+      },
+      "usage": {
+        "prompt_tokens": 5252,
+        "completion_tokens": 3271,
+        "total_tokens": 8523
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "coach_feedback",
+      "validation_failure_category": null
+    }
+  ]
+}

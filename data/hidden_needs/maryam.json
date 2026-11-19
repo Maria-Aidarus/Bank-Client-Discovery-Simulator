@@ -2,7 +2,8 @@
   "client_id": "maryam",
   "private_financial_facts": [
     "Invoices are due in 30 days, but several retailers regularly take 45 to 60 days from the invoice date to pay.",
-    "The business has QAR 25,000 available, with QAR 40,000 in supplier and payroll payments due in the next three weeks.",
+    "The business has QAR 25,000 in available cash.",
+    "The business has QAR 40,000 in supplier and payroll payments due in the next three weeks.",
     "Maryam expects the business to receive QAR 60,000 from outstanding invoices over the next four to six weeks, but the receipt dates are uncertain."
   ],
   "financial_concerns": [
@@ -36,15 +37,16 @@
         {
           "section": "private_financial_facts",
           "index": 0
-        },
-        {
-          "section": "financial_concerns",
-          "index": 0
-        },
-        {
-          "section": "hidden_needs",
-          "index": 0
         }
+      ],
+      "answer_patterns": [
+        "\\b(?:how (?:promptly|quickly|long)|on time|invoice terms|payment terms)\\b",
+        "\\bwhen\\b.{0,40}\\b(?:customers?|retailers?|clients?)\\b.{0,20}\\bpay\\b",
+        "\\b(?:customers?|retailers?|clients?)\\b.{0,40}\\b(?:pay on time|take to pay|settle)\\b"
+      ],
+      "response_patterns": [
+        "\\b(?:45|forty[ -]five)\\b.{0,20}\\b(?:60|sixty)\\b",
+        "\\b30[ -]day\\b"
       ]
     },
     {
@@ -59,33 +61,17 @@
       ],
       "fact_references": [
         {
-          "section": "private_financial_facts",
-          "index": 1
-        },
-        {
-          "section": "private_financial_facts",
-          "index": 2
-        },
-        {
-          "section": "financial_concerns",
-          "index": 0
-        },
-        {
-          "section": "important_constraints",
-          "index": 0
-        },
-        {
-          "section": "banking_preferences",
-          "index": 1
-        },
-        {
-          "section": "hidden_needs",
-          "index": 0
-        },
-        {
           "section": "hidden_needs",
           "index": 1
         }
+      ],
+      "answer_patterns": [
+        "\\b(?:cash gap|funding gap|shortfall|shortage)\\b",
+        "\\bhow much\\b.{0,35}\\bshort\\b"
+      ],
+      "response_patterns": [
+        "\\b15,?000\\b",
+        "\\bfifteen thousand\\b"
       ]
     },
     {
@@ -106,6 +92,13 @@
           "section": "banking_preferences",
           "index": 0
         }
+      ],
+      "response_patterns": [
+        "\\b(?:sharia|islamic|interest[ -]bearing|conventional)\\b"
+      ],
+      "product_ids": [
+        "business-flex-credit",
+        "islamic-trade-finance"
       ]
     },
     {
@@ -125,6 +118,133 @@
           "section": "financial_concerns",
           "index": 1
         }
+      ],
+      "response_patterns": [
+        "\\b(?:no|neither|not|yet)\\b.{0,60}\\b(?:quotation|quote|purchase order)\\b"
+      ]
+    },
+    {
+      "topic": "Operational impact of late payments",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\b(?:late|delay\\w*|unpredictable)\\b.{0,70}\\b(?:affect|impact|business|suppliers?|payroll|manage|plan)\\b",
+        "\\b(?:cash[ -]*flow|working[ -]*capital)\\b",
+        "\\b(?:suppliers?|payroll)\\b.{0,40}\\b(?:late|delay\\w*|affect|impact)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "financial_concerns",
+          "index": 0
+        }
+      ],
+      "response_patterns": [
+        "\\b(?:short|difficult|hard|unpredictable)\\b.{0,70}\\b(?:payroll|suppliers?|cash|plan)\\b",
+        "\\b(?:payroll|suppliers?)\\b.{0,40}\\b(?:difficult|hard|late)\\b"
+      ]
+    },
+    {
+      "topic": "Available business cash",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\b(?:how much|available)\\b.{0,35}\\b(?:cash|money|funds?)\\b",
+        "\\b(?:cash|money|funds?)\\b.{0,30}\\b(?:available|on hand|in hand|balance)\\b",
+        "\\b(?:receipts?|incoming)\\b.{0,40}\\bcover\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 1
+        }
+      ],
+      "response_patterns": [
+        "\\b25,?000\\b",
+        "\\btwenty[ -]five thousand\\b"
+      ]
+    },
+    {
+      "topic": "Upcoming business payments",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\b(?:payments?|bills?|obligations?|commitments?)\\b.{0,40}\\b(?:due|upcoming|owe|cover)\\b",
+        "\\b(?:due|upcoming)\\b.{0,35}\\b(?:payments?|bills?|obligations?)\\b",
+        "\\b(?:how much|what|when)\\b.{0,35}\\b(?:need to pay|must pay|have to pay|payroll|owe)\\b",
+        "\\bupcoming commitments\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 2
+        }
+      ],
+      "response_patterns": [
+        "\\b40,?000\\b",
+        "\\bforty thousand\\b"
+      ],
+      "follow_up_after": [
+        "Available business cash",
+        "Upcoming business payments"
+      ],
+      "follow_up_patterns": [
+        "\\b(?:how much|when)\\b.{0,30}\\b(?:pay|due|owe)\\b",
+        "\\bwhen is (?:it|that) due\\b"
+      ]
+    },
+    {
+      "topic": "Expected business receipts",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\b(?:payments?|money|funds?|receipts?)\\b.{0,45}\\b(?:coming in|expect\\w*|receiv\\w*|arriv\\w*)\\b",
+        "\\b(?:expect\\w*|incoming|outstanding)\\b.{0,40}\\b(?:payments?|invoices?|money|receipts?|funds?)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 3
+        }
+      ],
+      "response_patterns": [
+        "\\b60,?000\\b",
+        "\\bsixty thousand\\b"
+      ]
+    },
+    {
+      "topic": "Payment visibility and control",
+      "reveal_when": "Answer relevant questions about this topic using the referenced facts.",
+      "question_patterns": [
+        "\\b(?:track|visibility|schedule|monitor|control|manage)\\b.{0,50}\\b(?:invoices?|payments?|cash)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "hidden_needs",
+          "index": 0
+        },
+        {
+          "section": "banking_preferences",
+          "index": 1
+        }
+      ],
+      "response_patterns": [
+        "\\b(?:track|visibility|control|follow up)\\b"
+      ],
+      "product_ids": [
+        "business-cash-management"
+      ]
+    },
+    {
+      "topic": "Fixed payroll timing",
+      "reveal_when": "When asked which payments cannot be delayed, explain the payroll constraint.",
+      "question_patterns": [
+        "\\b(?:fixed|delay|postpone|priorit\\w*)\\b.{0,35}\\b(?:payroll|wages|payments?)\\b",
+        "\\b(?:payroll|wages)\\b.{0,35}\\b(?:fixed|delay|postpone|dates?)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "important_constraints",
+          "index": 0
+        }
+      ],
+      "response_patterns": [
+        "\\bpayroll\\b.{0,30}\\b(?:fixed|cannot|postpone)\\b"
       ]
     }
   ],
@@ -142,5 +262,10 @@
         "business-flex-credit"
       ]
     }
+  ],
+  "personality_guidance": [
+    "Professional, practical, and comfortable discussing how the business operates.",
+    "Cooperative and direct. Prefer clear explanations of unfamiliar financing terms.",
+    "Describe personal concerns in everyday language when the relevant facts are available."
   ]
 }

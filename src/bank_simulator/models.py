@@ -65,12 +65,19 @@ class DisclosureTopic(_ValidatedModel):
     reveal_when: Text
     question_patterns: tuple[Text, ...] = ()
     fact_references: tuple[DisclosureFactReference, ...] = ()
+    answer_patterns: tuple[Text, ...] = ()
+    follow_up_patterns: tuple[Text, ...] = ()
+    follow_up_after: tuple[Text, ...] = ()
+    response_patterns: tuple[Text, ...] = ()
+    product_ids: tuple[Identifier, ...] = ()
 
     @model_validator(mode="after")
     def _validate_rules(self) -> Self:
         if bool(self.question_patterns) != bool(self.fact_references):
             raise ValueError("disclosure patterns and fact references must be supplied together")
-        for pattern in self.question_patterns:
+        if bool(self.follow_up_patterns) != bool(self.follow_up_after):
+            raise ValueError("follow-up patterns and predecessor topics must be supplied together")
+        for pattern in (*self.question_patterns, *self.answer_patterns, *self.follow_up_patterns, *self.response_patterns):
             try:
                 compiled = re.compile(pattern, re.IGNORECASE)
             except re.error:
@@ -98,10 +105,16 @@ class HiddenNeeds(_ValidatedModel):
     hidden_needs: TextItems
     disclosure_topics: Annotated[tuple[DisclosureTopic, ...], Field(min_length=1)]
     discovery_expectations: Annotated[tuple[DiscoveryExpectation, ...], Field(min_length=1)]
+    personality_guidance: tuple[Text, ...] = ()
 
     @model_validator(mode="after")
     def _validate_disclosure_references(self) -> Self:
+        topics = {topic.topic for topic in self.disclosure_topics}
+        if len(topics) != len(self.disclosure_topics):
+            raise ValueError("disclosure topic names must be unique")
         for topic in self.disclosure_topics:
+            if any(name not in topics for name in topic.follow_up_after):
+                raise ValueError(f"disclosure topic '{topic.topic}' references a nonexistent predecessor topic")
             for reference in topic.fact_references:
                 if reference.index >= len(getattr(self, reference.section)):
                     raise ValueError(f"disclosure topic '{topic.topic}' references a nonexistent fact")
@@ -202,6 +215,7 @@ class InterviewContext(_ValidatedModel):
     client_profile: ClientProfile
     hidden_needs: HiddenNeeds
     transcript: Transcript
+    products: tuple[BankingProduct, ...] = ()
 
     @model_validator(mode="after")
     def _validate_client(self) -> Self:

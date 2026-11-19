@@ -1,0 +1,190 @@
+[
+  {
+    "id": "maryam-strong",
+    "client_id": "maryam",
+    "description": "Strong discovery and an appropriately limited cash-management recommendation.",
+    "questions": [
+      "How do late customer payments affect your business?",
+      "How much cash is available, and what payments are due?",
+      "What payments are you expecting from customers, and when?",
+      "Which obligations cannot be postponed?",
+      "What financing arrangements would you accept?",
+      "Do you have supplier quotations or purchase orders for the larger orders?",
+      "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?"
+    ],
+    "summary": "The business faces a possible QAR 15,000 timing gap. Follow up collections and fixed obligations, preserve the Sharia requirement, and establish a contingency for delayed receipts. Purchase finance needs qualifying documentation.",
+    "recommendations": [
+      {
+        "product_id": "business-cash-management",
+        "justification": "Useful for collections and payment visibility. It does not fund the gap, so a separate contingency is required."
+      }
+    ]
+  },
+  {
+    "id": "maryam-weak",
+    "client_id": "maryam",
+    "description": "Superficial questions followed by an incomplete summary.",
+    "questions": [
+      "Tell me about your business.",
+      "What brings you to the bank today?"
+    ],
+    "summary": "Maryam wants banking support for growth.",
+    "recommendations": [
+      {
+        "product_id": "business-cash-management",
+        "justification": "A general service to organize business payments."
+      }
+    ]
+  },
+  {
+    "id": "maryam-unsuitable",
+    "client_id": "maryam",
+    "description": "Conventional financing selected after a Sharia requirement is disclosed.",
+    "questions": [
+      "How much business cash is available and what payments are due?",
+      "What preferences or restrictions do you have about financing?",
+      "Business Flex Credit is an interest-bearing revolving line. Would that work for you?"
+    ],
+    "summary": "Maryam has a short-term cash gap and requires Sharia-compliant arrangements.",
+    "recommendations": [
+      {
+        "product_id": "business-flex-credit",
+        "justification": "A flexible credit line can cover upcoming bills despite the stated preference."
+      }
+    ]
+  },
+  {
+    "id": "maryam-natural",
+    "client_id": "maryam",
+    "description": "Indirect questions, contextual follow-ups, and a product discussion.",
+    "questions": [
+      "How do late payments affect your business?",
+      "How much cash do you have available?",
+      "And how much do you need to pay? What about the payments coming in?",
+      "Would Business Flex Credit work for you?",
+      "Can you explain?"
+    ],
+    "summary": "Maryam needs to manage a timing gap between business receipts and obligations. Her financing preferences need to guide any funding discussion.",
+    "recommendations": [
+      {
+        "product_id": "business-cash-management",
+        "justification": "Helps monitor collections and payments. This service supplies no financing; agree a separate contingency."
+      }
+    ]
+  },
+  {
+    "id": "maryam-product",
+    "client_id": "maryam",
+    "description": "Customer reaction to a cash-management service.",
+    "questions": [
+      "How do late invoice payments affect your operations?",
+      "Business Cash Management tracks overdue invoices and projects balances, but it provides no funding. Would that help?",
+      "What else would you need to understand before using it?"
+    ],
+    "summary": "Cash-management visibility may help, but cash amounts, timing, and financing preferences need further discovery.",
+    "recommendations": [
+      {
+        "product_id": "business-cash-management",
+        "justification": "Offers visibility rather than funding; further discovery and eligibility checks are needed."
+      }
+    ]
+  },
+  {
+    "id": "mohamed-strong",
+    "client_id": "mohamed",
+    "description": "Discovers separate emergency and goal needs before recommending two accounts.",
+    "questions": [
+      "What are you saving for, and what amount and deadline do you have in mind?",
+      "What income comes in, and what fixed bills go out each month?",
+      "How much emergency money is set aside, and which irregular expenses come up?",
+      "How quickly would you need access to that money?",
+      "How much could you comfortably save each month, and could you adjust contributions?",
+      "Goal Saver Account has withdrawal delays. Everyday Access Account has an instant-access reserve. How would that affect your plans?"
+    ],
+    "summary": "Keep emergency funds accessible, account for irregular expenses, and assess a flexible contribution toward certification separately.",
+    "recommendations": [
+      {
+        "product_id": "everyday-access-account",
+        "justification": "An accessible reserve for unexpected expenses."
+      },
+      {
+        "product_id": "goal-saver-account",
+        "justification": "For the dated certification goal, with adjustable contributions and a separate emergency reserve."
+      }
+    ]
+  },
+  {
+    "id": "mohamed-weak",
+    "client_id": "mohamed",
+    "description": "A superficial savings interview that leaves liquidity unexplored.",
+    "questions": [
+      "Tell me about yourself.",
+      "What would you like to discuss today?"
+    ],
+    "summary": "Mohamed wants to save more.",
+    "recommendations": [
+      {
+        "product_id": "goal-saver-account",
+        "justification": "A savings account should help him organize his money."
+      }
+    ]
+  },
+  {
+    "id": "mohamed-unsuitable",
+    "client_id": "mohamed",
+    "description": "Restrictive goal savings proposed for emergency money after access needs are known.",
+    "questions": [
+      "How much emergency money do you have set aside?",
+      "How quickly would you need access if an unexpected bill arrived?",
+      "Goal Saver Account withdrawals take several business days. Would that work for your emergency money?"
+    ],
+    "summary": "Mohamed needs same-day access to his emergency reserve.",
+    "recommendations": [
+      {
+        "product_id": "goal-saver-account",
+        "justification": "Put all emergency money here to encourage saving despite the withdrawal delay."
+      }
+    ]
+  },
+  {
+    "id": "mohamed-natural",
+    "client_id": "mohamed",
+    "description": "A conversational goal interview with topic changes and contextual references.",
+    "questions": [
+      "What are you saving for?",
+      "How much is it?",
+      "What comes in each month?",
+      "And what goes out?",
+      "What happens if an unexpected car bill comes up?"
+    ],
+    "summary": "Mohamed has a dated certification goal and irregular expenses; clarify emergency liquidity and affordable contributions.",
+    "recommendations": [
+      {
+        "product_id": "everyday-access-account",
+        "justification": "Accessible money for bills and a potential emergency reserve; clarify the full plan."
+      }
+    ]
+  },
+  {
+    "id": "mohamed-product",
+    "client_id": "mohamed",
+    "description": "Discusses a goal account without treating emergency savings as locked funds.",
+    "questions": [
+      "What are you saving for?",
+      "What would happen if you had an unexpected car bill?",
+      "Goal Saver Account takes several business days for withdrawals. Would that work for you?",
+      "Could you adjust how much you save in an expensive month?"
+    ],
+    "summary": "Keep emergency money accessible and save separately for certification. Check contribution affordability rather than committing all spare income.",
+    "recommendations": [
+      {
+        "product_id": "everyday-access-account",
+        "justification": "For accessible emergency money."
+      },
+      {
+        "product_id": "goal-saver-account",
+        "justification": "For certification only, using adjustable contributions. Withdrawal delays make it unsuitable for emergency money."
+      }
+    ]
+  }
+]

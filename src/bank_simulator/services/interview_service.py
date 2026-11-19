@@ -47,7 +47,10 @@ class InterviewService:
         """Package private context for the client agent. Use server-side only."""
         client_id = self._require_active(session)
         profile, needs = self._content.get_private_client(client_id)
-        return InterviewContext(client_profile=profile, hidden_needs=needs, transcript=session.transcript)
+        return InterviewContext(
+            client_profile=profile, hidden_needs=needs, transcript=session.transcript,
+            products=self._content.list_products(),
+        )
 
     def _record_message(
         self, session: InterviewSession, role: MessageRole, content: str

@@ -85,8 +85,10 @@ class DataLoader:
 
         product_ids = {product.id for product in products}
         for record in records:
-            for expectation in record.discovery_expectations:
-                for product_id in expectation.related_product_ids:
+            reference_groups = [topic.product_ids for topic in record.disclosure_topics]
+            reference_groups.extend(expectation.related_product_ids for expectation in record.discovery_expectations)
+            for references in reference_groups:
+                for product_id in references:
                     if product_id not in product_ids:
                         raise ContentLoadError(
                             f"{directory}: client '{record.client_id}' references "

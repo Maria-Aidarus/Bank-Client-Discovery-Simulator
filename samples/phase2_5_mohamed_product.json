@@ -1,0 +1,235 @@
+{
+  "status": "completed",
+  "scenario_id": "mohamed-product",
+  "recorded_at": "2026-11-19T20:06:10.339614+00:00",
+  "interview_source": "live_ollama_cloud",
+  "student_submission_source": "script_authored",
+  "manual_review": {
+    "dimensions": {
+      "conversational_realism": "Natural customer language, relevant length, and consistent personality.",
+      "gradual_disclosure": "Answers requested details without volunteering unrelated facts.",
+      "financial_consistency": "Figures and constraints agree with the scenario and earlier answers.",
+      "contextual_follow_ups": "Resolves references and asks clarification only when needed.",
+      "coaching_accuracy": "Credits actual discoveries and prioritizes genuine gaps fairly.",
+      "product_reasoning": "Grounds product discussions and feedback in catalogue features and constraints."
+    },
+    "scale": {
+      "1": "Frequent serious failures.",
+      "2": "Substantial issues requiring correction.",
+      "3": "Usable with noticeable lapses.",
+      "4": "Consistent with minor issues.",
+      "5": "Convincing, accurate, and well grounded throughout."
+    },
+    "scores": {
+      "conversational_realism": null,
+      "gradual_disclosure": null,
+      "financial_consistency": null,
+      "contextual_follow_ups": null,
+      "coaching_accuracy": null,
+      "product_reasoning": null
+    },
+    "notes": ""
+  },
+  "feedback": {
+    "what_went_well": [
+      "Opened with “What are you saving for?” and established the certification goal, the QAR 9,000 target, the 18-month horizon, and that it must stay separate from the emergency fund.",
+      "Used the unexpected car-bill question to surface that a repair could consume most of the emergency savings and that Mohamed would rather pause certification savings than dip into emergency money.",
+      "Explicitly tested the Goal Saver withdrawal delay; the client confirmed several business days is workable for the planned certification expense but not for the same-day emergency reserve.",
+      "Tested contribution flexibility and confirmed he wants to lower or pause contributions in expensive months. The summary and recommendations correctly use Everyday Access for emergency money and Goal Saver for certification only."
+    ],
+    "what_was_missed": [
+      "No month-by-month affordability check was completed: he never asked for take-home pay, fixed bills, or the monthly surplus, so the average QAR 500 contribution implied by QAR 9,000 over 18 months was not tested. The summary flags affordability as something to check, but the transcript does not establish it.",
+      "The current emergency-savings balance and the size of the reserve were not established. The student learned a repair could use most of the emergency savings but cannot judge whether the Everyday Access reserve is adequate or how much needs building.",
+      "Irregular expenses were only partially explored. Family travel appeared only in the final answer, and there was no follow-up to estimate these costs or plan how to set money aside before committing to goal transfers.",
+      "The client twice asked how early withdrawal would affect the goal bonus and target date. The student did not follow up or explain that consequence, leaving an important Goal Saver trade-off unresolved."
+    ],
+    "how_to_improve": [
+      "Ask for take-home pay, fixed bills, groceries, and typical irregular costs, then calculate whether QAR 500 per month is realistic; if not, adjust the goal amount or date.",
+      "Ask for the current emergency-savings balance and how many months of essential bills it covers, then size the Everyday Access reserve separately before setting goal transfers.",
+      "Clarify the Goal Saver early-withdrawal terms: exactly when the bonus is forfeited and how a pause or withdrawal changes the target date, with a review or catch-up step after expensive months.",
+      "Explain the trade-off directly: Everyday Access gives same-day access but no goal structure, while Goal Saver gives structure and adjustable transfers but delayed access and possible bonus loss, so the split should reflect that."
+    ]
+  },
+  "configured_model": "deepseek-v4.1-flash",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "api_calls": 5,
+  "token_usage": {
+    "prompt_tokens": 8470,
+    "completion_tokens": 3596,
+    "total_tokens": 12066
+  },
+  "session": {
+    "session_id": "566b65e9-206f-475a-8f41-e366911b9b1b",
+    "client_id": "mohamed",
+    "transcript": [
+      {
+        "role": "student",
+        "content": "What are you saving for?",
+        "timestamp": "2026-11-19T20:06:10.339717Z"
+      },
+      {
+        "role": "client",
+        "content": "I'm setting aside money for a professional certification — the course and exam fees. My goal is to put away QAR 9,000 over the next 18 months, and I want to keep that separate from my emergency fund.",
+        "timestamp": "2026-11-19T20:06:11.541233Z"
+      },
+      {
+        "role": "student",
+        "content": "What would happen if you had an unexpected car bill?",
+        "timestamp": "2026-11-19T20:06:11.541377Z"
+      },
+      {
+        "role": "client",
+        "content": "A car repair could use up most of my current emergency savings, so I’d probably have to pause the certification savings that month rather than dip into that fund. If the bill were larger than my emergency fund, I’d need to look at my regular expenses to see what could be adjusted.",
+        "timestamp": "2026-11-19T20:06:12.965468Z"
+      },
+      {
+        "role": "student",
+        "content": "Goal Saver Account takes several business days for withdrawals. Would that work for you?",
+        "timestamp": "2026-11-19T20:06:12.965681Z"
+      },
+      {
+        "role": "client",
+        "content": "For the certification money, several business days might be workable because it’s a planned expense — but I wouldn’t use it for my emergency fund, since I need that available the same day. I’d want to understand exactly what happens to the goal bonus if I ever need to withdraw early.",
+        "timestamp": "2026-11-19T20:06:14.401438Z"
+      },
+      {
+        "role": "student",
+        "content": "Could you adjust how much you save in an expensive month?",
+        "timestamp": "2026-11-19T20:06:14.401629Z"
+      },
+      {
+        "role": "client",
+        "content": "Yes — that flexibility matters to me. In a month with car maintenance or family travel, I’d want to lower or pause the contribution rather than stretch my budget, though I’d need to check how that affects the target date and any goal bonus.",
+        "timestamp": "2026-11-19T20:06:16.039373Z"
+      }
+    ],
+    "status": "completed",
+    "student_summary": "Keep emergency money accessible and save separately for certification. Check contribution affordability rather than committing all spare income.",
+    "selected_recommendations": [
+      {
+        "product_id": "everyday-access-account",
+        "justification": "For accessible emergency money."
+      },
+      {
+        "product_id": "goal-saver-account",
+        "justification": "For certification only, using adjustable contributions. Withdrawal delays make it unsuitable for emergency money."
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "stage": "api_response",
+      "request_number": 1,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 199,
+      "reasoning_fields_present": false,
+      "reasoning_field_lengths": {},
+      "usage": {
+        "prompt_tokens": 684,
+        "completion_tokens": 49,
+        "total_tokens": 733
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 2,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 281,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 810
+      },
+      "usage": {
+        "prompt_tokens": 790,
+        "completion_tokens": 220,
+        "total_tokens": 1010
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 3,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 284,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 757
+      },
+      "usage": {
+        "prompt_tokens": 1058,
+        "completion_tokens": 217,
+        "total_tokens": 1275
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 4,
+      "max_tokens": 2048,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 240,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 766
+      },
+      "usage": {
+        "prompt_tokens": 1168,
+        "completion_tokens": 197,
+        "total_tokens": 1365
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "api_response",
+      "request_number": 5,
+      "max_tokens": 8192,
+      "model": "deepseek-v4.1-flash",
+      "choices_present": true,
+      "choice_count": 1,
+      "finish_reason": "stop",
+      "content_type": "str",
+      "content_characters": 2622,
+      "reasoning_fields_present": true,
+      "reasoning_field_lengths": {
+        "reasoning": 11747
+      },
+      "usage": {
+        "prompt_tokens": 4770,
+        "completion_tokens": 2913,
+        "total_tokens": 7683
+      },
+      "validation_failure_category": null,
+      "api_exception_type": null
+    },
+    {
+      "stage": "coach_feedback",
+      "validation_failure_category": null
+    }
+  ]
+}
