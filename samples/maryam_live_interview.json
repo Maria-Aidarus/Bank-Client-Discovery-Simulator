@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "mode": "full",
+  "recorded_at": "2026-11-19T19:43:09.480748+00:00",
+  "interview_source": "live_ollama_cloud",
+  "student_submission_source": "script_authored",
+  "behavioral_checks": {
+    "all_feedback_sections_have_content": true,
+    "intro_keeps_private_cash_and_preferences_out": true,
+    "working_capital_reply_mentions_expected_amounts": true,
+    "preference_reply_mentions_sharia": true
+  },
+  "feedback": {
+    "what_went_well": [
+      "Asked a broad business-opening question that elicited Maryam’s distribution business and her reason for reviewing banking: considering larger retail orders.",
+      "The combined cash-flow question surfaced specific facts: retailers pay in 45–60 days against 30-day invoices, QAR 25,000 is available, QAR 40,000 is due in three weeks, QAR 60,000 is expected in four to six weeks with uncertain dates, and she is planning for a QAR 15,000 near-term gap.",
+      "Asked directly about restrictions or preferences and confirmed Maryam prefers Sharia-compliant banking, would decline a conventional interest-bearing facility, and wants the structure explained.",
+      "Selected Business Cash Management for tracking collections and upcoming payments and explicitly noted that the service supplies no financing, correctly avoiding presenting it as gap funding."
+    ],
+    "what_was_missed": [
+      "Did not ask about supplier quotations or purchase orders for the larger retail orders, so the eligibility and timing of Sharia-compliant purchase finance were never tested.",
+      "Did not explain product suitability conflicts: Business Flex Credit is interest-bearing and conflicts with Maryam’s stated preference, while Islamic Trade Finance cannot cover payroll or existing supplier bills and needs a documented eligible purchase.",
+      "The recommendation stops at cash management; although the student acknowledged it supplies no financing, no contingency was set out for the QAR 15,000 gap if the QAR 60,000 receipts arrive late.",
+      "Did not ask which upcoming obligations have fixed dates or which supplier payments can be timed, leaving control over supplier payment timing unexplored; the summary also says to “confirm amounts and dates” even though those were given in the transcript."
+    ],
+    "how_to_improve": [
+      "Ask: “For the larger retail orders, do you have a supplier quotation or purchase order, and what inventory purchase would need funding?” Use the answer to explain that Islamic Trade Finance is only for a documented eligible purchase, not payroll or existing bills.",
+      "Ask: “Of the QAR 40,000 due in three weeks, which payments are fixed payroll and which supplier payments can you time; what will you do if the QAR 60,000 arrives after they are due?” Then discuss cash management for invoice tagging, projected balances, and collections follow-up while stating it does not fund the QAR 15,000 gap.",
+      "Explain trade-offs directly: Business Flex Credit could cover a temporary cash mismatch but its interest conflicts with the Sharia preference; Islamic Trade Finance is Sharia-compliant but unsuitable for existing obligations and unavailable without purchase documentation, so the current gap needs a payment-timing and collections plan rather than an unsupported product fit."
+    ]
+  },
+  "configured_model": "deepseek-v4.1-flash",
+  "response_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "api_calls": 4,
+  "token_usage": {
+    "prompt_tokens": 5141,
+    "completion_tokens": 4155,
+    "total_tokens": 9296
+  },
+  "connectivity": "confirmed",
+  "session": {
+    "session_id": "acfbbcba-2435-4091-afc7-110ec07bcbd5",
+    "client_id": "maryam",
+    "transcript": [
+      {
+        "role": "student",
+        "content": "Hello, could you tell me a little about your business?",
+        "timestamp": "2026-11-19T19:43:09.480904Z"
+      },
+      {
+        "role": "client",
+        "content": "I own a growing distribution business in Doha that supplies packaging to cafés and retailers. We have regular customer receipts and supplier payments, and I’m reviewing our banking arrangements as I consider taking on larger retail orders.",
+        "timestamp": "2026-11-19T19:43:10.775900Z"
+      },
+      {
+        "role": "student",
+        "content": "How do customer payment delays affect your ability to pay suppliers? How much business cash is available and what payments are due soon?",
+        "timestamp": "2026-11-19T19:43:10.776079Z"
+      },
+      {
+        "role": "client",
+        "content": "Several retailers take 45 to 60 days from the invoice date to pay, even though invoices are due in 30 days, and that can leave the business short of cash for payroll and supplier invoices. The business has QAR 25,000 available, with QAR 40,000 in supplier and payroll payments due in the next three weeks. I’m also expecting QAR 60,000 from outstanding invoices over the next four to six weeks, but those receipt dates are uncertain, so I’m planning for a possible QAR 15,000 near-term gap.",
+        "timestamp": "2026-11-19T19:43:12.631204Z"
+      },
+      {
+        "role": "student",
+        "content": "Are there any restrictions or preferences regarding the financing arrangements you would accept?",
+        "timestamp": "2026-11-19T19:43:12.631453Z"
+      },
+      {
+        "role": "client",
+        "content": "I prefer Sharia-compliant banking and would decline a conventional interest-bearing credit facility. I’d want to understand the structure clearly before considering any financing.",
+        "timestamp": "2026-11-19T19:43:13.774819Z"
+      }
+    ],
+    "status": "completed",
+    "student_summary": "Maryam needs to manage the timing gap between customer receipts and business payments. Confirm amounts and dates from the interview and investigate Sharia-compliant options.",
+    "selected_recommendations": [
+      {
+        "product_id": "business-cash-management",
+        "justification": "Track collections and upcoming payments. This service supplies no financing."
+      }
+    ]
+  }
+}

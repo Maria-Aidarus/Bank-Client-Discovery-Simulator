@@ -80,3 +80,29 @@ def test_invalid_lifecycle_never_calls_api(content, interviews, scripted_adapter
         with pytest.raises(ValueError):
             workflow.generate_feedback(session)
     assert adapter.calls == []
+
+
+def test_coach_failure_and_later_recovery_preserve_completed_interview(
+    content, recommendations, completed_interview, scripted_adapter
+):
+    submitted = recommendations.submit_summary(completed_interview, "A certification savings goal.")
+    submitted = recommendations.submit_recommendations(submitted, [ProductRecommendation(
+        product_id="goal-saver-account", justification="Separate the dated goal from emergency money.",
+    )])
+    snapshot = submitted.model_dump_json()
+    feedback = json.dumps({
+        "what_went_well": ["You asked about the goal."],
+        "what_was_missed": ["Liquidity needs require follow-up."],
+        "how_to_improve": ["Ask how quickly emergency money is needed."],
+    })
+    adapter = scripted_adapter([
+        AIServiceError("Token limit reached", category="truncated"),
+        AIServiceError("Token limit reached", category="truncated"), feedback,
+    ])
+    workflow = AIWorkflow(content, OllamaClientAgent(adapter), OllamaCoachAgent(adapter))
+    with pytest.raises(AIServiceError):
+        workflow.generate_feedback(submitted)
+    assert submitted.model_dump_json() == snapshot
+    assert workflow.generate_feedback(submitted).what_went_well
+    assert submitted.model_dump_json() == snapshot
+    assert len(adapter.calls) == 3

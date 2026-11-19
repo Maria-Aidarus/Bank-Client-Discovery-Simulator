@@ -29,9 +29,11 @@ class ScriptedAdapter:
     def __init__(self, responses):
         self.responses = deque(responses)
         self.calls = []
+        self.options = []
 
     def complete(self, messages, **options):
         self.calls.append(deepcopy(messages))
+        self.options.append(deepcopy(options))
         assert self.responses, "Unexpected API request in test"
         response = self.responses.popleft()
         if isinstance(response, Exception):
