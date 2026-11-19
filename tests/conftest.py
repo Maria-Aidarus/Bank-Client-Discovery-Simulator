@@ -1,5 +1,7 @@
 import shutil
 import socket
+from collections import deque
+from copy import deepcopy
 from pathlib import Path
 
 import pytest
@@ -21,8 +23,25 @@ def block_network(monkeypatch):
     monkeypatch.setattr(socket, "create_connection", reject_connection)
 
 
+class ScriptedAdapter:
+    """Test-only responses with a record of exactly what would reach the API."""
+
+    def __init__(self, responses):
+        self.responses = deque(responses)
+        self.calls = []
+
+    def complete(self, messages, **options):
+        self.calls.append(deepcopy(messages))
+        assert self.responses, "Unexpected API request in test"
+        response = self.responses.popleft()
+        if isinstance(response, Exception):
+            raise response
+        return response
 
 
+@pytest.fixture
+def scripted_adapter():
+    return ScriptedAdapter
 
 
 @pytest.fixture

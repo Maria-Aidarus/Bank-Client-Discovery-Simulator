@@ -26,19 +26,106 @@
   "disclosure_topics": [
     {
       "topic": "Invoice payment timing",
-      "reveal_when": "When asked how promptly customers pay or how customer receipts line up with expenses, explain that several customers pay late."
+      "reveal_when": "When asked how promptly customers pay or how customer receipts line up with expenses, explain that several customers pay late.",
+      "question_patterns": [
+        "\\b(?:customers?|clients?|retailers?|buyers?)\\b.{0,70}\\b(?:pay|settle|late|delay|prompt|take|receipts?)",
+        "\\b(?:invoices?|receivables?|collections?)\\b",
+        "\\bwhen\\b.{0,35}\\b(?:receipts?|money)\\b.{0,30}\\b(?:arrive|come|receive)"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 0
+        },
+        {
+          "section": "financial_concerns",
+          "index": 0
+        },
+        {
+          "section": "hidden_needs",
+          "index": 0
+        }
+      ]
     },
     {
       "topic": "Size and timing of the cash gap",
-      "reveal_when": "After a follow-up on cash available, near-term obligations, or expected receipts, share the relevant figures and the uncertainty around payment dates."
+      "reveal_when": "After a follow-up on cash available, near-term obligations, or expected receipts, share the relevant figures and the uncertainty around payment dates.",
+      "question_patterns": [
+        "\\b(?:cash[ -]*flow|working[ -]*capital|cash gap|funding gap|cash shortage)\\b",
+        "\\b(?:cash|funds?|money|balances?|payments?|bills?|obligations?|commitments?)\\b.{0,60}\\b(?:available|due|upcoming|cover|short|enough|hand|owe|left)\\b",
+        "\\b(?:how much|upcoming|due|available)\\b.{0,40}\\b(?:cash|money|payments?|bills?|obligations?|funds?)\\b",
+        "\\b(?:pay|cover|meet)\\b.{0,30}\\b(?:suppliers?|payroll|wages|commitments?|expenses?)\\b",
+        "\\b(?:incoming|expected)\\b.{0,40}\\b(?:receipts?|payments?|funds?)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 1
+        },
+        {
+          "section": "private_financial_facts",
+          "index": 2
+        },
+        {
+          "section": "financial_concerns",
+          "index": 0
+        },
+        {
+          "section": "important_constraints",
+          "index": 0
+        },
+        {
+          "section": "banking_preferences",
+          "index": 1
+        },
+        {
+          "section": "hidden_needs",
+          "index": 0
+        },
+        {
+          "section": "hidden_needs",
+          "index": 1
+        }
+      ]
     },
     {
       "topic": "Banking preference",
-      "reveal_when": "When asked about banking preferences or when a financing option is raised, explain the preference for Sharia-compliant banking and the objection to conventional interest."
+      "reveal_when": "When asked about banking preferences or when a financing option is raised, explain the preference for Sharia-compliant banking and the objection to conventional interest.",
+      "question_patterns": [
+        "\\b(?:preferences?|restrictions?|requirements?|principles?|sharia|islamic|interest[ -]bearing|conventional)\\b.{0,70}\\b(?:banking|financ\\w*|credit|loan\\w*|arrangements?|products?)\\b",
+        "\\b(?:banking|financ\\w*|credit|loan\\w*)\\b.{0,70}\\b(?:prefer\\w*|restrictions?|accept\\w*|avoid|requirements?|comfortable|principles?)\\b",
+        "\\b(?:sharia|islamic|interest[ -]bearing)\\b",
+        "\\b(?:comfortable|willing|open)\\b.{0,35}\\b(?:paying interest|interest payments|conventional credit)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "important_constraints",
+          "index": 2
+        },
+        {
+          "section": "banking_preferences",
+          "index": 0
+        }
+      ]
     },
     {
       "topic": "Expansion purchase documentation",
-      "reveal_when": "When asked which expenses the expansion would create or whether any supplier quotes or orders are in place, explain that the business has no supplier quotation or purchase order for the potential expansion."
+      "reveal_when": "When asked which expenses the expansion would create or whether any supplier quotes or orders are in place, explain that the business has no supplier quotation or purchase order for the potential expansion.",
+      "question_patterns": [
+        "\\b(?:supplier|purchase)\\b.{0,30}\\b(?:orders?|quotes?|quotations?|documentation)\\b",
+        "\\b(?:expansion|growth|larger orders?)\\b.{0,60}\\b(?:costs?|expenses?|purchases?|stock|inventory|documentation|fund)\\b",
+        "\\b(?:costs?|expenses?|stock|inventory)\\b.{0,50}\\b(?:expan\\w*|grow\\w*|larger)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "important_constraints",
+          "index": 1
+        },
+        {
+          "section": "financial_concerns",
+          "index": 1
+        }
+      ]
     }
   ],
   "discovery_expectations": [

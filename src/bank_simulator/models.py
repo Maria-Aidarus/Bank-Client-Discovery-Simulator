@@ -1,9 +1,10 @@
 """Validated content, interview state, and agent inputs and outputs."""
 
+import re
 from datetime import UTC, datetime
 from enum import StrEnum
 from itertools import pairwise
-from typing import Annotated, Self
+from typing import Annotated, Literal, Self
 from uuid import UUID, uuid4
 
 from pydantic import (
@@ -47,6 +48,14 @@ class ClientProfile(_ValidatedModel):
     interview_opening_context: Text
 
 
+class DisclosureFactReference(_ValidatedModel):
+    """A zero-based reference into one of the private fact lists."""
+
+    section: Literal[
+        "private_financial_facts", "financial_concerns", "important_constraints",
+        "banking_preferences", "hidden_needs",
+    ]
+    index: Annotated[int, Field(strict=True, ge=0)]
 
 
 class DisclosureTopic(_ValidatedModel):
@@ -54,7 +63,21 @@ class DisclosureTopic(_ValidatedModel):
 
     topic: Text
     reveal_when: Text
+    question_patterns: tuple[Text, ...] = ()
+    fact_references: tuple[DisclosureFactReference, ...] = ()
 
+    @model_validator(mode="after")
+    def _validate_rules(self) -> Self:
+        if bool(self.question_patterns) != bool(self.fact_references):
+            raise ValueError("disclosure patterns and fact references must be supplied together")
+        for pattern in self.question_patterns:
+            try:
+                compiled = re.compile(pattern, re.IGNORECASE)
+            except re.error:
+                raise ValueError("disclosure question pattern must be a valid regular expression") from None
+            if compiled.search(""):
+                raise ValueError("disclosure question patterns must not match empty text")
+        return self
 
 
 class DiscoveryExpectation(_ValidatedModel):
@@ -76,6 +99,13 @@ class HiddenNeeds(_ValidatedModel):
     disclosure_topics: Annotated[tuple[DisclosureTopic, ...], Field(min_length=1)]
     discovery_expectations: Annotated[tuple[DiscoveryExpectation, ...], Field(min_length=1)]
 
+    @model_validator(mode="after")
+    def _validate_disclosure_references(self) -> Self:
+        for topic in self.disclosure_topics:
+            for reference in topic.fact_references:
+                if reference.index >= len(getattr(self, reference.section)):
+                    raise ValueError(f"disclosure topic '{topic.topic}' references a nonexistent fact")
+        return self
 
 
 class BankingProduct(_ValidatedModel):
@@ -167,7 +197,7 @@ class InterviewSession(_ValidatedModel):
 
 
 class InterviewContext(_ValidatedModel):
-    """Server-side input to the client agent."""
+    """Server-side input to the client agent before disclosure filtering."""
 
     client_profile: ClientProfile
     hidden_needs: HiddenNeeds

@@ -24,19 +24,92 @@
   "disclosure_topics": [
     {
       "topic": "Savings and irregular expenses",
-      "reveal_when": "When asked about emergency savings or unexpected bills, share the current savings balance and examples of irregular expenses."
+      "reveal_when": "When asked about emergency savings or unexpected bills, share the current savings balance and examples of irregular expenses.",
+      "question_patterns": [
+        "\\b(?:emergency|rainy[ -]day|unexpected|unplanned|irregular|surprise|repairs?|car maintenance|family travel)\\b",
+        "\\b(?:savings?|money|cash)\\b.{0,40}\\b(?:set aside|reserve|buffer|cushion|available)\\b",
+        "\\b(?:buffer|cushion|reserve)\\b.{0,35}\\b(?:expenses?|bills?|savings?)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 1
+        },
+        {
+          "section": "financial_concerns",
+          "index": 0
+        },
+        {
+          "section": "hidden_needs",
+          "index": 0
+        }
+      ]
     },
     {
       "topic": "Savings goal and deadline",
-      "reveal_when": "When asked what he is saving for, or about the amount or deadline, describe the certification and share the target amount and timeframe."
+      "reveal_when": "When asked what he is saving for, or about the amount or deadline, describe the certification and share the target amount and timeframe.",
+      "question_patterns": [
+        "\\b(?:savings? goals?|saving for|save for|savings? targets?|certification|course|exam)\\b",
+        "\\b(?:what|why)\\b.{0,35}\\bsav(?:e|ing)\\b",
+        "\\b(?:goals?|targets?)\\b.{0,40}\\b(?:amount|deadline|date|time|months?|years?)\\b",
+        "\\b(?:how much|how long|when)\\b.{0,35}\\b(?:goal|target|sav\\w*|need)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 2
+        },
+        {
+          "section": "hidden_needs",
+          "index": 1
+        }
+      ]
     },
     {
       "topic": "Liquidity and contribution flexibility",
-      "reveal_when": "When asked how quickly he might need his savings or how predictable his budget is, explain the need for same-day emergency access and adjustable goal contributions."
+      "reveal_when": "When asked how quickly he might need his savings or how predictable his budget is, explain the need for same-day emergency access and adjustable goal contributions.",
+      "question_patterns": [
+        "\\b(?:access|withdraw\\w*|lock\\w*|liquidity|flexib\\w*|pause|adjust\\w*|restrict\\w*)\\b",
+        "\\b(?:how quickly|how soon|same[ -]day|right away|immediately)\\b.{0,40}\\b(?:money|funds?|savings?|cash|need)\\b",
+        "\\b(?:budget|contributions?|transfers?|expenses?)\\b.{0,35}\\b(?:predictable|vary|variable|change|fixed)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "important_constraints",
+          "index": 0
+        },
+        {
+          "section": "important_constraints",
+          "index": 1
+        },
+        {
+          "section": "financial_concerns",
+          "index": 1
+        },
+        {
+          "section": "banking_preferences",
+          "index": 0
+        }
+      ]
     },
     {
       "topic": "Income and essential bills",
-      "reveal_when": "When asked what comes in and what must go out each month, share salary and fixed bills, and explain that the remaining balance still covers groceries and irregular expenses."
+      "reveal_when": "When asked what comes in and what must go out each month, share salary and fixed bills, and explain that the remaining balance still covers groceries and irregular expenses.",
+      "question_patterns": [
+        "\\b(?:salary|income|take[ -]home|earn\\w*|fixed (?:bills|expenses)|essential (?:bills|expenses))\\b",
+        "\\b(?:comes? in|go(?:es)? out)\\b.{0,40}\\b(?:month|regular|bills?)\\b",
+        "\\b(?:monthly|regular)\\b.{0,35}\\b(?:pay|bills?|expenses?|outgoings?)\\b"
+      ],
+      "fact_references": [
+        {
+          "section": "private_financial_facts",
+          "index": 0
+        },
+        {
+          "section": "banking_preferences",
+          "index": 1
+        }
+      ]
     }
   ],
   "discovery_expectations": [
