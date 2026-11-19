@@ -19,15 +19,44 @@ After dependency installation, the test suite runs offline and requires no API k
 
 ### Configuration
 
-The backend uses python-dotenv to read an optional local `.env`. Process environment variables take precedence. Copy `.env.example` to `.env` only if `.env` does not exist and enter credentials in your local editor. Git excludes `.env` and local secret files. Keep the example in version control with its placeholder key.
+Phase 1 tests run without an API key. For local AI configuration, run the following command from the repository root. It creates `.env` from `.env.example` only when `.env` does not exist.
+
+```sh
+if [ ! -e .env ]; then
+    cp -n .env.example .env
+fi
+```
+
+Open `.env` in your editor and replace `your_ollama_cloud_api_key` with your Ollama Cloud API key. The selected cloud model is `deepseek-v4.1-flash`.
 
 ```dotenv
 AI_API_URL=https://ollama.com/v1
 AI_API_KEY=your_ollama_cloud_api_key
-AI_MODEL=your_selected_cloud_model
+AI_MODEL=deepseek-v4.1-flash
 ```
 
-Phase 1 data loading and tests require no API key. `require_ai_configuration()` validates provider settings when AI integration is initialized.
+`load_settings()` uses python-dotenv to read the repository `.env` and gives process environment variables precedence. The example selects `https://ollama.com/v1` and `deepseek-v4.1-flash`. Set `AI_MODEL` to change it. `require_ai_configuration()` validates the URL, key, and model when initializing AI integration. Keys and placeholder values are checked only when AI integration is initialized.
+
+`.env` may contain your actual API key, so committing it would expose credentials through the repository and its history. Git ignores `.env`, its local variants, and `.streamlit/secrets.toml`. Keep `.env.example` in version control with its placeholder key. Check the exclusions without displaying credentials.
+
+```sh
+git check-ignore -v .env .env.local .streamlit/secrets.toml
+git ls-files -- .env
+```
+
+The second command should produce no output. Settings mask the API key in their representation and JSON output. To check presence in application code, inspect `bool(settings.ai_api_key.get_secret_value().strip())` and display only the resulting boolean.
+
+#### Future Streamlit Community Cloud configuration
+
+The local `.env` is read by python-dotenv on your computer. For deployment, enter the following root-level TOML values in the app's **Streamlit Community Cloud Secrets settings**, replacing the placeholder with the actual key there. Keep the actual key out of GitHub.
+
+```toml
+AI_API_URL = "https://ollama.com/v1"
+AI_API_KEY = "your_ollama_cloud_api_key"
+AI_MODEL = "deepseek-v4.1-flash"
+```
+
+Streamlit exposes root-level secrets as environment variables. These entries belong at the TOML root, so the backend can continue using `load_settings()` without importing Streamlit. A local `.streamlit/secrets.toml` is an optional file managed by Streamlit, while this backend's local setup reads `.env`. See [Streamlit secrets management](https://docs.streamlit.io/develop/concepts/connections/secrets-management) and [Community Cloud secrets settings](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
 ## Architecture
 
