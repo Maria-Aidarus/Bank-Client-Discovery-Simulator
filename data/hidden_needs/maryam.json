@@ -235,7 +235,9 @@
       "reveal_when": "When asked which payments cannot be delayed, explain the payroll constraint.",
       "question_patterns": [
         "\\b(?:fixed|delay|postpone|priorit\\w*)\\b.{0,35}\\b(?:payroll|wages|payments?)\\b",
-        "\\b(?:payroll|wages)\\b.{0,35}\\b(?:fixed|delay|postpone|dates?)\\b"
+        "\\b(?:payroll|wages)\\b.{0,35}\\b(?:fixed|delay|postpone|dates?)\\b",
+        "\\b(?:obligations?|payments?|bills?)\\b.{0,35}\\b(?:cannot|can\\x27t|could not)\\b.{0,15}\\b(?:postpon\\w*|delay\\w*|mov\\w*)\\b",
+        "\\b(?:which|what)\\b.{0,25}\\b(?:must|need to)\\b.{0,15}\\b(?:pay|settle)\\b.{0,15}\\bon time\\b"
       ],
       "fact_references": [
         {

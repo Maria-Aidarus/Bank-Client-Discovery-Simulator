@@ -27,7 +27,8 @@ class DisclosureState:
 _FOLLOW_UP = re.compile(
     r"^(?:and\s+)?(?:what about (?:that|it|those)|(?:can|could|would) you (?:explain|elaborate|say more)|"
     r"tell me more|how much (?:is|was) (?:it|that)|when (?:is|was) (?:it|that) due|"
-    r"why is (?:that|it) important|would (?:that|it) work|does (?:that|it) still apply)",
+    r"when (?:would|will) (?:that|it) happen|why (?:does|would) (?:that|it) (?:concern|worry|matter)|"
+    r"why is (?:that|it) important|would (?:that|it)(?: account| product| facility)? work|does (?:that|it) still apply)",
     re.IGNORECASE,
 )
 

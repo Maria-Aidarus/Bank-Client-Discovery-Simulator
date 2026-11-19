@@ -38,10 +38,12 @@ def main() -> int:
         parser.error("Input, output, and diagnostic paths must be different.")
     content = ContentService()
     saved_session = None
+    source_scenario_id = None
     if args.coach_only:
         try:
             payload = json.loads(args.coach_only.read_text(encoding="utf-8"))
             saved_session = InterviewSession.model_validate(payload["session"] if "session" in payload else payload)
+            source_scenario_id = payload.get("scenario_id")
             build_coaching_context(saved_session, content)
         except (OSError, ValueError, KeyError, TypeError):
             print("Saved interview is unreadable or invalid for coaching. No API calls were made.")
@@ -62,6 +64,8 @@ def main() -> int:
         "student_submission_source": "saved_input" if args.coach_only else "script_authored",
     }
     session = saved_session
+    if source_scenario_id:
+        report["scenario_id"] = source_scenario_id
     try:
         interviews = InterviewService(content)
         recommendations = RecommendationService(content)

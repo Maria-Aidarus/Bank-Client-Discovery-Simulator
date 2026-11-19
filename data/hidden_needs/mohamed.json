@@ -106,6 +106,14 @@
       "product_ids": [
         "goal-saver-account",
         "everyday-access-account"
+      ],
+      "follow_up_after": [
+        "Savings goal and deadline",
+        "Liquidity and contribution flexibility",
+        "Monthly goal contribution"
+      ],
+      "follow_up_patterns": [
+        "\\bneed\\b.{0,25}\\b(?:money|funds?|savings?)\\b.{0,20}\\b(?:earlier|sooner)\\b"
       ]
     },
     {
@@ -219,7 +227,8 @@
         "Monthly goal contribution"
       ],
       "follow_up_patterns": [
-        "\\b(?:per month|each month|a month|monthly|contribut\\w*|afford)\\b"
+        "\\b(?:per month|each month|a month|monthly|contribut\\w*|afford)\\b",
+        "\\bhow much\\b.{0,45}\\b(?:put aside|set aside|contribute)\\b"
       ]
     }
   ],
