@@ -1,0 +1,1250 @@
+{
+  "report_type": "deployed_student_browser_evaluation",
+  "url": "https://bank-client-discovery-simulator.streamlit.app/",
+  "test_date": "2026-11-20",
+  "timezone": "Asia/Qatar",
+  "started_at": "2026-11-20T12:57:12.139000+03:00",
+  "finished_at": "2026-11-20T13:14:43.681000+03:00",
+  "environment": {
+    "os": "macOS",
+    "browser": "Headless Google Chrome 158.0.8127.36",
+    "automation": "Playwright, isolated browser contexts",
+    "desktop_viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "mobile_viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "mobile_touch_context": true,
+    "deployed_commit": "Not exposed by student UI; not independently verified",
+    "provider_model": "Project configuration states Ollama Cloud / deepseek-v4.1-flash; returned model identifier was not exposed in the website/report"
+  },
+  "method": "All live questions and Coach requests were sent through the actual deployed website. No local backend generation, response stubs or prior samples were substituted. Only student-visible results and safe browser metadata were captured.",
+  "overall_verdict": "PARTIAL PASS",
+  "live_stop_reason": "One AI Client request timed out after 60.648 seconds. No manual retry, further paid calls, or remaining scenario executions were attempted.",
+  "request_accounting": {
+    "budget": 30,
+    "ui_reported_attempts": 16,
+    "client_attempts": 14,
+    "successful_client_responses": 13,
+    "failed_client_attempts": 1,
+    "coach_attempts": 2,
+    "successful_coach_feedback": 2,
+    "observed_coach_recovery_attempts": 0,
+    "manual_ai_retries": 0,
+    "count_basis": "Sum of the per-interview website counters: 8 + 4 + 4. Provider-side traffic was not visible; these are UI-reported attempted generations.",
+    "token_usage": null,
+    "token_usage_note": "Not exposed by the student interface. No token count or monetary cost was inferred."
+  },
+  "deployment": {
+    "desktop_selection_loaded": true,
+    "public_clients_visible": [
+      "Maryam Al-Kuwari",
+      "Mohamed Al-Ansari"
+    ],
+    "catalogue_terms": [
+      {
+        "id": "business-flex-credit",
+        "name": "Business Flex Credit",
+        "all_terms_match": true
+      },
+      {
+        "id": "islamic-trade-finance",
+        "name": "Islamic Trade Finance",
+        "all_terms_match": true
+      },
+      {
+        "id": "business-cash-management",
+        "name": "Business Cash Management",
+        "all_terms_match": true
+      },
+      {
+        "id": "goal-saver-account",
+        "name": "Goal Saver Account",
+        "all_terms_match": true
+      },
+      {
+        "id": "everyday-access-account",
+        "name": "Everyday Access Account",
+        "all_terms_match": true
+      }
+    ],
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontal_overflow": false,
+      "title_box": {
+        "x": 16,
+        "y": 72,
+        "width": 358,
+        "height": 93.59375
+      },
+      "sidebar_buttons": [
+        "keyboard_double_arrow_right",
+        "Fork",
+        "",
+        "Start interview",
+        "Start interview"
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "documentWidth": 390,
+        "iframeWidth": 390,
+        "elements": [
+          {
+            "testid": "stMain",
+            "class": "stMain st-emotion-cache-1f7ugbu eksftaj2",
+            "text": "\n.stApp {\n    --academic-red: #C41230; --rose-tint: #F9E8EC;\n    --aca",
+            "x": 0,
+            "width": 390,
+            "scrollWidth": 390,
+            "clientWidth": 390
+          },
+          {
+            "testid": "stMainBlockContainer",
+            "class": "stMainBlockContainer block-container st-emotion-cache-lhe5w4 eksftaj5",
+            "text": "\n.stApp {\n    --academic-red: #C41230; --rose-tint: #F9E8EC;\n    --aca",
+            "x": 0,
+            "width": 390,
+            "scrollWidth": 390,
+            "clientWidth": 390
+          },
+          {
+            "testid": null,
+            "class": "journey",
+            "text": "STEP 01Select clientSTEP 02InterviewSTEP 03RecommendSTEP 04Coach feedb",
+            "x": 16,
+            "width": 358,
+            "scrollWidth": 358,
+            "clientWidth": 358
+          },
+          {
+            "testid": null,
+            "class": "current",
+            "text": "STEP 01Select client",
+            "x": 16,
+            "width": 175.40625,
+            "scrollWidth": 173,
+            "clientWidth": 173
+          },
+          {
+            "testid": null,
+            "class": "",
+            "text": "STEP 02Interview",
+            "x": 198.59375,
+            "width": 175.40625,
+            "scrollWidth": 173,
+            "clientWidth": 173
+          },
+          {
+            "testid": null,
+            "class": "",
+            "text": "STEP 03Recommend",
+            "x": 16,
+            "width": 175.40625,
+            "scrollWidth": 173,
+            "clientWidth": 173
+          },
+          {
+            "testid": null,
+            "class": "",
+            "text": "STEP 04Coach feedback",
+            "x": 198.59375,
+            "width": 175.40625,
+            "scrollWidth": 173,
+            "clientWidth": 173
+          },
+          {
+            "testid": "stColumn",
+            "class": "stColumn st-emotion-cache-1sygdba e399r292",
+            "text": "Small business ownerMaryam Al-KuwariMaryam owns a growing distribution",
+            "x": 16,
+            "width": 358,
+            "scrollWidth": 358,
+            "clientWidth": 358
+          },
+          {
+            "testid": "stColumn",
+            "class": "stColumn st-emotion-cache-1sygdba e399r292",
+            "text": "Salaried professionalMohamed Al-AnsariMohamed has stable employment in",
+            "x": 16,
+            "width": 358,
+            "scrollWidth": 358,
+            "clientWidth": 358
+          }
+        ]
+      },
+      "interview": {
+        "chat_input_box": {
+          "x": 41,
+          "y": 745.203125,
+          "width": 268,
+          "height": 27.59375
+        },
+        "horizontal_overflow": false
+      },
+      "fresh_context": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "isMobile": true,
+        "hasTouch": true,
+        "selection_loaded": true,
+        "hidden_metadata_visible": false,
+        "sidebar_catalogue_usable": true
+      }
+    },
+    "browser_page_exceptions": [],
+    "console_error_event_count": 11,
+    "nonblocking_http_errors": [
+      {
+        "host": "sdk.us.heap-api.com",
+        "path": "/js/heap-.js",
+        "status": 404,
+        "count": 1
+      },
+      {
+        "host": "bank-client-discovery-simulator.streamlit.app",
+        "path": "/api/v1/app/event/open",
+        "status": 403,
+        "count": 1
+      },
+      {
+        "host": "bank-client-discovery-simulator.streamlit.app",
+        "path": "/api/v2/user/details",
+        "status": 404,
+        "count": 8
+      },
+      {
+        "host": "cdn.heapanalytics.com",
+        "path": "/js/heap-.js",
+        "status": 404,
+        "count": 1
+      }
+    ],
+    "notes": [
+      "Initial main-frame heading timeout was a driver targeting error: Streamlit hosts the app in iframe[title=\"streamlitApp\"].",
+      "Hosting-shell event/user-detail and Heap analytics requests returned 403/404, but both Maryam workflows completed. These are not evidence of Ollama authentication failure or the later AI timeout.",
+      "Native multiselect dropdowns were closed with Escape before targeting other fields. A download-help tooltip was dismissed before client switching; neither was an AI failure."
+    ]
+  },
+  "ui_checks": [
+    {
+      "check": "mobile_selection_and_interview",
+      "result": "PASS",
+      "horizontal_overflow": false,
+      "initial_probe_chat_input_visible": false,
+      "chat_input_visible_after_settled_rerender": true,
+      "note": "The initial visibility probe ran before the rerender settled. A subsequent visible-element wait and measured input rectangle succeeded."
+    },
+    {
+      "check": "restart_before_messages",
+      "result": "PASS"
+    },
+    {
+      "check": "switch_client_before_messages",
+      "result": "PASS"
+    },
+    {
+      "check": "multiple_selected_products_render_separate_visible_justifications",
+      "result": "PASS",
+      "scope": "UI only; not submitted for Coach feedback after live stop"
+    },
+    {
+      "check": "mobile_recommendation_fields",
+      "result": "PASS",
+      "horizontal_overflow": false,
+      "textarea_widths": [
+        356,
+        356,
+        356
+      ]
+    },
+    {
+      "check": "no_ai_requests_during_end_and_draft_edits",
+      "result": "PASS",
+      "counter": {
+        "questions": 3,
+        "requests": 4
+      }
+    },
+    {
+      "check": "independent_browser_session_starts_at_selection",
+      "result": "PASS",
+      "prior_session_drafts_or_transcript_visible": false,
+      "method": "Separate isolated Chrome context, mobile viewport and touch enabled"
+    },
+    {
+      "check": "restart_after_failure_and_draft_edits",
+      "result": "PASS"
+    },
+    {
+      "check": "client_switch_after_failure_clears_interview",
+      "result": "PASS"
+    }
+  ],
+  "privacy": {
+    "initial_public_profiles_only": true,
+    "downloaded_student_reports_checked": 3,
+    "unexpected_private_metadata_keys_found": false,
+    "report_top_level_keys": [
+      "report_type",
+      "session_id",
+      "status",
+      "client",
+      "transcript",
+      "student_summary",
+      "recommendations",
+      "coach_feedback"
+    ],
+    "raw_system_prompts_or_reasoning_observed": false,
+    "credentials_requested_or_read": false,
+    "visible_error_was_sanitized": true,
+    "limitations": "Student-visible UI and downloaded JSON were checked. No credential extraction, server inspection, adversarial security testing or exhaustive leak proof was attempted. Fictional facts disclosed through the interview or educational Coach feedback are expected; raw private records/disclosure metadata are not."
+  },
+  "scenarios": [
+    {
+      "id": "maryam-strong",
+      "client_id": "maryam",
+      "started_at": "2026-11-20T10:03:11.028Z",
+      "turns": [
+        {
+          "index": 0,
+          "question": "How do late customer payments affect your business?",
+          "started_at": "2026-11-20T10:03:23.974Z",
+          "loading_indicator_observed": true,
+          "counter": {
+            "questions": 1,
+            "requests": 1
+          },
+          "completed_at": "2026-11-20T10:03:26.679Z",
+          "messages_after": 2,
+          "response": "When customers pay late, it can leave us short of cash for payroll and supplier invoices, which makes day-to-day operations tight. Since we’re considering larger retail orders, I’d like to understand how to manage that timing risk better.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 1,
+          "question": "How much cash is available, and what payments are due?",
+          "started_at": "2026-11-20T10:04:01.806Z",
+          "loading_indicator_observed": false,
+          "counter": {
+            "questions": 2,
+            "requests": 2
+          },
+          "completed_at": "2026-11-20T10:04:07.827Z",
+          "messages_after": 4,
+          "response": "The business currently has QAR 25,000 in available cash, and we have QAR 40,000 in supplier and payroll payments due over the next three weeks.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 2,
+          "question": "What payments are you expecting from customers, and when?",
+          "started_at": "2026-11-20T10:04:07.834Z",
+          "loading_indicator_observed": false,
+          "counter": {
+            "questions": 3,
+            "requests": 3
+          },
+          "completed_at": "2026-11-20T10:04:13.857Z",
+          "messages_after": 6,
+          "response": "We’re expecting QAR 60,000 from outstanding customer invoices over the next four to six weeks, though I can’t pin down the exact receipt dates yet. That uncertainty is part of why I want to review our banking arrangements before taking on larger orders.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 3,
+          "question": "Which obligations cannot be postponed?",
+          "started_at": "2026-11-20T10:04:22.202Z",
+          "loading_indicator_observed": false,
+          "counter": {
+            "questions": 4,
+            "requests": 4
+          },
+          "completed_at": "2026-11-20T10:04:28.221Z",
+          "messages_after": 8,
+          "response": "Payroll is the one with fixed dates—it can’t be postponed. The supplier payments are also coming due, but payroll is the obligation I know has no flexibility on timing.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 4,
+          "question": "What financing arrangements would you accept?",
+          "started_at": "2026-11-20T10:04:28.225Z",
+          "loading_indicator_observed": true,
+          "counter": {
+            "questions": 5,
+            "requests": 5
+          },
+          "completed_at": "2026-11-20T10:04:30.489Z",
+          "messages_after": 10,
+          "response": "I wouldn’t take a conventional interest-bearing credit facility. I’d be open to a Sharia-compliant arrangement, but I’d need the structure explained clearly first—how the bank earns its return, and what fees or penalties may apply—before I’d consider it.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 5,
+          "question": "Do you have supplier quotations or purchase orders for the larger orders?",
+          "started_at": "2026-11-20T10:04:46.742Z",
+          "loading_indicator_observed": false,
+          "counter": {
+            "questions": 6,
+            "requests": 6
+          },
+          "completed_at": "2026-11-20T10:04:52.763Z",
+          "messages_after": 12,
+          "response": "No, I don’t have either a supplier quotation or a purchase order for the larger retail orders yet. That’s part of why I want to understand the timing and structure carefully before committing.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 6,
+          "question": "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?",
+          "started_at": "2026-11-20T10:04:52.770Z",
+          "loading_indicator_observed": true,
+          "counter": {
+            "questions": 7,
+            "requests": 7
+          },
+          "completed_at": "2026-11-20T10:04:55.042Z",
+          "messages_after": 14,
+          "response": "It could help with the visibility side—tracking overdue invoices and seeing upcoming supplier payments—but since it doesn’t provide funding, it won’t solve the cash gap by itself. I’d want to understand how dependable the projected balances are when my receipt dates are still uncertain.",
+          "transcript_prefix_preserved": true
+        }
+      ],
+      "request_count": 8,
+      "status": "COMPLETED",
+      "transcript": [
+        {
+          "speaker": "You",
+          "content": "How do late customer payments affect your business?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "When customers pay late, it can leave us short of cash for payroll and supplier invoices, which makes day-to-day operations tight. Since we’re considering larger retail orders, I’d like to understand how to manage that timing risk better."
+        },
+        {
+          "speaker": "You",
+          "content": "How much cash is available, and what payments are due?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "The business currently has QAR 25,000 in available cash, and we have QAR 40,000 in supplier and payroll payments due over the next three weeks."
+        },
+        {
+          "speaker": "You",
+          "content": "What payments are you expecting from customers, and when?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "We’re expecting QAR 60,000 from outstanding customer invoices over the next four to six weeks, though I can’t pin down the exact receipt dates yet. That uncertainty is part of why I want to review our banking arrangements before taking on larger orders."
+        },
+        {
+          "speaker": "You",
+          "content": "Which obligations cannot be postponed?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "Payroll is the one with fixed dates—it can’t be postponed. The supplier payments are also coming due, but payroll is the obligation I know has no flexibility on timing."
+        },
+        {
+          "speaker": "You",
+          "content": "What financing arrangements would you accept?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "I wouldn’t take a conventional interest-bearing credit facility. I’d be open to a Sharia-compliant arrangement, but I’d need the structure explained clearly first—how the bank earns its return, and what fees or penalties may apply—before I’d consider it."
+        },
+        {
+          "speaker": "You",
+          "content": "Do you have supplier quotations or purchase orders for the larger orders?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "No, I don’t have either a supplier quotation or a purchase order for the larger retail orders yet. That’s part of why I want to understand the timing and structure carefully before committing."
+        },
+        {
+          "speaker": "You",
+          "content": "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "It could help with the visibility side—tracking overdue invoices and seeing upcoming supplier payments—but since it doesn’t provide funding, it won’t solve the cash gap by itself. I’d want to understand how dependable the projected balances are when my receipt dates are still uncertain."
+        }
+      ],
+      "ui": {
+        "initial_justification_fields": 0,
+        "missing_summary_error": true,
+        "missing_product_error": true,
+        "missing_justification_errors": [
+          {
+            "id": "business-cash-management",
+            "visible": true
+          }
+        ],
+        "visible_selected_justification_fields": 1,
+        "summary_preserved": true,
+        "precoach_counter": {
+          "questions": 7,
+          "requests": 7
+        },
+        "deselected_field_hidden": true,
+        "draft_restored": true,
+        "deselected_extra_product_excluded_from_visible_fields": true,
+        "no_ai_requests_during_form_edits": true,
+        "coach_loading_indicator_observed": true,
+        "download_preserves_counter": true,
+        "exact_submission_preserved": true
+      },
+      "coach_started_at": "2026-11-20T10:07:11.485Z",
+      "coach_completed_at": "2026-11-20T10:07:29.334Z",
+      "final_counter": {
+        "questions": 7,
+        "requests": 8
+      },
+      "coach_sections": {
+        "What went well": true,
+        "What was missed": true,
+        "How to improve": true
+      },
+      "download": {
+        "suggested_filename": "bank-interview-maryam-2f5ba644.json",
+        "keys": [
+          "report_type",
+          "session_id",
+          "status",
+          "client",
+          "transcript",
+          "student_summary",
+          "recommendations",
+          "coach_feedback"
+        ],
+        "private_metadata_keys_found": false
+      },
+      "report": {
+        "report_type": "student_interview",
+        "session_id": "2f5ba644-390f-4f50-9797-aca2e9e48755",
+        "status": "completed",
+        "client": {
+          "id": "maryam",
+          "name": "Maryam Al-Kuwari",
+          "age": 35,
+          "occupation": "Small business owner",
+          "background": "Maryam owns a growing distribution business in Doha, Qatar, that supplies packaging to cafes and retailers.",
+          "public_financial_situation": "The business has regular customer receipts and supplier payments. Maryam wants to explore banking services that support day-to-day operations and growth.",
+          "interview_opening_context": "Maryam has booked a meeting to review the business's banking arrangements as she considers taking on larger retail orders."
+        },
+        "transcript": [
+          {
+            "role": "student",
+            "content": "How do late customer payments affect your business?",
+            "timestamp": "2026-11-20T10:03:24.646435Z"
+          },
+          {
+            "role": "client",
+            "content": "When customers pay late, it can leave us short of cash for payroll and supplier invoices, which makes day-to-day operations tight. Since we’re considering larger retail orders, I’d like to understand how to manage that timing risk better.",
+            "timestamp": "2026-11-20T10:03:26.095187Z"
+          },
+          {
+            "role": "student",
+            "content": "How much cash is available, and what payments are due?",
+            "timestamp": "2026-11-20T10:04:02.391275Z"
+          },
+          {
+            "role": "client",
+            "content": "The business currently has QAR 25,000 in available cash, and we have QAR 40,000 in supplier and payroll payments due over the next three weeks.",
+            "timestamp": "2026-11-20T10:04:03.214344Z"
+          },
+          {
+            "role": "student",
+            "content": "What payments are you expecting from customers, and when?",
+            "timestamp": "2026-11-20T10:04:08.415142Z"
+          },
+          {
+            "role": "client",
+            "content": "We’re expecting QAR 60,000 from outstanding customer invoices over the next four to six weeks, though I can’t pin down the exact receipt dates yet. That uncertainty is part of why I want to review our banking arrangements before taking on larger orders.",
+            "timestamp": "2026-11-20T10:04:09.258354Z"
+          },
+          {
+            "role": "student",
+            "content": "Which obligations cannot be postponed?",
+            "timestamp": "2026-11-20T10:04:22.781668Z"
+          },
+          {
+            "role": "client",
+            "content": "Payroll is the one with fixed dates—it can’t be postponed. The supplier payments are also coming due, but payroll is the obligation I know has no flexibility on timing.",
+            "timestamp": "2026-11-20T10:04:23.536497Z"
+          },
+          {
+            "role": "student",
+            "content": "What financing arrangements would you accept?",
+            "timestamp": "2026-11-20T10:04:28.806389Z"
+          },
+          {
+            "role": "client",
+            "content": "I wouldn’t take a conventional interest-bearing credit facility. I’d be open to a Sharia-compliant arrangement, but I’d need the structure explained clearly first—how the bank earns its return, and what fees or penalties may apply—before I’d consider it.",
+            "timestamp": "2026-11-20T10:04:30.401959Z"
+          },
+          {
+            "role": "student",
+            "content": "Do you have supplier quotations or purchase orders for the larger orders?",
+            "timestamp": "2026-11-20T10:04:47.349149Z"
+          },
+          {
+            "role": "client",
+            "content": "No, I don’t have either a supplier quotation or a purchase order for the larger retail orders yet. That’s part of why I want to understand the timing and structure carefully before committing.",
+            "timestamp": "2026-11-20T10:04:48.195747Z"
+          },
+          {
+            "role": "student",
+            "content": "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?",
+            "timestamp": "2026-11-20T10:04:53.356706Z"
+          },
+          {
+            "role": "client",
+            "content": "It could help with the visibility side—tracking overdue invoices and seeing upcoming supplier payments—but since it doesn’t provide funding, it won’t solve the cash gap by itself. I’d want to understand how dependable the projected balances are when my receipt dates are still uncertain.",
+            "timestamp": "2026-11-20T10:04:55.087580Z"
+          }
+        ],
+        "student_summary": "The business faces a possible QAR 15,000 timing gap. Follow up collections and fixed obligations, preserve the Sharia requirement, and establish a contingency for delayed receipts. Purchase finance needs qualifying documentation.",
+        "recommendations": [
+          {
+            "product_id": "business-cash-management",
+            "product_name": "Business Cash Management",
+            "justification": "Useful for collections and payment visibility. It does not fund the gap, so a separate contingency is required."
+          }
+        ],
+        "coach_feedback": {
+          "what_went_well": [
+            "Elicited the core cash-flow facts efficiently: late customer payments, QAR 25,000 cash, QAR 40,000 due in three weeks, and QAR 60,000 expected over four to six weeks with uncertain dates; the summary correctly calculates a possible QAR 15,000 gap.",
+            "Confirmed payroll is the fixed obligation and that Maryam would decline conventional interest-bearing credit; the summary preserves her Sharia-compliant requirement.",
+            "Proposed Business Cash Management only for invoice and payment visibility, explicitly noting it provides no funding; also noted no supplier quotation or purchase order and that purchase finance needs qualifying documentation."
+          ],
+          "what_was_missed": [
+            "Payment timing was only partly explored: late payment and uncertain receipts were established, but not the 30-day invoice terms, the 45–60-day payer behaviour, invoice aging, current collections tracking, or which customers repeatedly pay late.",
+            "The contingency for the calculated gap remains undefined: there was no discussion of how payroll and suppliers would be covered if expected receipts slipped, despite the summary recommending a contingency.",
+            "The Sharia trade-finance coverage boundary was not tested: while documentation was noted, the transcript does not clarify that such finance is tied to an eligible goods purchase and cannot cover existing payroll or supplier bills."
+          ],
+          "how_to_improve": [
+            "Ask: “Which invoices are overdue, by how long, which customers routinely pay late, and how do you currently track or control supplier payment timing?” Use that to prioritise collections and visibility needs.",
+            "Ask: “If that gap occurs, what non-interest options would you use—supplier timing, reserves, or faster collections?” and record the agreed contingency.",
+            "Optional: reassess Islamic Trade Finance only for future stock purchases once a supplier quotation or purchase order exists, explaining its structure and that it does not solve the current operating gap."
+          ]
+        }
+      },
+      "script_reference": {
+        "file": "../scripts/conversation_scenarios.json",
+        "scenario_id": "maryam-strong"
+      },
+      "planned_student_inputs": {
+        "questions": [
+          "How do late customer payments affect your business?",
+          "How much cash is available, and what payments are due?",
+          "What payments are you expecting from customers, and when?",
+          "Which obligations cannot be postponed?",
+          "What financing arrangements would you accept?",
+          "Do you have supplier quotations or purchase orders for the larger orders?",
+          "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?"
+        ],
+        "summary": "The business faces a possible QAR 15,000 timing gap. Follow up collections and fixed obligations, preserve the Sharia requirement, and establish a contingency for delayed receipts. Purchase finance needs qualifying documentation.",
+        "recommendations": [
+          {
+            "product_id": "business-cash-management",
+            "justification": "Useful for collections and payment visibility. It does not fund the gap, so a separate contingency is required."
+          }
+        ]
+      },
+      "assessment": {
+        "verdict": "PARTIAL PASS",
+        "workflow": "PASS: seven student questions, seven genuine Client responses, exact submitted summary and recommendation, all three Coach categories and a downloaded report.",
+        "client_behavior": "Financial amounts and timing matched the scenario. Only relevant business facts were disclosed; Sharia preference appeared after the financing question. The Client reacted to Cash Management without selecting products or calculating the student's full solution.",
+        "coach_behavior": "Credited cash-flow discovery, payroll, Sharia preference, and the explicitly acknowledged no-funding limitation. Correctly identified missing invoice terms and an unspecified funding contingency. However, framed an unselected trade-finance coverage explanation as a missed requirement (finding C01).",
+        "not_verified": [
+          "Novel paraphrases or adversarial prompt attacks beyond the scripted questions."
+        ]
+      },
+      "coach_feedback_word_count": 273
+    },
+    {
+      "id": "maryam-unsuitable",
+      "client_id": "maryam",
+      "started_at": "2026-11-20T10:08:36.647Z",
+      "turns": [
+        {
+          "index": 0,
+          "question": "How much business cash is available and what payments are due?",
+          "started_at": "2026-11-20T10:08:36.656Z",
+          "loading_indicator_observed": true,
+          "counter": {
+            "questions": 1,
+            "requests": 1
+          },
+          "completed_at": "2026-11-20T10:08:40.247Z",
+          "messages_after": 2,
+          "response": "We have QAR 25,000 in available business cash, and QAR 40,000 in supplier and payroll payments coming due over the next three weeks. That timing is part of why I want to review our banking arrangements.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 1,
+          "question": "What preferences or restrictions do you have about financing?",
+          "started_at": "2026-11-20T10:08:40.254Z",
+          "loading_indicator_observed": false,
+          "counter": {
+            "questions": 2,
+            "requests": 2
+          },
+          "completed_at": "2026-11-20T10:08:46.268Z",
+          "messages_after": 4,
+          "response": "I’d decline a conventional interest-bearing credit facility. I prefer Sharia-compliant banking, and I’d want to understand how the structure works before considering any financing.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 2,
+          "question": "Business Flex Credit is an interest-bearing revolving line. Would that work for you?",
+          "started_at": "2026-11-20T10:08:55.869Z",
+          "loading_indicator_observed": true,
+          "counter": {
+            "questions": 3,
+            "requests": 3
+          },
+          "completed_at": "2026-11-20T10:09:01.731Z",
+          "messages_after": 6,
+          "response": "No, that wouldn’t work for me because it’s interest-bearing. I’d rather look at Sharia-compliant options and understand the structure before deciding whether any financing is appropriate.",
+          "transcript_prefix_preserved": true
+        }
+      ],
+      "request_count": 4,
+      "status": "COMPLETED",
+      "transcript": [
+        {
+          "speaker": "You",
+          "content": "How much business cash is available and what payments are due?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "We have QAR 25,000 in available business cash, and QAR 40,000 in supplier and payroll payments coming due over the next three weeks. That timing is part of why I want to review our banking arrangements."
+        },
+        {
+          "speaker": "You",
+          "content": "What preferences or restrictions do you have about financing?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "I’d decline a conventional interest-bearing credit facility. I prefer Sharia-compliant banking, and I’d want to understand how the structure works before considering any financing."
+        },
+        {
+          "speaker": "You",
+          "content": "Business Flex Credit is an interest-bearing revolving line. Would that work for you?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "No, that wouldn’t work for me because it’s interest-bearing. I’d rather look at Sharia-compliant options and understand the structure before deciding whether any financing is appropriate."
+        }
+      ],
+      "ui": {
+        "initial_justification_fields": 0,
+        "missing_summary_error": true,
+        "missing_product_error": true,
+        "missing_justification_errors": [
+          {
+            "id": "business-flex-credit",
+            "visible": true
+          }
+        ],
+        "visible_selected_justification_fields": 1,
+        "summary_preserved": true,
+        "precoach_counter": {
+          "questions": 3,
+          "requests": 3
+        },
+        "coach_loading_indicator_observed": true,
+        "download_preserves_counter": true
+      },
+      "coach_started_at": "2026-11-20T10:09:40.032Z",
+      "coach_completed_at": "2026-11-20T10:09:48.256Z",
+      "final_counter": {
+        "questions": 3,
+        "requests": 4
+      },
+      "coach_sections": {
+        "What went well": true,
+        "What was missed": true,
+        "How to improve": true
+      },
+      "download": {
+        "suggested_filename": "bank-interview-maryam-a1a3d93d.json",
+        "keys": [
+          "report_type",
+          "session_id",
+          "status",
+          "client",
+          "transcript",
+          "student_summary",
+          "recommendations",
+          "coach_feedback"
+        ],
+        "private_metadata_keys_found": false
+      },
+      "report": {
+        "report_type": "student_interview",
+        "session_id": "a1a3d93d-8aea-405d-a6fb-f1ad69f8bbe1",
+        "status": "completed",
+        "client": {
+          "id": "maryam",
+          "name": "Maryam Al-Kuwari",
+          "age": 35,
+          "occupation": "Small business owner",
+          "background": "Maryam owns a growing distribution business in Doha, Qatar, that supplies packaging to cafes and retailers.",
+          "public_financial_situation": "The business has regular customer receipts and supplier payments. Maryam wants to explore banking services that support day-to-day operations and growth.",
+          "interview_opening_context": "Maryam has booked a meeting to review the business's banking arrangements as she considers taking on larger retail orders."
+        },
+        "transcript": [
+          {
+            "role": "student",
+            "content": "How much business cash is available and what payments are due?",
+            "timestamp": "2026-11-20T10:08:37.236480Z"
+          },
+          {
+            "role": "client",
+            "content": "We have QAR 25,000 in available business cash, and QAR 40,000 in supplier and payroll payments coming due over the next three weeks. That timing is part of why I want to review our banking arrangements.",
+            "timestamp": "2026-11-20T10:08:40.237553Z"
+          },
+          {
+            "role": "student",
+            "content": "What preferences or restrictions do you have about financing?",
+            "timestamp": "2026-11-20T10:08:40.814088Z"
+          },
+          {
+            "role": "client",
+            "content": "I’d decline a conventional interest-bearing credit facility. I prefer Sharia-compliant banking, and I’d want to understand how the structure works before considering any financing.",
+            "timestamp": "2026-11-20T10:08:41.673526Z"
+          },
+          {
+            "role": "student",
+            "content": "Business Flex Credit is an interest-bearing revolving line. Would that work for you?",
+            "timestamp": "2026-11-20T10:08:56.547104Z"
+          },
+          {
+            "role": "client",
+            "content": "No, that wouldn’t work for me because it’s interest-bearing. I’d rather look at Sharia-compliant options and understand the structure before deciding whether any financing is appropriate.",
+            "timestamp": "2026-11-20T10:09:01.677482Z"
+          }
+        ],
+        "student_summary": "Maryam has a short-term cash gap and requires Sharia-compliant arrangements.",
+        "recommendations": [
+          {
+            "product_id": "business-flex-credit",
+            "product_name": "Business Flex Credit",
+            "justification": "A flexible credit line can cover upcoming bills despite the stated preference."
+          }
+        ],
+        "coach_feedback": {
+          "what_went_well": [
+            "You established the key liquidity figures: QAR 25,000 cash against QAR 40,000 of supplier and payroll payments due within three weeks, making a near-term gap visible.",
+            "You directly asked about financing preferences and uncovered that Maryam declines interest-bearing credit and prefers Sharia-compliant banking."
+          ],
+          "what_was_missed": [
+            "You did not ask when customers pay, so the late-payment pattern (45–60 days against 30-day terms) and the uncertain QAR 60,000 of expected receipts were not explored; the cash-gap assessment is therefore partial.",
+            "You did not confirm that payroll has fixed dates and cannot be postponed, which affects how any shortfall should be handled.",
+            "You did not explore expansion documentation: Maryam has no supplier quotation or purchase order, so eligibility for documented trade finance is unknown.",
+            "You did not assess payment visibility or control, missing her wish to track overdue invoices and schedule supplier payments."
+          ],
+          "how_to_improve": [
+            "Do not recommend Business Flex Credit: Maryam explicitly rejected interest-bearing facilities, so this is unsuitable; limit suggestions to Sharia-compliant structures and explain that suitability still needs review.",
+            "Next ask for invoice amounts, overdue customers, expected receipt dates and which payments are fixed, then quantify and stress-test the shortfall rather than relying on the summary.",
+            "Optional: assess Business Cash Management for invoice tracking and projected balances—it does not fund the gap—and Islamic Trade Finance only for a documented eligible stock purchase, not existing payroll or bills."
+          ]
+        }
+      },
+      "script_reference": {
+        "file": "../scripts/conversation_scenarios.json",
+        "scenario_id": "maryam-unsuitable"
+      },
+      "planned_student_inputs": {
+        "questions": [
+          "How much business cash is available and what payments are due?",
+          "What preferences or restrictions do you have about financing?",
+          "Business Flex Credit is an interest-bearing revolving line. Would that work for you?"
+        ],
+        "summary": "Maryam has a short-term cash gap and requires Sharia-compliant arrangements.",
+        "recommendations": [
+          {
+            "product_id": "business-flex-credit",
+            "justification": "A flexible credit line can cover upcoming bills despite the stated preference."
+          }
+        ]
+      },
+      "assessment": {
+        "verdict": "PASS",
+        "workflow": "PASS: three student questions, three genuine Client responses, unsuitable-but-valid product accepted, all three Coach categories and a downloaded report.",
+        "client_behavior": "Rejected conventional interest-bearing Business Flex Credit after clearly stating the Sharia preference. No contradictory figures or automatic alternative product selection were observed.",
+        "coach_behavior": "Explicitly said Business Flex Credit is unsuitable because Maryam rejected interest-bearing facilities. Correctly distinguished discovered cash/preferences from missed receipts, fixed payroll dates and purchase documentation. Optional alternatives were identified as optional.",
+        "not_verified": [
+          "Other unsuitable products or alternate wordings."
+        ]
+      },
+      "coach_feedback_word_count": 223
+    },
+    {
+      "id": "mohamed-strong",
+      "client_id": "mohamed",
+      "started_at": "2026-11-20T10:10:07.601Z",
+      "turns": [
+        {
+          "index": 0,
+          "question": "What are you saving for, and what amount and deadline do you have in mind?",
+          "started_at": "2026-11-20T10:10:07.609Z",
+          "loading_indicator_observed": false,
+          "counter": {
+            "questions": 1,
+            "requests": 1
+          },
+          "completed_at": "2026-11-20T10:10:13.631Z",
+          "messages_after": 2,
+          "response": "I’m saving QAR 9,000 over 18 months for professional certification course and exam fees, and I want to keep that separate from my emergency fund.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 1,
+          "question": "What income comes in, and what fixed bills go out each month?",
+          "started_at": "2026-11-20T10:10:13.638Z",
+          "loading_indicator_observed": false,
+          "counter": {
+            "questions": 2,
+            "requests": 2
+          },
+          "completed_at": "2026-11-20T10:10:19.661Z",
+          "messages_after": 4,
+          "response": "My salary is QAR 8,000 take-home each month. My fixed monthly bills come to about QAR 4,600, before groceries and irregular expenses.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 2,
+          "question": "How much emergency money is set aside, and which irregular expenses come up?",
+          "started_at": "2026-11-20T10:10:43.964Z",
+          "loading_indicator_observed": true,
+          "counter": {
+            "questions": 3,
+            "requests": 3
+          },
+          "completed_at": "2026-11-20T10:10:45.479Z",
+          "messages_after": 6,
+          "response": "I have about QAR 1,200 set aside for emergencies. Car maintenance and family travel are the irregular expenses that can reduce—or sometimes wipe out—what I save in a month, and an unexpected repair could use most of that emergency cushion.",
+          "transcript_prefix_preserved": true
+        },
+        {
+          "index": 3,
+          "question": "How quickly would you need access to that money?",
+          "started_at": "2026-11-20T10:10:45.481Z",
+          "loading_indicator_observed": true,
+          "counter": {
+            "questions": 3,
+            "requests": 4
+          },
+          "completed_at": "2026-11-20T10:11:46.129Z",
+          "messages_after": 6,
+          "response": null,
+          "transcript_prefix_preserved": true,
+          "status": "FAILED",
+          "error": "The AI request timed out. Please try again.",
+          "elapsed_seconds": 60.648
+        }
+      ],
+      "request_count": 4,
+      "status": "FAILED",
+      "transcript": [
+        {
+          "speaker": "You",
+          "content": "What are you saving for, and what amount and deadline do you have in mind?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I’m saving QAR 9,000 over 18 months for professional certification course and exam fees, and I want to keep that separate from my emergency fund."
+        },
+        {
+          "speaker": "You",
+          "content": "What income comes in, and what fixed bills go out each month?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "My salary is QAR 8,000 take-home each month. My fixed monthly bills come to about QAR 4,600, before groceries and irregular expenses."
+        },
+        {
+          "speaker": "You",
+          "content": "How much emergency money is set aside, and which irregular expenses come up?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I have about QAR 1,200 set aside for emergencies. Car maintenance and family travel are the irregular expenses that can reduce—or sometimes wipe out—what I save in a month, and an unexpected repair could use most of that emergency cushion."
+        }
+      ],
+      "stop_reason": "Stopped further paid calls after a deployed AI response timeout; no manual retry.",
+      "failure_ui": {
+        "retry_visible": true,
+        "completed_message_count": 6,
+        "unanswered_question_label_visible": true,
+        "counter": {
+          "questions": 3,
+          "requests": 4
+        },
+        "saved_transcript_preserved": true,
+        "failed_question_not_in_export": true,
+        "export_has_no_fabricated_feedback": true
+      },
+      "download": {
+        "suggested_filename": "bank-interview-mohamed-fc4b2e6a.json",
+        "keys": [
+          "report_type",
+          "session_id",
+          "status",
+          "client",
+          "transcript",
+          "student_summary",
+          "recommendations",
+          "coach_feedback"
+        ],
+        "private_metadata_keys_found": false
+      },
+      "report": {
+        "report_type": "student_interview",
+        "session_id": "fc4b2e6a-381d-4682-974e-68cceff0e685",
+        "status": "active",
+        "client": {
+          "id": "mohamed",
+          "name": "Mohamed Al-Ansari",
+          "age": 35,
+          "occupation": "Salaried professional",
+          "background": "Mohamed has stable employment in Doha, Qatar, and wants to manage his finances more effectively.",
+          "public_financial_situation": "Mohamed receives a regular monthly salary and uses one account for income, bills, and savings. He wants to improve how he plans expenses and sets money aside.",
+          "interview_opening_context": "Mohamed has booked a meeting to review how his accounts could support a more structured savings plan."
+        },
+        "transcript": [
+          {
+            "role": "student",
+            "content": "What are you saving for, and what amount and deadline do you have in mind?",
+            "timestamp": "2026-11-20T10:10:08.186439Z"
+          },
+          {
+            "role": "client",
+            "content": "I’m saving QAR 9,000 over 18 months for professional certification course and exam fees, and I want to keep that separate from my emergency fund.",
+            "timestamp": "2026-11-20T10:10:08.954901Z"
+          },
+          {
+            "role": "student",
+            "content": "What income comes in, and what fixed bills go out each month?",
+            "timestamp": "2026-11-20T10:10:14.226160Z"
+          },
+          {
+            "role": "client",
+            "content": "My salary is QAR 8,000 take-home each month. My fixed monthly bills come to about QAR 4,600, before groceries and irregular expenses.",
+            "timestamp": "2026-11-20T10:10:14.848497Z"
+          },
+          {
+            "role": "student",
+            "content": "How much emergency money is set aside, and which irregular expenses come up?",
+            "timestamp": "2026-11-20T10:10:44.566883Z"
+          },
+          {
+            "role": "client",
+            "content": "I have about QAR 1,200 set aside for emergencies. Car maintenance and family travel are the irregular expenses that can reduce—or sometimes wipe out—what I save in a month, and an unexpected repair could use most of that emergency cushion.",
+            "timestamp": "2026-11-20T10:10:45.445309Z"
+          }
+        ],
+        "student_summary": null,
+        "recommendations": [],
+        "coach_feedback": null
+      },
+      "unsubmitted_draft": {
+        "summary": "Keep emergency funds accessible, account for irregular expenses, and assess a flexible contribution toward certification separately.",
+        "recommendations": [
+          {
+            "product_id": "everyday-access-account",
+            "justification": "An accessible reserve for unexpected expenses."
+          },
+          {
+            "product_id": "goal-saver-account",
+            "justification": "For the dated certification goal, with adjustable contributions and a separate emergency reserve."
+          }
+        ]
+      },
+      "script_reference": {
+        "file": "../scripts/conversation_scenarios.json",
+        "scenario_id": "mohamed-strong"
+      },
+      "planned_student_inputs": {
+        "questions": [
+          "What are you saving for, and what amount and deadline do you have in mind?",
+          "What income comes in, and what fixed bills go out each month?",
+          "How much emergency money is set aside, and which irregular expenses come up?",
+          "How quickly would you need access to that money?",
+          "How much could you comfortably save each month, and could you adjust contributions?",
+          "Goal Saver Account has withdrawal delays. Everyday Access Account has an instant-access reserve. How would that affect your plans?"
+        ],
+        "summary": "Keep emergency funds accessible, account for irregular expenses, and assess a flexible contribution toward certification separately.",
+        "recommendations": [
+          {
+            "product_id": "everyday-access-account",
+            "justification": "An accessible reserve for unexpected expenses."
+          },
+          {
+            "product_id": "goal-saver-account",
+            "justification": "For the dated certification goal, with adjustable contributions and a separate emergency reserve."
+          }
+        ]
+      },
+      "assessment": {
+        "verdict": "FAIL",
+        "workflow": "INCOMPLETE: three genuine responses; question four timed out. No completed recommendation submission or Coach feedback. A partial student report was downloaded.",
+        "client_behavior": "Successful turns distinguished the QAR 9,000 certification target over 18 months, QAR 8,000 take-home pay, QAR 4,600 fixed bills before groceries/irregular expenses, and QAR 1,200 existing emergency savings. The access follow-up received no final response.",
+        "coach_behavior": "NOT VERIFIED: Coach was not called for this scenario.",
+        "not_verified": [
+          "QAR 500 required contribution versus actual affordability.",
+          "Successful response to the contextual access follow-up.",
+          "Client reaction to the two proposed products.",
+          "Submitted two-product suitability and Coach fairness."
+        ]
+      }
+    },
+    {
+      "id": "mohamed-unsuitable",
+      "client_id": "mohamed",
+      "status": "NOT_RUN",
+      "request_count": 0,
+      "reason": "Live testing stopped after the Mohamed strong response timeout.",
+      "script_reference": {
+        "file": "../scripts/conversation_scenarios.json",
+        "scenario_id": "mohamed-unsuitable"
+      },
+      "planned_student_inputs": {
+        "questions": [
+          "How much emergency money do you have set aside?",
+          "How quickly would you need access if an unexpected bill arrived?",
+          "Goal Saver Account withdrawals take several business days. Would that work for your emergency money?"
+        ],
+        "summary": "Mohamed needs same-day access to his emergency reserve.",
+        "recommendations": [
+          {
+            "product_id": "goal-saver-account",
+            "justification": "Put all emergency money here to encourage saving despite the withdrawal delay."
+          }
+        ]
+      },
+      "assessment": {
+        "verdict": "NOT RUN",
+        "workflow": "Not started: further paid testing stopped after the preceding timeout.",
+        "client_behavior": "NOT VERIFIED in this deployed test round.",
+        "coach_behavior": "NOT VERIFIED in this deployed test round.",
+        "not_verified": [
+          "Client response to restrictive savings for emergency funds.",
+          "Coach identification of the emergency-liquidity suitability conflict."
+        ]
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "D01",
+      "severity": "HIGH",
+      "title": "One deployed AI Client request timed out and blocked scenario completion",
+      "observed": "In mohamed-strong, question four (\"How quickly would you need access to that money?\") produced \"The AI request timed out. Please try again.\" after 60.648 seconds. The sidebar showed 3/30 questions and 4/40 requests.",
+      "expected": "A genuine response to the contextual follow-up, or a clearly reported recoverable failure. Error reporting and data preservation worked, but the requested end-to-end scenario could not complete in this run.",
+      "reproduce": [
+        "Start a fresh Mohamed interview.",
+        "Ask the first three questions from mohamed-strong.",
+        "Ask the fourth access question and observe the result. This describes the observed sequence; repeatability is not established."
+      ],
+      "frequency": "Once in 14 Client request attempts (16 total AI attempts); not retried.",
+      "evidence": [
+        "mohamed-strong.turns[3]",
+        "mohamed-strong.failure_ui",
+        "deployed_app_evaluation_assets/mohamed-strong-timeout.png"
+      ],
+      "cause_status": "UI timeout verified; underlying provider, network, model-latency or server-side cause NOT VERIFIED. No provider logs, status code or token usage were available through the student interface.",
+      "investigate": [
+        "src/bank_simulator/agents/api_adapter.py (60-second default timeout)",
+        "src/bank_simulator/ui/controller.py (sanitized failure and request accounting)",
+        "Cloud/provider request diagnostics, if available to the operator"
+      ],
+      "recommendation": "Investigate safe server-side timing/error metadata before changing timeouts or retry policies. Then explicitly authorize a limited retry and complete both Mohamed scenarios. Preserve the working retry UX and immutable transcript behavior."
+    },
+    {
+      "id": "C01",
+      "severity": "MEDIUM",
+      "title": "Strong-interview feedback treats an unselected trade-finance explanation as an omission",
+      "observed": "Maryam strong selected only Business Cash Management, explicitly acknowledging that it supplies no funding and that a separate contingency is needed. The Coach nevertheless listed \"The Sharia trade-finance coverage boundary was not tested\" under What was missed, while placing Islamic Trade Finance under an Optional improvement.",
+      "expected": "Critique the genuinely unresolved funding contingency, while keeping additional education about an unselected product an optional improvement. The product limitation itself is catalogue-correct; the concern is evaluation scope and fairness.",
+      "reproduce": [
+        "Run maryam-strong with its predefined questions, summary and sole Cash Management recommendation.",
+        "Inspect the third What was missed point and the Optional trade-finance improvement. Output is stochastic; repeatability is not established."
+      ],
+      "frequency": "Observed once in two completed Coach outputs.",
+      "evidence": [
+        "maryam-strong.report.recommendations",
+        "maryam-strong.report.coach_feedback.what_was_missed[2]",
+        "maryam-strong.report.coach_feedback.how_to_improve[2]",
+        "deployed_app_evaluation_assets/maryam-strong-feedback.png"
+      ],
+      "cause_status": "Output behavior verified. Exact prompt/validation cause NOT VERIFIED.",
+      "investigate": [
+        "src/bank_simulator/agents/coach_agent.py: product-fairness instructions and _validate_product_critique"
+      ],
+      "recommendation": "Review the distinction between a missed underlying need and explaining an unselected product, including category-level references such as trade finance. Keep all existing structured-feedback validation."
+    },
+    {
+      "id": "U01",
+      "severity": "LOW",
+      "title": "Streamlit hosting badges overlap the lower mobile viewport",
+      "observed": "At 390 x 844 in a fresh touch-enabled mobile context, hosting badges overlapped the lower part of the first client card and its Start interview area. No horizontal overflow was found; the mobile catalogue and recommendation fields were usable.",
+      "expected": "Primary controls remain unobscured at common mobile viewport positions.",
+      "reproduce": [
+        "Open the hosted root URL in a fresh 390 x 844 mobile viewport.",
+        "Inspect the bottom edge of the initial client-selection screen."
+      ],
+      "frequency": "Observed in the fresh mobile screenshot; not tested on physical devices.",
+      "evidence": [
+        "deployed_app_evaluation_assets/mobile-fresh-selection.png"
+      ],
+      "cause_status": "Visual overlap verified. Hosting chrome may be outside application control.",
+      "investigate": [
+        "src/bank_simulator/ui/views.py: mobile spacing",
+        "Streamlit Community Cloud hosting chrome"
+      ],
+      "recommendation": "Review mobile spacing/viewport behavior and any supported hosting-chrome options. This is polish rather than a demonstrated workflow blocker."
+    }
+  ],
+  "manual_review": {
+    "numeric_rubric_scores": null,
+    "note": "Qualitative findings are based on the recorded dialogue and catalogue review; no independent human numerical grading is claimed."
+  },
+  "acceptance": {
+    "core_assignment_features": "Two fictional clients and five catalogue products visible. Two genuine complete interview-summary-recommendation-Coach-download workflows demonstrated. Complete deployed acceptance remains unverified for Mohamed.",
+    "must_address_before_final_signoff": [
+      "Investigate D01 and complete interrupted Mohamed strong plus unrun Mohamed unsuitable in a separately authorized limited live round.",
+      "Review C01 so optional unselected product education is not framed as a required student omission."
+    ],
+    "optional_improvements": [
+      "Review mobile hosting-badge overlap (U01).",
+      "Check hosting-shell analytics console noise only if it becomes operationally relevant."
+    ],
+    "another_live_round_required": true,
+    "limits": [
+      "Single run per scenario; no repeated measurements.",
+      "No physical mobile device or non-Chrome browser tested.",
+      "Retry execution and real Coach failure recovery were not exercised, to avoid extra paid requests.",
+      "Mohamed contribution affordability and Coach suitability behavior were not verified in this run.",
+      "Offline suite was not rerun for this evaluation-only task; no source code changed."
+    ]
+  },
+  "screenshots": [
+    "deployed_app_evaluation_assets/desktop-selection-final.png",
+    "deployed_app_evaluation_assets/mobile-fresh-selection.png",
+    "deployed_app_evaluation_assets/mobile-fresh-catalogue.png",
+    "deployed_app_evaluation_assets/maryam-strong-recommendations.png",
+    "deployed_app_evaluation_assets/maryam-strong-feedback.png",
+    "deployed_app_evaluation_assets/maryam-unsuitable-feedback.png",
+    "deployed_app_evaluation_assets/mohamed-strong-timeout.png",
+    "deployed_app_evaluation_assets/multiple-product-draft.png",
+    "deployed_app_evaluation_assets/mobile-recommendations.png"
+  ],
+  "changes": "Evaluation Markdown/JSON and student-visible screenshots only; no application, configuration, credentials, deployment, commit or push changes."
+}
