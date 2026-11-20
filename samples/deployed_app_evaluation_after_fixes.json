@@ -1,0 +1,1526 @@
+{
+  "report_type": "post_fix_deployed_student_browser_acceptance",
+  "url": "https://bank-client-discovery-simulator.streamlit.app/",
+  "test_date": "2026-11-20",
+  "timezone": "Asia/Qatar",
+  "started_at": "2026-11-20T16:14:21.759000+03:00",
+  "finished_at": "2026-11-20T16:26:53.530000+03:00",
+  "target_revision": "e957f01c03b33ba3195b6cff619d0845ada4f1ac",
+  "revision_verification": {
+    "exact_deployed_sha_confirmed": false,
+    "limitation_reported_before_ai_calls": true,
+    "operator_reported_updated_code_deployed": true,
+    "public_github_deployment_records": {
+      "github_deployments": [],
+      "github_commit_status": {
+        "sha": "e957f01c03b33ba3195b6cff619d0845ada4f1ac",
+        "state": "pending",
+        "total_count": 0,
+        "statuses": []
+      },
+      "github_actions_runs": [],
+      "exact_deployed_sha_verified": false
+    },
+    "public_frontend_stylesheet_evidence": {
+      "local_sha256": "d7a7fcea142aed4719fbd86799ade430e0713647789cc4152ffb8a408d6a6b69",
+      "deployed_sha256": "d7a7fcea142aed4719fbd86799ade430e0713647789cc4152ffb8a408d6a6b69",
+      "matches": true,
+      "scope": "Public frontend stylesheet only; not a backend commit attestation"
+    },
+    "updated_backend_error_evidence": {
+      "observed_safe_message": "The AI Coach still returned unfair product critique or misplaced suitability feedback after one repair.",
+      "matches_updated_local_source": true,
+      "scope": "Evidence that the updated Coach exhaustion path is active; not an exact commit SHA attestation"
+    },
+    "conclusion": "Updated frontend stylesheet exactly matches the local e957f01 stylesheet, and the observed Coach exhaustion message matches the new backend path. These establish relevant post-fix code behavior, not an exact build/commit attestation. Public records contain no Cloud build SHA; owner-visible deployment evidence remains needed."
+  },
+  "environment": {
+    "os": "macOS",
+    "browser": "Headless Google Chrome 158.0.8127.36",
+    "automation": "Playwright",
+    "desktop_viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "mobile_viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "separate_mobile_context_touch_enabled": true,
+    "fresh_isolated_browser_context_per_scenario": true,
+    "provider_model": "Project/operator configuration: Ollama Cloud / deepseek-v4.1-flash. The website did not expose a returned model identifier."
+  },
+  "method": "All live interview questions, recommendation submissions and Coach requests used the actual deployed website. Student inputs match the original scenario definitions. No local model/backend generation, mocked outputs or earlier AI responses were reused. Downloaded student reports are embedded unchanged.",
+  "overall_verdict": "PARTIAL PASS",
+  "ready_for_final_submission": false,
+  "all_four_scenarios_completed": false,
+  "scenarios_attempted": 4,
+  "scenarios_completed": 3,
+  "scenarios_failed": 1,
+  "request_accounting": {
+    "budget": 30,
+    "ui_reported_attempts": 24,
+    "per_scenario": {
+      "maryam-strong": 8,
+      "maryam-unsuitable": 5,
+      "mohamed-strong": 7,
+      "mohamed-unsuitable": 4
+    },
+    "client_attempts": 19,
+    "successful_client_responses": 19,
+    "coach_attempts": 5,
+    "coach_submissions": 4,
+    "successful_coach_feedback": 3,
+    "rejected_coach_submissions": 1,
+    "built_in_coach_repair_attempts_inferred": 1,
+    "manual_ai_retries": 0,
+    "scenario_replays": 0,
+    "basis": "Visible counters: 8 + 5 + 7 + 4. The failed Coach submission consumed two attempts; rejected raw outputs were not exposed. Provider-side traffic and billing were not independently visible.",
+    "token_usage": null,
+    "token_usage_note": "Not exposed by student UI; no token or monetary estimate invented."
+  },
+  "timing": {
+    "units": "seconds",
+    "scope": "Browser-observed Enter/submission-to-render duration, including network, Streamlit processing and rendering; not isolated model compute time. Failed Coach duration covers both generation attempts together.",
+    "client_min": 1.223,
+    "client_max": 2.48,
+    "client_mean": 1.591,
+    "previously_failed_access_question_seconds": 1.245,
+    "coach_submission_seconds": {
+      "maryam-strong": 7.249,
+      "maryam-unsuitable": 12.332,
+      "mohamed-strong": 13.876,
+      "mohamed-unsuitable": 12.345
+    },
+    "timeout_recurred": false
+  },
+  "deployment_checks": {
+    "selection_loaded": true,
+    "both_public_clients_visible": true,
+    "catalogue_terms_match": [
+      {
+        "id": "business-flex-credit",
+        "all_terms_match": true
+      },
+      {
+        "id": "islamic-trade-finance",
+        "all_terms_match": true
+      },
+      {
+        "id": "business-cash-management",
+        "all_terms_match": true
+      },
+      {
+        "id": "goal-saver-account",
+        "all_terms_match": true
+      },
+      {
+        "id": "everyday-access-account",
+        "all_terms_match": true
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "isMobile": true,
+      "hasTouch": true,
+      "root": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 788
+      },
+      "buttons": [
+        {
+          "client_id": "maryam",
+          "box": {
+            "x": 36.1875,
+            "y": 743.6875,
+            "width": 115.6875,
+            "height": 44
+          },
+          "fully_above_reserved_strip": true
+        },
+        {
+          "client_id": "mohamed",
+          "box": {
+            "x": 36.1875,
+            "y": 630.84375,
+            "width": 115.6875,
+            "height": 44
+          },
+          "fully_above_reserved_strip": true
+        }
+      ]
+    },
+    "mobile_horizontal_overflow": false,
+    "page_level_javascript_exceptions": [],
+    "nonblocking_http_errors": [
+      {
+        "host": "cdn.heapanalytics.com",
+        "path": "/js/heap-.js",
+        "status": 404,
+        "count": 6
+      },
+      {
+        "host": "bank-client-discovery-simulator.streamlit.app",
+        "path": "/api/v1/app/event/open",
+        "status": 403,
+        "count": 3
+      },
+      {
+        "host": "bank-client-discovery-simulator.streamlit.app",
+        "path": "/api/v2/user/details",
+        "status": 404,
+        "count": 24
+      }
+    ],
+    "notes": [
+      "Aggregate GitHub commit status pending with zero statuses is not evidence of a pending or failed Cloud build.",
+      "Hosting-shell user/event and Heap errors were observed; no evidence links them to the Coach grounding failure."
+    ]
+  },
+  "ui_checks": {
+    "fresh_sessions_empty": true,
+    "downloaded_session_ids_distinct": true,
+    "all_transcript_prefixes_preserved": true,
+    "exact_submissions_preserved": true,
+    "selected_justification_fields_only": true,
+    "inline_validation_errors_checked": true,
+    "multiple_product_submission_verified": true,
+    "all_four_student_reports_downloaded": true,
+    "no_request_increment_on_download": true,
+    "review_expander_checks": [
+      {
+        "check": "review_expanders_preserve_request_count",
+        "passed": true,
+        "counter": {
+          "questions": 3,
+          "requests": 4
+        }
+      }
+    ],
+    "no_duplicate_student_messages": true,
+    "new_frontend_regression_observed": false,
+    "qualification": "The Coach failure is a backend generation/validation completion regression, correctly rendered with preserved state. Concurrent multi-click/network-reconnect races and real retry execution were not exercised."
+  },
+  "privacy": {
+    "reports_checked": 4,
+    "unexpected_private_metadata_keys_found": false,
+    "report_top_level_keys": [
+      "report_type",
+      "session_id",
+      "status",
+      "client",
+      "transcript",
+      "student_summary",
+      "recommendations",
+      "coach_feedback"
+    ],
+    "credentials_requested_read_or_extracted": false,
+    "raw_system_instructions_or_reasoning_observed": false,
+    "safe_failure_message_only": true,
+    "note": "Expected fictional facts in genuine conversation or educational Coach feedback are included. Raw hidden-needs records, disclosure rules, developer packets, configuration and reasoning were not observed in exports. This is not an exhaustive security or prompt-injection test."
+  },
+  "scenarios": [
+    {
+      "id": "maryam-strong",
+      "client_id": "maryam",
+      "started_at": "2026-11-20T13:16:53.292Z",
+      "fresh_browser_context": true,
+      "turns": [
+        {
+          "index": 0,
+          "question": "How do late customer payments affect your business?",
+          "started_at": "2026-11-20T13:16:53.321Z",
+          "status": "SUCCESS",
+          "response": "When customers pay late, it can leave us short of cash for payroll and for paying supplier invoices on time. That timing squeeze is the main thing I want to manage better as we take on larger retail orders.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 2.48,
+          "completed_at": "2026-11-20T13:16:55.810Z",
+          "counter": {
+            "questions": 1,
+            "requests": 1
+          },
+          "prefix_preserved": true,
+          "message_count": 2
+        },
+        {
+          "index": 1,
+          "question": "How much cash is available, and what payments are due?",
+          "started_at": "2026-11-20T13:16:55.816Z",
+          "status": "SUCCESS",
+          "response": "We have QAR 25,000 in available cash. Over the next three weeks, we have QAR 40,000 in supplier and payroll payments due, so the timing is tight.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.223,
+          "completed_at": "2026-11-20T13:16:57.042Z",
+          "counter": {
+            "questions": 2,
+            "requests": 2
+          },
+          "prefix_preserved": true,
+          "message_count": 4
+        },
+        {
+          "index": 2,
+          "question": "What payments are you expecting from customers, and when?",
+          "started_at": "2026-11-20T13:17:19.735Z",
+          "status": "SUCCESS",
+          "response": "We're expecting about QAR 60,000 from outstanding customer invoices over the next four to six weeks, though I don't have firm receipt dates. That uncertainty is what makes the next few weeks a bit awkward to plan around.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.333,
+          "completed_at": "2026-11-20T13:17:21.074Z",
+          "counter": {
+            "questions": 3,
+            "requests": 3
+          },
+          "prefix_preserved": true,
+          "message_count": 6
+        },
+        {
+          "index": 3,
+          "question": "Which obligations cannot be postponed?",
+          "started_at": "2026-11-20T13:17:21.083Z",
+          "status": "SUCCESS",
+          "response": "Payroll has fixed dates and can’t be postponed. The supplier payments are also due over the next three weeks, but I’d want to check the exact terms on those before treating any of them as fixed.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.421,
+          "completed_at": "2026-11-20T13:17:22.507Z",
+          "counter": {
+            "questions": 4,
+            "requests": 4
+          },
+          "prefix_preserved": true,
+          "message_count": 8
+        },
+        {
+          "index": 4,
+          "question": "What financing arrangements would you accept?",
+          "started_at": "2026-11-20T13:17:22.516Z",
+          "status": "SUCCESS",
+          "response": "I wouldn’t take a conventional interest-bearing credit facility. I’m open to looking at Sharia-compliant financing, but I’d need the structure explained clearly before I’d consider it—especially for short-term working capital around these payment dates.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.505,
+          "completed_at": "2026-11-20T13:17:24.024Z",
+          "counter": {
+            "questions": 5,
+            "requests": 5
+          },
+          "prefix_preserved": true,
+          "message_count": 10
+        },
+        {
+          "index": 5,
+          "question": "Do you have supplier quotations or purchase orders for the larger orders?",
+          "started_at": "2026-11-20T13:17:54.760Z",
+          "status": "SUCCESS",
+          "response": "No, I don’t have a supplier quotation or a purchase order for the larger orders yet. So any immediate solution would need to fit around our scheduled payments and the uncertain timing of customer receipts.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.456,
+          "completed_at": "2026-11-20T13:17:56.222Z",
+          "counter": {
+            "questions": 6,
+            "requests": 6
+          },
+          "prefix_preserved": true,
+          "message_count": 12
+        },
+        {
+          "index": 6,
+          "question": "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?",
+          "started_at": "2026-11-20T13:17:56.233Z",
+          "status": "SUCCESS",
+          "response": "It could help with the visibility and invoice follow-up I need, but I understand it won’t fund the gap between the QAR 40,000 due and the uncertain customer receipts. Would it let me see a projected balance after payroll and supplier payments while keeping control over when I schedule supplier payments?",
+          "loading_indicator_observed": false,
+          "duration_seconds": 2.319,
+          "completed_at": "2026-11-20T13:17:58.555Z",
+          "counter": {
+            "questions": 7,
+            "requests": 7
+          },
+          "prefix_preserved": true,
+          "message_count": 14
+        }
+      ],
+      "request_count": 8,
+      "status": "COMPLETED",
+      "initial_counter": {
+        "questions": 0,
+        "requests": 0
+      },
+      "initial_message_count": 0,
+      "transcript": [
+        {
+          "speaker": "You",
+          "content": "How do late customer payments affect your business?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "When customers pay late, it can leave us short of cash for payroll and for paying supplier invoices on time. That timing squeeze is the main thing I want to manage better as we take on larger retail orders."
+        },
+        {
+          "speaker": "You",
+          "content": "How much cash is available, and what payments are due?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "We have QAR 25,000 in available cash. Over the next three weeks, we have QAR 40,000 in supplier and payroll payments due, so the timing is tight."
+        },
+        {
+          "speaker": "You",
+          "content": "What payments are you expecting from customers, and when?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "We're expecting about QAR 60,000 from outstanding customer invoices over the next four to six weeks, though I don't have firm receipt dates. That uncertainty is what makes the next few weeks a bit awkward to plan around."
+        },
+        {
+          "speaker": "You",
+          "content": "Which obligations cannot be postponed?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "Payroll has fixed dates and can’t be postponed. The supplier payments are also due over the next three weeks, but I’d want to check the exact terms on those before treating any of them as fixed."
+        },
+        {
+          "speaker": "You",
+          "content": "What financing arrangements would you accept?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "I wouldn’t take a conventional interest-bearing credit facility. I’m open to looking at Sharia-compliant financing, but I’d need the structure explained clearly before I’d consider it—especially for short-term working capital around these payment dates."
+        },
+        {
+          "speaker": "You",
+          "content": "Do you have supplier quotations or purchase orders for the larger orders?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "No, I don’t have a supplier quotation or a purchase order for the larger orders yet. So any immediate solution would need to fit around our scheduled payments and the uncertain timing of customer receipts."
+        },
+        {
+          "speaker": "You",
+          "content": "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "It could help with the visibility and invoice follow-up I need, but I understand it won’t fund the gap between the QAR 40,000 due and the uncertain customer receipts. Would it let me see a projected balance after payroll and supplier payments while keeping control over when I schedule supplier payments?"
+        }
+      ],
+      "ui": {
+        "initial_justification_count": 0,
+        "empty_summary_error": true,
+        "empty_product_error": true,
+        "missing_justification_errors": [
+          {
+            "product_id": "business-cash-management",
+            "visible": true
+          }
+        ],
+        "selected_justification_count": 1,
+        "summary_preserved": true,
+        "precoach_counter": {
+          "questions": 7,
+          "requests": 7
+        },
+        "coach_loading_observed": true,
+        "counter_unchanged_after_download": true,
+        "exact_submission_preserved": true
+      },
+      "coach_started_at": "2026-11-20T13:18:26.309Z",
+      "coach_duration_seconds": 7.249,
+      "coach_completed_at": "2026-11-20T13:18:33.559Z",
+      "final_counter": {
+        "questions": 7,
+        "requests": 8
+      },
+      "coach_sections": {
+        "What went well": true,
+        "What was missed": true,
+        "How to improve": true
+      },
+      "report": {
+        "report_type": "student_interview",
+        "session_id": "a56f9b41-ae50-4f76-b28f-f3b3675f35f1",
+        "status": "completed",
+        "client": {
+          "id": "maryam",
+          "name": "Maryam Al-Kuwari",
+          "age": 35,
+          "occupation": "Small business owner",
+          "background": "Maryam owns a growing distribution business in Doha, Qatar, that supplies packaging to cafes and retailers.",
+          "public_financial_situation": "The business has regular customer receipts and supplier payments. Maryam wants to explore banking services that support day-to-day operations and growth.",
+          "interview_opening_context": "Maryam has booked a meeting to review the business's banking arrangements as she considers taking on larger retail orders."
+        },
+        "transcript": [
+          {
+            "role": "student",
+            "content": "How do late customer payments affect your business?",
+            "timestamp": "2026-11-20T13:16:54.062201Z"
+          },
+          {
+            "role": "client",
+            "content": "When customers pay late, it can leave us short of cash for payroll and for paying supplier invoices on time. That timing squeeze is the main thing I want to manage better as we take on larger retail orders.",
+            "timestamp": "2026-11-20T13:16:55.428223Z"
+          },
+          {
+            "role": "student",
+            "content": "How much cash is available, and what payments are due?",
+            "timestamp": "2026-11-20T13:16:56.509229Z"
+          },
+          {
+            "role": "client",
+            "content": "We have QAR 25,000 in available cash. Over the next three weeks, we have QAR 40,000 in supplier and payroll payments due, so the timing is tight.",
+            "timestamp": "2026-11-20T13:16:57.131045Z"
+          },
+          {
+            "role": "student",
+            "content": "What payments are you expecting from customers, and when?",
+            "timestamp": "2026-11-20T13:17:20.432458Z"
+          },
+          {
+            "role": "client",
+            "content": "We're expecting about QAR 60,000 from outstanding customer invoices over the next four to six weeks, though I don't have firm receipt dates. That uncertainty is what makes the next few weeks a bit awkward to plan around.",
+            "timestamp": "2026-11-20T13:17:21.079851Z"
+          },
+          {
+            "role": "student",
+            "content": "Which obligations cannot be postponed?",
+            "timestamp": "2026-11-20T13:17:21.764615Z"
+          },
+          {
+            "role": "client",
+            "content": "Payroll has fixed dates and can’t be postponed. The supplier payments are also due over the next three weeks, but I’d want to check the exact terms on those before treating any of them as fixed.",
+            "timestamp": "2026-11-20T13:17:22.571906Z"
+          },
+          {
+            "role": "student",
+            "content": "What financing arrangements would you accept?",
+            "timestamp": "2026-11-20T13:17:23.193142Z"
+          },
+          {
+            "role": "client",
+            "content": "I wouldn’t take a conventional interest-bearing credit facility. I’m open to looking at Sharia-compliant financing, but I’d need the structure explained clearly before I’d consider it—especially for short-term working capital around these payment dates.",
+            "timestamp": "2026-11-20T13:17:24.132354Z"
+          },
+          {
+            "role": "student",
+            "content": "Do you have supplier quotations or purchase orders for the larger orders?",
+            "timestamp": "2026-11-20T13:17:55.460954Z"
+          },
+          {
+            "role": "client",
+            "content": "No, I don’t have a supplier quotation or a purchase order for the larger orders yet. So any immediate solution would need to fit around our scheduled payments and the uncertain timing of customer receipts.",
+            "timestamp": "2026-11-20T13:17:56.313300Z"
+          },
+          {
+            "role": "student",
+            "content": "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?",
+            "timestamp": "2026-11-20T13:17:56.931749Z"
+          },
+          {
+            "role": "client",
+            "content": "It could help with the visibility and invoice follow-up I need, but I understand it won’t fund the gap between the QAR 40,000 due and the uncertain customer receipts. Would it let me see a projected balance after payroll and supplier payments while keeping control over when I schedule supplier payments?",
+            "timestamp": "2026-11-20T13:17:58.595275Z"
+          }
+        ],
+        "student_summary": "The business faces a possible QAR 15,000 timing gap. Follow up collections and fixed obligations, preserve the Sharia requirement, and establish a contingency for delayed receipts. Purchase finance needs qualifying documentation.",
+        "recommendations": [
+          {
+            "product_id": "business-cash-management",
+            "product_name": "Business Cash Management",
+            "justification": "Useful for collections and payment visibility. It does not fund the gap, so a separate contingency is required."
+          }
+        ],
+        "coach_feedback": {
+          "what_went_well": [
+            "Systematically uncovered the core timing issue: late retailer payments, QAR 25,000 cash against QAR 40,000 due in three weeks, and QAR 60,000 expected with uncertain receipt dates.",
+            "Confirmed payroll cannot be postponed and that there is no supplier quotation or purchase order for the larger orders.",
+            "Captured the Sharia preference and correctly framed Business Cash Management as visibility and collections support that does not fund the gap; the summary preserves this limitation and flags a separate contingency."
+          ],
+          "what_was_missed": [
+            "The immediate QAR 15,000 shortfall still lacks a concrete plan; stating that a separate contingency is required does not establish what Maryam will do if receipts arrive late.",
+            "The client's closing question, whether cash management can show a projected balance after payroll and supplier payments while preserving control over supplier scheduling, was not answered, leaving a practical product-fit point unresolved.",
+            "Although Maryam offered to check exact supplier terms, the student did not follow up on which supplier payments might be flexible, missing a potential cash-timing lever."
+          ],
+          "how_to_improve": [
+            "Answer the closing question directly by confirming the relevant cash-management features from the catalogue, subject to eligibility and accurate invoice/payment data, then verify Maryam's account setup.",
+            "Set out an explicit shortfall plan: protect fixed payroll, chase overdue invoices, confirm supplier timing, and set a review trigger for expected receipts.",
+            "Keep any Sharia-compliant financing discussion tied to a documented eligible purchase, not payroll or existing bills, and verify any transaction-review requirements before suggesting it."
+          ]
+        }
+      },
+      "download": {
+        "suggested_filename": "bank-interview-maryam-a56f9b41.json",
+        "top_level_keys": [
+          "report_type",
+          "session_id",
+          "status",
+          "client",
+          "transcript",
+          "student_summary",
+          "recommendations",
+          "coach_feedback"
+        ],
+        "private_metadata_keys_found": false
+      },
+      "script_reference": {
+        "file": "../scripts/conversation_scenarios.json",
+        "id": "maryam-strong"
+      },
+      "scripted_inputs": {
+        "questions": [
+          "How do late customer payments affect your business?",
+          "How much cash is available, and what payments are due?",
+          "What payments are you expecting from customers, and when?",
+          "Which obligations cannot be postponed?",
+          "What financing arrangements would you accept?",
+          "Do you have supplier quotations or purchase orders for the larger orders?",
+          "Business Cash Management can track invoices and upcoming payments but supplies no funding. Would that help?"
+        ],
+        "summary": "The business faces a possible QAR 15,000 timing gap. Follow up collections and fixed obligations, preserve the Sharia requirement, and establish a contingency for delayed receipts. Purchase finance needs qualifying documentation.",
+        "recommendations": [
+          {
+            "product_id": "business-cash-management",
+            "justification": "Useful for collections and payment visibility. It does not fund the gap, so a separate contingency is required."
+          }
+        ]
+      },
+      "assessment": {
+        "verdict": "PASS",
+        "client": "Responses stayed in character, used the correct business cash and payment figures, disclosed Sharia preference after a financing question, and reacted to Cash Management without selecting a complete banking solution for the student.",
+        "coach": "Credited the no-funding limitation and the discovered cash facts. Identified the genuinely unresolved cash-gap contingency and actual unanswered customer questions. No unselected trade-finance explanation was treated as a missed requirement. Conditional purchase-finance advice remained in How to improve.",
+        "all_four_stages_completed": true,
+        "key_evidence": [
+          "report.coach_feedback.what_went_well[2]",
+          "report.coach_feedback.what_was_missed[0]"
+        ]
+      },
+      "coach_feedback_word_count": 236,
+      "coach_attempts": 1,
+      "manual_review_scores": null
+    },
+    {
+      "id": "maryam-unsuitable",
+      "client_id": "maryam",
+      "started_at": "2026-11-20T13:19:21.195Z",
+      "fresh_browser_context": true,
+      "turns": [
+        {
+          "index": 0,
+          "question": "How much business cash is available and what payments are due?",
+          "started_at": "2026-11-20T13:19:21.223Z",
+          "status": "SUCCESS",
+          "response": "Right now the business has about QAR 25,000 in available cash, and I have QAR 40,000 in supplier and payroll payments due over the next three weeks. That timing is a concern, so I'd like to review how to manage the shortfall without disrupting day-to-day operations.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.708,
+          "completed_at": "2026-11-20T13:19:22.938Z",
+          "counter": {
+            "questions": 1,
+            "requests": 1
+          },
+          "prefix_preserved": true,
+          "message_count": 2
+        },
+        {
+          "index": 1,
+          "question": "What preferences or restrictions do you have about financing?",
+          "started_at": "2026-11-20T13:19:22.947Z",
+          "status": "SUCCESS",
+          "response": "I’d prefer Sharia-compliant financing, and I wouldn’t take a conventional interest-bearing credit facility. Before considering anything, I’d want the structure explained clearly so I understand how it works and what it would mean for the business.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.357,
+          "completed_at": "2026-11-20T13:19:24.307Z",
+          "counter": {
+            "questions": 2,
+            "requests": 2
+          },
+          "prefix_preserved": true,
+          "message_count": 4
+        },
+        {
+          "index": 2,
+          "question": "Business Flex Credit is an interest-bearing revolving line. Would that work for you?",
+          "started_at": "2026-11-20T13:19:24.322Z",
+          "status": "SUCCESS",
+          "response": "That wouldn’t work for me, since it’s an interest-bearing revolving line and I’d prefer Sharia-compliant financing. I’d rather review a Sharia-compliant option, with the structure and requirements explained clearly before I consider it.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.664,
+          "completed_at": "2026-11-20T13:19:25.992Z",
+          "counter": {
+            "questions": 3,
+            "requests": 3
+          },
+          "prefix_preserved": true,
+          "message_count": 6
+        }
+      ],
+      "request_count": 5,
+      "status": "FAILED",
+      "initial_counter": {
+        "questions": 0,
+        "requests": 0
+      },
+      "initial_message_count": 0,
+      "transcript": [
+        {
+          "speaker": "You",
+          "content": "How much business cash is available and what payments are due?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "Right now the business has about QAR 25,000 in available cash, and I have QAR 40,000 in supplier and payroll payments due over the next three weeks. That timing is a concern, so I'd like to review how to manage the shortfall without disrupting day-to-day operations."
+        },
+        {
+          "speaker": "You",
+          "content": "What preferences or restrictions do you have about financing?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "I’d prefer Sharia-compliant financing, and I wouldn’t take a conventional interest-bearing credit facility. Before considering anything, I’d want the structure explained clearly so I understand how it works and what it would mean for the business."
+        },
+        {
+          "speaker": "You",
+          "content": "Business Flex Credit is an interest-bearing revolving line. Would that work for you?"
+        },
+        {
+          "speaker": "Maryam Al-Kuwari",
+          "content": "That wouldn’t work for me, since it’s an interest-bearing revolving line and I’d prefer Sharia-compliant financing. I’d rather review a Sharia-compliant option, with the structure and requirements explained clearly before I consider it."
+        }
+      ],
+      "ui": {
+        "initial_justification_count": 0,
+        "empty_summary_error": true,
+        "empty_product_error": true,
+        "missing_justification_errors": [
+          {
+            "product_id": "business-flex-credit",
+            "visible": true
+          }
+        ],
+        "selected_justification_count": 1,
+        "summary_preserved": true,
+        "precoach_counter": {
+          "questions": 3,
+          "requests": 3
+        },
+        "coach_loading_observed": true,
+        "counter_unchanged_after_download": true,
+        "exact_submission_preserved": true
+      },
+      "coach_started_at": "2026-11-20T13:20:09.956Z",
+      "coach_duration_seconds": 12.332,
+      "coach_completed_at": "2026-11-20T13:20:22.289Z",
+      "final_counter": {
+        "questions": 3,
+        "requests": 5
+      },
+      "coach_sections": {
+        "What went well": false,
+        "What was missed": false,
+        "How to improve": false
+      },
+      "report": {
+        "report_type": "student_interview",
+        "session_id": "0db199f1-caf1-4da7-b015-96e0280b0430",
+        "status": "completed",
+        "client": {
+          "id": "maryam",
+          "name": "Maryam Al-Kuwari",
+          "age": 35,
+          "occupation": "Small business owner",
+          "background": "Maryam owns a growing distribution business in Doha, Qatar, that supplies packaging to cafes and retailers.",
+          "public_financial_situation": "The business has regular customer receipts and supplier payments. Maryam wants to explore banking services that support day-to-day operations and growth.",
+          "interview_opening_context": "Maryam has booked a meeting to review the business's banking arrangements as she considers taking on larger retail orders."
+        },
+        "transcript": [
+          {
+            "role": "student",
+            "content": "How much business cash is available and what payments are due?",
+            "timestamp": "2026-11-20T13:19:21.912272Z"
+          },
+          {
+            "role": "client",
+            "content": "Right now the business has about QAR 25,000 in available cash, and I have QAR 40,000 in supplier and payroll payments due over the next three weeks. That timing is a concern, so I'd like to review how to manage the shortfall without disrupting day-to-day operations.",
+            "timestamp": "2026-11-20T13:19:23.033259Z"
+          },
+          {
+            "role": "student",
+            "content": "What preferences or restrictions do you have about financing?",
+            "timestamp": "2026-11-20T13:19:23.660648Z"
+          },
+          {
+            "role": "client",
+            "content": "I’d prefer Sharia-compliant financing, and I wouldn’t take a conventional interest-bearing credit facility. Before considering anything, I’d want the structure explained clearly so I understand how it works and what it would mean for the business.",
+            "timestamp": "2026-11-20T13:19:24.341445Z"
+          },
+          {
+            "role": "student",
+            "content": "Business Flex Credit is an interest-bearing revolving line. Would that work for you?",
+            "timestamp": "2026-11-20T13:19:25.008596Z"
+          },
+          {
+            "role": "client",
+            "content": "That wouldn’t work for me, since it’s an interest-bearing revolving line and I’d prefer Sharia-compliant financing. I’d rather review a Sharia-compliant option, with the structure and requirements explained clearly before I consider it.",
+            "timestamp": "2026-11-20T13:19:26.022472Z"
+          }
+        ],
+        "student_summary": "Maryam has a short-term cash gap and requires Sharia-compliant arrangements.",
+        "recommendations": [
+          {
+            "product_id": "business-flex-credit",
+            "product_name": "Business Flex Credit",
+            "justification": "A flexible credit line can cover upcoming bills despite the stated preference."
+          }
+        ],
+        "coach_feedback": null
+      },
+      "download": {
+        "suggested_filename": "bank-interview-maryam-0db199f1.json",
+        "top_level_keys": [
+          "report_type",
+          "session_id",
+          "status",
+          "client",
+          "transcript",
+          "student_summary",
+          "recommendations",
+          "coach_feedback"
+        ],
+        "private_metadata_keys_found": false
+      },
+      "coach_error": "The AI Coach still returned unfair product critique or misplaced suitability feedback after one repair.\nDownload your interview report from the sidebar before restarting or leaving this session.",
+      "coach_failure": {
+        "error": "The AI Coach still returned unfair product critique or misplaced suitability feedback after one repair.\nDownload your interview report from the sidebar before restarting or leaving this session.",
+        "feedback_fabricated": false,
+        "report_preserved": true,
+        "attempts": 2
+      },
+      "script_reference": {
+        "file": "../scripts/conversation_scenarios.json",
+        "id": "maryam-unsuitable"
+      },
+      "scripted_inputs": {
+        "questions": [
+          "How much business cash is available and what payments are due?",
+          "What preferences or restrictions do you have about financing?",
+          "Business Flex Credit is an interest-bearing revolving line. Would that work for you?"
+        ],
+        "summary": "Maryam has a short-term cash gap and requires Sharia-compliant arrangements.",
+        "recommendations": [
+          {
+            "product_id": "business-flex-credit",
+            "justification": "A flexible credit line can cover upcoming bills despite the stated preference."
+          }
+        ]
+      },
+      "assessment": {
+        "verdict": "FAIL",
+        "client": "All three questions received coherent responses. Maryam explicitly refused conventional interest-bearing credit, including the proposed Business Flex Credit.",
+        "coach": "No validated Coach feedback was returned. The website rejected feedback after its single built-in repair and displayed a safe grounding/section error. The actual rejected output and the failed check category were not exposed; neither model noncompliance nor a validator false positive can be established from the browser.",
+        "all_four_stages_completed": false,
+        "key_evidence": [
+          "coach_error",
+          "coach_failure",
+          "report.coach_feedback"
+        ]
+      },
+      "coach_feedback_word_count": null,
+      "coach_attempts": 2,
+      "manual_review_scores": null
+    },
+    {
+      "id": "mohamed-strong",
+      "client_id": "mohamed",
+      "started_at": "2026-11-20T13:21:17.408Z",
+      "fresh_browser_context": true,
+      "turns": [
+        {
+          "index": 0,
+          "question": "What are you saving for, and what amount and deadline do you have in mind?",
+          "started_at": "2026-11-20T13:21:17.436Z",
+          "status": "SUCCESS",
+          "response": "I’m aiming to set aside QAR 9,000 over 18 months for a professional certification course and exam fees. I’d like to keep that separate from my emergency fund so the two goals don’t get mixed together.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.348,
+          "completed_at": "2026-11-20T13:21:18.792Z",
+          "counter": {
+            "questions": 1,
+            "requests": 1
+          },
+          "prefix_preserved": true,
+          "message_count": 2
+        },
+        {
+          "index": 1,
+          "question": "What income comes in, and what fixed bills go out each month?",
+          "started_at": "2026-11-20T13:21:18.798Z",
+          "status": "SUCCESS",
+          "response": "I take home QAR 8,000 a month, and my fixed monthly bills come to about QAR 4,600. That’s before groceries and other irregular expenses.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.242,
+          "completed_at": "2026-11-20T13:21:20.044Z",
+          "counter": {
+            "questions": 2,
+            "requests": 2
+          },
+          "prefix_preserved": true,
+          "message_count": 4
+        },
+        {
+          "index": 2,
+          "question": "How much emergency money is set aside, and which irregular expenses come up?",
+          "started_at": "2026-11-20T13:21:44.352Z",
+          "status": "SUCCESS",
+          "response": "I have QAR 1,200 set aside for emergencies. The irregular costs that tend to come up are car maintenance and family travel; either can reduce or wipe out what I manage to save in a month, and an unexpected repair could use most of that emergency money.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.404,
+          "completed_at": "2026-11-20T13:21:45.762Z",
+          "counter": {
+            "questions": 3,
+            "requests": 3
+          },
+          "prefix_preserved": true,
+          "message_count": 6
+        },
+        {
+          "index": 3,
+          "question": "How quickly would you need access to that money?",
+          "started_at": "2026-11-20T13:21:45.778Z",
+          "status": "SUCCESS",
+          "response": "I’d need my emergency money to be available the same day if something comes up. For the certification savings, I’d like it kept separate so I can see the progress clearly.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.245,
+          "completed_at": "2026-11-20T13:21:47.027Z",
+          "counter": {
+            "questions": 4,
+            "requests": 4
+          },
+          "prefix_preserved": true,
+          "message_count": 8
+        },
+        {
+          "index": 4,
+          "question": "How much could you comfortably save each month, and could you adjust contributions?",
+          "started_at": "2026-11-20T13:22:37.845Z",
+          "status": "SUCCESS",
+          "response": "I’m not certain yet what monthly amount would be comfortable once groceries, car maintenance, and family travel are accounted for. An average of QAR 500 a month might work for the certification goal, but I’d want to check that against those irregular expenses and keeping my emergency savings intact—and I’d need to be able to adjust or pause the contributions when a higher-expense month comes up.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.975,
+          "completed_at": "2026-11-20T13:22:39.825Z",
+          "counter": {
+            "questions": 5,
+            "requests": 5
+          },
+          "prefix_preserved": true,
+          "message_count": 10
+        },
+        {
+          "index": 5,
+          "question": "Goal Saver Account has withdrawal delays. Everyday Access Account has an instant-access reserve. How would that affect your plans?",
+          "started_at": "2026-11-20T13:22:39.838Z",
+          "status": "SUCCESS",
+          "response": "That makes sense: my emergency reserve would need the instant-access space, since I can’t wait several business days for a repair. For the certification goal, a separate account showing progress appeals to me, but I’d want to confirm how adjusting or pausing contributions affects the goal bonus, and whether any early withdrawal from that goal account would forfeit it.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 2.147,
+          "completed_at": "2026-11-20T13:22:41.988Z",
+          "counter": {
+            "questions": 6,
+            "requests": 6
+          },
+          "prefix_preserved": true,
+          "message_count": 12
+        }
+      ],
+      "request_count": 7,
+      "status": "COMPLETED",
+      "initial_counter": {
+        "questions": 0,
+        "requests": 0
+      },
+      "initial_message_count": 0,
+      "transcript": [
+        {
+          "speaker": "You",
+          "content": "What are you saving for, and what amount and deadline do you have in mind?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I’m aiming to set aside QAR 9,000 over 18 months for a professional certification course and exam fees. I’d like to keep that separate from my emergency fund so the two goals don’t get mixed together."
+        },
+        {
+          "speaker": "You",
+          "content": "What income comes in, and what fixed bills go out each month?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I take home QAR 8,000 a month, and my fixed monthly bills come to about QAR 4,600. That’s before groceries and other irregular expenses."
+        },
+        {
+          "speaker": "You",
+          "content": "How much emergency money is set aside, and which irregular expenses come up?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I have QAR 1,200 set aside for emergencies. The irregular costs that tend to come up are car maintenance and family travel; either can reduce or wipe out what I manage to save in a month, and an unexpected repair could use most of that emergency money."
+        },
+        {
+          "speaker": "You",
+          "content": "How quickly would you need access to that money?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I’d need my emergency money to be available the same day if something comes up. For the certification savings, I’d like it kept separate so I can see the progress clearly."
+        },
+        {
+          "speaker": "You",
+          "content": "How much could you comfortably save each month, and could you adjust contributions?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I’m not certain yet what monthly amount would be comfortable once groceries, car maintenance, and family travel are accounted for. An average of QAR 500 a month might work for the certification goal, but I’d want to check that against those irregular expenses and keeping my emergency savings intact—and I’d need to be able to adjust or pause the contributions when a higher-expense month comes up."
+        },
+        {
+          "speaker": "You",
+          "content": "Goal Saver Account has withdrawal delays. Everyday Access Account has an instant-access reserve. How would that affect your plans?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "That makes sense: my emergency reserve would need the instant-access space, since I can’t wait several business days for a repair. For the certification goal, a separate account showing progress appeals to me, but I’d want to confirm how adjusting or pausing contributions affects the goal bonus, and whether any early withdrawal from that goal account would forfeit it."
+        }
+      ],
+      "ui": {
+        "initial_justification_count": 0,
+        "empty_summary_error": true,
+        "empty_product_error": true,
+        "missing_justification_errors": [
+          {
+            "product_id": "everyday-access-account",
+            "visible": true
+          },
+          {
+            "product_id": "goal-saver-account",
+            "visible": true
+          }
+        ],
+        "selected_justification_count": 2,
+        "summary_preserved": true,
+        "precoach_counter": {
+          "questions": 6,
+          "requests": 6
+        },
+        "coach_loading_observed": true,
+        "counter_unchanged_after_download": true,
+        "exact_submission_preserved": true
+      },
+      "coach_started_at": "2026-11-20T13:23:15.026Z",
+      "coach_duration_seconds": 13.876,
+      "coach_completed_at": "2026-11-20T13:23:28.989Z",
+      "final_counter": {
+        "questions": 6,
+        "requests": 7
+      },
+      "coach_sections": {
+        "What went well": true,
+        "What was missed": true,
+        "How to improve": true
+      },
+      "report": {
+        "report_type": "student_interview",
+        "session_id": "0e108661-b460-470c-9c02-54ba14d72cd7",
+        "status": "completed",
+        "client": {
+          "id": "mohamed",
+          "name": "Mohamed Al-Ansari",
+          "age": 35,
+          "occupation": "Salaried professional",
+          "background": "Mohamed has stable employment in Doha, Qatar, and wants to manage his finances more effectively.",
+          "public_financial_situation": "Mohamed receives a regular monthly salary and uses one account for income, bills, and savings. He wants to improve how he plans expenses and sets money aside.",
+          "interview_opening_context": "Mohamed has booked a meeting to review how his accounts could support a more structured savings plan."
+        },
+        "transcript": [
+          {
+            "role": "student",
+            "content": "What are you saving for, and what amount and deadline do you have in mind?",
+            "timestamp": "2026-11-20T13:21:18.137464Z"
+          },
+          {
+            "role": "client",
+            "content": "I’m aiming to set aside QAR 9,000 over 18 months for a professional certification course and exam fees. I’d like to keep that separate from my emergency fund so the two goals don’t get mixed together.",
+            "timestamp": "2026-11-20T13:21:18.872953Z"
+          },
+          {
+            "role": "student",
+            "content": "What income comes in, and what fixed bills go out each month?",
+            "timestamp": "2026-11-20T13:21:19.504661Z"
+          },
+          {
+            "role": "client",
+            "content": "I take home QAR 8,000 a month, and my fixed monthly bills come to about QAR 4,600. That’s before groceries and other irregular expenses.",
+            "timestamp": "2026-11-20T13:21:20.141175Z"
+          },
+          {
+            "role": "student",
+            "content": "How much emergency money is set aside, and which irregular expenses come up?",
+            "timestamp": "2026-11-20T13:21:45.049148Z"
+          },
+          {
+            "role": "client",
+            "content": "I have QAR 1,200 set aside for emergencies. The irregular costs that tend to come up are car maintenance and family travel; either can reduce or wipe out what I manage to save in a month, and an unexpected repair could use most of that emergency money.",
+            "timestamp": "2026-11-20T13:21:45.787328Z"
+          },
+          {
+            "role": "student",
+            "content": "How quickly would you need access to that money?",
+            "timestamp": "2026-11-20T13:21:46.466559Z"
+          },
+          {
+            "role": "client",
+            "content": "I’d need my emergency money to be available the same day if something comes up. For the certification savings, I’d like it kept separate so I can see the progress clearly.",
+            "timestamp": "2026-11-20T13:21:47.127830Z"
+          },
+          {
+            "role": "student",
+            "content": "How much could you comfortably save each month, and could you adjust contributions?",
+            "timestamp": "2026-11-20T13:22:38.555863Z"
+          },
+          {
+            "role": "client",
+            "content": "I’m not certain yet what monthly amount would be comfortable once groceries, car maintenance, and family travel are accounted for. An average of QAR 500 a month might work for the certification goal, but I’d want to check that against those irregular expenses and keeping my emergency savings intact—and I’d need to be able to adjust or pause the contributions when a higher-expense month comes up.",
+            "timestamp": "2026-11-20T13:22:39.889685Z"
+          },
+          {
+            "role": "student",
+            "content": "Goal Saver Account has withdrawal delays. Everyday Access Account has an instant-access reserve. How would that affect your plans?",
+            "timestamp": "2026-11-20T13:22:40.532945Z"
+          },
+          {
+            "role": "client",
+            "content": "That makes sense: my emergency reserve would need the instant-access space, since I can’t wait several business days for a repair. For the certification goal, a separate account showing progress appeals to me, but I’d want to confirm how adjusting or pausing contributions affects the goal bonus, and whether any early withdrawal from that goal account would forfeit it.",
+            "timestamp": "2026-11-20T13:22:42.097361Z"
+          }
+        ],
+        "student_summary": "Keep emergency funds accessible, account for irregular expenses, and assess a flexible contribution toward certification separately.",
+        "recommendations": [
+          {
+            "product_id": "everyday-access-account",
+            "product_name": "Everyday Access Account",
+            "justification": "An accessible reserve for unexpected expenses."
+          },
+          {
+            "product_id": "goal-saver-account",
+            "product_name": "Goal Saver Account",
+            "justification": "For the dated certification goal, with adjustable contributions and a separate emergency reserve."
+          }
+        ],
+        "coach_feedback": {
+          "what_went_well": [
+            "Opened with a clear goal question and established the QAR 9,000 certification target over 18 months, kept separate from emergency savings.",
+            "Covered income (QAR 8,000), fixed bills (about QAR 4,600), the QAR 1,200 emergency balance and irregular car/travel costs.",
+            "Explored same-day emergency access and contribution flexibility, then mapped the Everyday Access reserve versus the Goal Saver for the dated goal."
+          ],
+          "what_was_missed": [
+            "QAR 500 a month remains conditional: the client said he was not certain it was comfortable after groceries and irregular expenses, and no monthly surplus or budget buffer was quantified.",
+            "No emergency-reserve build target or split of surplus between rebuilding the reserve and the certification goal was discussed.",
+            "The client asked how pausing/adjusting contributions and early withdrawal affect the Goal Saver bonus; the transcript does not resolve this. The catalogue states early withdrawal may forfeit a bonus but does not detail how pausing/adjusting contributions interacts with it, so it needs verification."
+          ],
+          "how_to_improve": [
+            "Convert the target into a reviewable plan: after QAR 4,600 bills and realistic groceries/irregular costs, agree a contribution the client is comfortable starting with, then review after a high-expense month.",
+            "Ask what emergency reserve target he wants and how much of any monthly surplus should go there before the certification transfer.",
+            "Before relying on the Goal Saver, confirm with the bank how pausing/adjusting transfers and early withdrawal affect any goal bonus, and record the answer."
+          ]
+        }
+      },
+      "download": {
+        "suggested_filename": "bank-interview-mohamed-0e108661.json",
+        "top_level_keys": [
+          "report_type",
+          "session_id",
+          "status",
+          "client",
+          "transcript",
+          "student_summary",
+          "recommendations",
+          "coach_feedback"
+        ],
+        "private_metadata_keys_found": false
+      },
+      "script_reference": {
+        "file": "../scripts/conversation_scenarios.json",
+        "id": "mohamed-strong"
+      },
+      "scripted_inputs": {
+        "questions": [
+          "What are you saving for, and what amount and deadline do you have in mind?",
+          "What income comes in, and what fixed bills go out each month?",
+          "How much emergency money is set aside, and which irregular expenses come up?",
+          "How quickly would you need access to that money?",
+          "How much could you comfortably save each month, and could you adjust contributions?",
+          "Goal Saver Account has withdrawal delays. Everyday Access Account has an instant-access reserve. How would that affect your plans?"
+        ],
+        "summary": "Keep emergency funds accessible, account for irregular expenses, and assess a flexible contribution toward certification separately.",
+        "recommendations": [
+          {
+            "product_id": "everyday-access-account",
+            "justification": "An accessible reserve for unexpected expenses."
+          },
+          {
+            "product_id": "goal-saver-account",
+            "justification": "For the dated certification goal, with adjustable contributions and a separate emergency reserve."
+          }
+        ]
+      },
+      "assessment": {
+        "verdict": "PASS",
+        "client": "The formerly timed-out contextual access question received a genuine same-day-access response in 1.245 seconds. Responses kept the QAR 1,200 emergency balance separate from the future QAR 9,000 goal over 18 months; QAR 500 remained a conditional contribution needing an expense review.",
+        "coach": "The genuine feedback credited discovery, evaluated the two actual accounts fairly, and identified unresolved affordability and reserve-building questions. It preserved may-forfeit wording and required verification of undocumented bonus effects of changing transfers.",
+        "all_four_stages_completed": true,
+        "key_evidence": [
+          "turns[3]",
+          "turns[4]",
+          "report.recommendations",
+          "report.coach_feedback"
+        ]
+      },
+      "coach_feedback_word_count": 226,
+      "coach_attempts": 1,
+      "manual_review_scores": null
+    },
+    {
+      "id": "mohamed-unsuitable",
+      "client_id": "mohamed",
+      "started_at": "2026-11-20T13:24:10.914Z",
+      "fresh_browser_context": true,
+      "turns": [
+        {
+          "index": 0,
+          "question": "How much emergency money do you have set aside?",
+          "started_at": "2026-11-20T13:24:10.942Z",
+          "status": "SUCCESS",
+          "response": "I have about QAR 1,200 set aside for emergencies right now. I’m aware that an unexpected repair could use up most of that, so I’d like to build it up more steadily.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.463,
+          "completed_at": "2026-11-20T13:24:12.413Z",
+          "counter": {
+            "questions": 1,
+            "requests": 1
+          },
+          "prefix_preserved": true,
+          "message_count": 2
+        },
+        {
+          "index": 1,
+          "question": "How quickly would you need access if an unexpected bill arrived?",
+          "started_at": "2026-11-20T13:24:12.422Z",
+          "status": "SUCCESS",
+          "response": "I’d need it available the same day, since an unexpected bill or repair could be urgent. That’s why easy access matters to me for emergency money.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.255,
+          "completed_at": "2026-11-20T13:24:13.680Z",
+          "counter": {
+            "questions": 2,
+            "requests": 2
+          },
+          "prefix_preserved": true,
+          "message_count": 4
+        },
+        {
+          "index": 2,
+          "question": "Goal Saver Account withdrawals take several business days. Would that work for your emergency money?",
+          "started_at": "2026-11-20T13:24:13.686Z",
+          "status": "SUCCESS",
+          "response": "No, that wouldn’t work for my emergency money—I’d need same-day access in case of an urgent bill or repair. I could consider that account for a separate planned savings goal, but I’d want my emergency reserve kept somewhere I can reach immediately.",
+          "loading_indicator_observed": false,
+          "duration_seconds": 1.688,
+          "completed_at": "2026-11-20T13:24:15.382Z",
+          "counter": {
+            "questions": 3,
+            "requests": 3
+          },
+          "prefix_preserved": true,
+          "message_count": 6
+        }
+      ],
+      "request_count": 4,
+      "status": "COMPLETED",
+      "initial_counter": {
+        "questions": 0,
+        "requests": 0
+      },
+      "initial_message_count": 0,
+      "transcript": [
+        {
+          "speaker": "You",
+          "content": "How much emergency money do you have set aside?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I have about QAR 1,200 set aside for emergencies right now. I’m aware that an unexpected repair could use up most of that, so I’d like to build it up more steadily."
+        },
+        {
+          "speaker": "You",
+          "content": "How quickly would you need access if an unexpected bill arrived?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "I’d need it available the same day, since an unexpected bill or repair could be urgent. That’s why easy access matters to me for emergency money."
+        },
+        {
+          "speaker": "You",
+          "content": "Goal Saver Account withdrawals take several business days. Would that work for your emergency money?"
+        },
+        {
+          "speaker": "Mohamed Al-Ansari",
+          "content": "No, that wouldn’t work for my emergency money—I’d need same-day access in case of an urgent bill or repair. I could consider that account for a separate planned savings goal, but I’d want my emergency reserve kept somewhere I can reach immediately."
+        }
+      ],
+      "ui": {
+        "initial_justification_count": 0,
+        "empty_summary_error": true,
+        "empty_product_error": true,
+        "missing_justification_errors": [
+          {
+            "product_id": "goal-saver-account",
+            "visible": true
+          }
+        ],
+        "selected_justification_count": 1,
+        "summary_preserved": true,
+        "precoach_counter": {
+          "questions": 3,
+          "requests": 3
+        },
+        "coach_loading_observed": true,
+        "counter_unchanged_after_download": true,
+        "exact_submission_preserved": true
+      },
+      "coach_started_at": "2026-11-20T13:25:13.473Z",
+      "coach_duration_seconds": 12.345,
+      "coach_completed_at": "2026-11-20T13:25:25.819Z",
+      "final_counter": {
+        "questions": 3,
+        "requests": 4
+      },
+      "coach_sections": {
+        "What went well": true,
+        "What was missed": true,
+        "How to improve": true
+      },
+      "report": {
+        "report_type": "student_interview",
+        "session_id": "eb9b5393-671e-4d75-ad4e-9d6ab62ff525",
+        "status": "completed",
+        "client": {
+          "id": "mohamed",
+          "name": "Mohamed Al-Ansari",
+          "age": 35,
+          "occupation": "Salaried professional",
+          "background": "Mohamed has stable employment in Doha, Qatar, and wants to manage his finances more effectively.",
+          "public_financial_situation": "Mohamed receives a regular monthly salary and uses one account for income, bills, and savings. He wants to improve how he plans expenses and sets money aside.",
+          "interview_opening_context": "Mohamed has booked a meeting to review how his accounts could support a more structured savings plan."
+        },
+        "transcript": [
+          {
+            "role": "student",
+            "content": "How much emergency money do you have set aside?",
+            "timestamp": "2026-11-20T13:24:11.555059Z"
+          },
+          {
+            "role": "client",
+            "content": "I have about QAR 1,200 set aside for emergencies right now. I’m aware that an unexpected repair could use up most of that, so I’d like to build it up more steadily.",
+            "timestamp": "2026-11-20T13:24:12.418187Z"
+          },
+          {
+            "role": "student",
+            "content": "How quickly would you need access if an unexpected bill arrived?",
+            "timestamp": "2026-11-20T13:24:13.017192Z"
+          },
+          {
+            "role": "client",
+            "content": "I’d need it available the same day, since an unexpected bill or repair could be urgent. That’s why easy access matters to me for emergency money.",
+            "timestamp": "2026-11-20T13:24:13.645429Z"
+          },
+          {
+            "role": "student",
+            "content": "Goal Saver Account withdrawals take several business days. Would that work for your emergency money?",
+            "timestamp": "2026-11-20T13:24:14.303350Z"
+          },
+          {
+            "role": "client",
+            "content": "No, that wouldn’t work for my emergency money—I’d need same-day access in case of an urgent bill or repair. I could consider that account for a separate planned savings goal, but I’d want my emergency reserve kept somewhere I can reach immediately.",
+            "timestamp": "2026-11-20T13:24:15.375310Z"
+          }
+        ],
+        "student_summary": "Mohamed needs same-day access to his emergency reserve.",
+        "recommendations": [
+          {
+            "product_id": "goal-saver-account",
+            "product_name": "Goal Saver Account",
+            "justification": "Put all emergency money here to encourage saving despite the withdrawal delay."
+          }
+        ],
+        "coach_feedback": {
+          "what_went_well": [
+            "You asked about emergency savings and surfaced the QAR 1,200 reserve and its vulnerability to an unexpected repair.",
+            "You tested the access requirement directly: after the client said same-day access mattered, you checked whether Goal Saver’s several-day withdrawals would work; the client clearly said no for emergency money.",
+            "You helped the client articulate a useful distinction between an immediate-access emergency reserve and a separate planned savings goal."
+          ],
+          "what_was_missed": [
+            "Suitability conflict first: your final recommendation puts all emergency money in Goal Saver despite the client explicitly rejecting its several-day withdrawal delay for emergency funds.",
+            "The QAR 9,000 certification goal in 18 months was never explored; no required average contribution or separate goal visibility was discussed.",
+            "Income and fixed bills were not established, and irregular expenses plus contribution flexibility—such as pausing or adjusting transfers when car maintenance or family travel hits—were not assessed, so affordability is unsupported."
+          ],
+          "how_to_improve": [
+            "Correct the recommendation: do not assign emergency money to Goal Saver; keep an immediate-access reserve, and use Goal Saver only for the separate certification goal if the client accepts delayed withdrawals and possible bonus forfeiture; verify the terms.",
+            "Ask what the savings goal is, its amount and deadline, then calculate and discuss whether about QAR 500 per month is feasible after bills and irregular expenses.",
+            "Ask about monthly take-home pay and fixed bills, then plan adjustable or pausable Goal Saver transfers with a review after costly months. Optional product alternative: Everyday Access Account for the emergency reserve."
+          ]
+        }
+      },
+      "download": {
+        "suggested_filename": "bank-interview-mohamed-eb9b5393.json",
+        "top_level_keys": [
+          "report_type",
+          "session_id",
+          "status",
+          "client",
+          "transcript",
+          "student_summary",
+          "recommendations",
+          "coach_feedback"
+        ],
+        "private_metadata_keys_found": false
+      },
+      "script_reference": {
+        "file": "../scripts/conversation_scenarios.json",
+        "id": "mohamed-unsuitable"
+      },
+      "scripted_inputs": {
+        "questions": [
+          "How much emergency money do you have set aside?",
+          "How quickly would you need access if an unexpected bill arrived?",
+          "Goal Saver Account withdrawals take several business days. Would that work for your emergency money?"
+        ],
+        "summary": "Mohamed needs same-day access to his emergency reserve.",
+        "recommendations": [
+          {
+            "product_id": "goal-saver-account",
+            "justification": "Put all emergency money here to encourage saving despite the withdrawal delay."
+          }
+        ]
+      },
+      "assessment": {
+        "verdict": "PASS",
+        "client": "The Client stated same-day access was necessary and explicitly rejected several-day withdrawals for emergency money, while allowing a separate planned-goal use.",
+        "coach": "What was missed explicitly put the unsuitable emergency-money recommendation first. How to improve gave a distinct correction and labelled Everyday Access as an optional alternative. The Coach correctly treated the certification details and affordability as undiscovered rather than inventing student questions.",
+        "all_four_stages_completed": true,
+        "key_evidence": [
+          "report.coach_feedback.what_was_missed[0]",
+          "report.coach_feedback.how_to_improve[0]"
+        ]
+      },
+      "coach_feedback_word_count": 241,
+      "coach_attempts": 1,
+      "manual_review_scores": null
+    }
+  ],
+  "comparison_with_original": [
+    {
+      "issue": "Unselected trade-finance omission in Maryam strong",
+      "before": "PARTIAL PASS: unselected trade-finance coverage treated as a missed explanation.",
+      "after": "PASS: no such omission; unresolved cash-gap contingency still identified.",
+      "status": "RESOLVED_IN_THIS_RUN"
+    },
+    {
+      "issue": "Mohamed access-question timeout",
+      "before": "60.648-second timeout, no answer and no completed Coach workflow.",
+      "after": "Question answered in 1.245 seconds; full two-product workflow completed.",
+      "status": "DID_NOT_RECUR",
+      "limitation": "One successful rerun does not establish the original cause or guarantee future availability. The 60-second timeout remains unchanged."
+    },
+    {
+      "issue": "Maryam financing conflict in correct section",
+      "before": "The explicit conflict appeared only in How to improve.",
+      "after": "Coach failed validation after repair; no accepted feedback to inspect.",
+      "status": "UNRESOLVED_WITH_NEW_COMPLETION_FAILURE"
+    },
+    {
+      "issue": "Mohamed emergency-liquidity conflict in correct section",
+      "before": "Not run in the original deployed evaluation.",
+      "after": "Conflict first under What was missed; distinct corrective advice under How to improve.",
+      "status": "VERIFIED_IN_THIS_RUN"
+    },
+    {
+      "issue": "390 x 844 mobile badge overlap",
+      "before": "Hosting badges overlapped the lower selection area.",
+      "after": "56-pixel reserved strip; both scrolled Start buttons fully above it and the hosting badges.",
+      "status": "RESOLVED_AT_TESTED_VIEWPORT"
+    }
+  ],
+  "findings": [
+    {
+      "id": "AF01",
+      "severity": "HIGH",
+      "title": "Maryam unsuitable workflow cannot obtain validated Coach feedback after one repair",
+      "observed": "After three successful Client turns and the exact predefined Business Flex Credit recommendation, the Coach submission consumed two attempts and returned no feedback. The UI displayed: The AI Coach still returned unfair product critique or misplaced suitability feedback after one repair.",
+      "expected": "Return genuinely generated, validated feedback identifying the financing conflict under What was missed and corrective advice under How to improve, within the existing bounded repair policy.",
+      "reproduction": [
+        "Use a fresh session and select Maryam.",
+        "Send the three maryam-unsuitable questions unchanged.",
+        "End the interview and submit the predefined summary, Business Flex Credit and its unchanged justification.",
+        "Observe the Coach response. This sequence failed once in this round; repeatability has not been measured."
+      ],
+      "frequency": "One of four Coach submissions failed. It consumed two backend generation attempts, including one automatic content repair. No manual retry or scenario replay was performed.",
+      "evidence": [
+        "scenarios[maryam-unsuitable].coach_error",
+        "scenarios[maryam-unsuitable].final_counter",
+        "scenarios[maryam-unsuitable].report",
+        "deployed_app_evaluation_after_fixes_assets/maryam-unsuitable-feedback.png"
+      ],
+      "cause_status": "Confirmed repair/grounding exhaustion. Exact semantic cause NOT VERIFIED: the public UI does not expose the rejected feedback or distinguish unselected_product_critique from suitability_sections. Not an observed timeout, authentication or provider-availability error.",
+      "components_to_investigate": [
+        "src/bank_simulator/agents/coaching_validation.py: validate_grounding, product-category context and section checks",
+        "src/bank_simulator/agents/coach_agent.py: evaluate, prompt and the single repair request"
+      ],
+      "recommended_fix": "Inspect the safe failed-check category and supported section/matching evidence in a protected developer diagnostic. Determine whether the model ignored the instructions or the validator rejected equivalent valid wording. Correct that verified cause while retaining Pydantic validation, the bounded repair policy and explicit user retry. Then rerun this same scenario with new authorization.",
+      "before_after": "The original run returned feedback with its suitability warning in the wrong section. This run returned no accepted feedback at all: a regression in end-to-end completion, not proof that section placement is corrected."
+    }
+  ],
+  "limitations": [
+    "Exact deployed backend commit SHA could not be established from public build evidence; disclosed before live calls.",
+    "Rejected Maryam Coach output and exact failed semantic check are unavailable through the public interface.",
+    "One run per scenario: no statistical reliability or permanent timeout fix is established.",
+    "Physical devices, other browser engines, concurrent sessions under load and manual retry execution not tested.",
+    "Independent human numerical rubric scores remain unassigned."
+  ],
+  "recommendation": {
+    "must_fix_before_submission": [
+      "Resolve the Maryam unsuitable Coach completion failure without weakening validation or increasing repair attempts blindly.",
+      "Verify the owner-visible deployed revision before claiming exact post-fix commit acceptance."
+    ],
+    "followup_live_test_needed": true,
+    "followup": "After a verified targeted correction and deployment, explicitly authorize a limited rerun of the same Maryam unsuitable scenario. Do not rerun all successful cases automatically.",
+    "functional_assessment": "Three workflows meet acceptance in this run. Overall submission approval withheld because one required scenario still cannot produce Coach feedback."
+  },
+  "evidence_files": [
+    "deployed_app_evaluation_after_fixes_assets/desktop-selection.png",
+    "deployed_app_evaluation_after_fixes_assets/mobile-touch-maryam.png",
+    "deployed_app_evaluation_after_fixes_assets/mobile-touch-mohamed.png",
+    "deployed_app_evaluation_after_fixes_assets/maryam-strong-recommendations.png",
+    "deployed_app_evaluation_after_fixes_assets/maryam-strong-feedback.png",
+    "deployed_app_evaluation_after_fixes_assets/maryam-unsuitable-recommendations.png",
+    "deployed_app_evaluation_after_fixes_assets/maryam-unsuitable-feedback.png",
+    "deployed_app_evaluation_after_fixes_assets/mohamed-strong-recommendations.png",
+    "deployed_app_evaluation_after_fixes_assets/mohamed-strong-feedback.png",
+    "deployed_app_evaluation_after_fixes_assets/mohamed-unsuitable-recommendations.png",
+    "deployed_app_evaluation_after_fixes_assets/mohamed-unsuitable-feedback.png"
+  ],
+  "original_evidence": {
+    "markdown": "deployed_app_evaluation.md",
+    "json": "deployed_app_evaluation.json",
+    "markdown_sha256": "7ef89b3f608817cb1733d4d56ab5da0f0ad33b1c70608d6f8211ff12a1d1ec8a",
+    "json_sha256": "f91044e608e3ffe3e9b7c4eb1a2c8d851f92f57a748fea14f7663f1ba1275d70",
+    "overwritten": false
+  },
+  "changes": "Evaluation reports and student-visible screenshots only. No application code, configuration, deployment, commit or push changes. No more AI requests after the 24-attempt round; browser closed."
+}
