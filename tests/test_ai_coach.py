@@ -105,14 +105,17 @@ def test_truncation_and_schema_repair_share_one_recovery_allowance(coaching_cont
     assert len(adapter.calls) == 2
 
 
-def test_coach_parse_diagnostics_are_separate_from_api_response_failures(coaching_context, scripted_adapter):
+def test_coach_parse_diagnostics_are_separate_from_api_response_failures(coaching_context, scripted_adapter, monkeypatch):
+    monkeypatch.setattr("bank_simulator.agents.coach_agent.monotonic", lambda: 10.0)
     adapter = scripted_adapter(["{invalid json", json.dumps(FEEDBACK)])
     events = []
     OllamaCoachAgent(adapter, diagnostics=events.append).evaluate(coaching_context)
     assert events == [
         {"stage": "coach_feedback", "validation_failure_category": "invalid_json",
-         "json_error_location": {"line": 1, "column": 2}},
-        {"stage": "coach_feedback", "validation_failure_category": None},
+         "json_error_location": {"line": 1, "column": 2}, "attempt_index": 0,
+         "reason_code": "invalid_json", "failed_section": "feedback", "rule_id": "feedback_schema", "elapsed_seconds": 0.0},
+        {"stage": "coach_feedback", "validation_failure_category": None, "attempt_index": 1,
+         "reason_code": "accepted", "failed_section": None, "rule_id": None, "elapsed_seconds": 0.0},
     ]
     assert "invalid json" not in json.dumps(events)
 
