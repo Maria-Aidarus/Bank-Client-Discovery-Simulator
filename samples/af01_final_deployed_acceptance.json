@@ -1,0 +1,392 @@
+{
+  "report_type": "af01_final_deployed_acceptance",
+  "url": "https://bank-client-discovery-simulator.streamlit.app/",
+  "test_date": "2026-11-20",
+  "timezone": "Asia/Qatar",
+  "started_at": "2026-11-20T18:16:49.686000+03:00",
+  "finished_at": "2026-11-20T18:21:31.193000+03:00",
+  "scenario_id": "maryam-unsuitable",
+  "status": "COMPLETED",
+  "verdict": "PASS",
+  "verdict_scope": "Live functional acceptance of the unchanged maryam-unsuitable workflow. Exact deployed commit attestation remains unavailable.",
+  "af01_resolved": true,
+  "af01_resolution_scope": "The previously failing workflow delivered genuine accepted feedback in this single run, within the five-attempt budget. This does not guarantee every future model response.",
+  "final_assignment_submission_recommended": true,
+  "submission_recommendation": "Recommended on the recorded functional evidence: three earlier scenarios passed and the outstanding AF01 scenario now passed. Those earlier scenarios were not rerun on this revision. Confirm the owner-visible build if exact revision certification is required.",
+  "deployment_verification": {
+    "target_revision": "369dd2ea4e2b50927511624204a487a8d850f96c",
+    "github_main_revision": "369dd2ea4e2b50927511624204a487a8d850f96c",
+    "github_commit_time": "2026-11-20T14:51:24Z",
+    "website_accessible": true,
+    "public_github_deployment_records": [],
+    "github_commit_status": {
+      "state": "pending",
+      "total_count": 0
+    },
+    "exact_deployed_revision_verified": false,
+    "deployed_backend_is_current": null,
+    "evidence_of_outdated_deployment": false,
+    "owner_cloud_build_logs_available": false,
+    "public_app_revision_metadata": [],
+    "limitation": "Public records and the student interface expose no build SHA; owner logs require sign-in. Repository HEAD and homepage loading do not establish the deployed backend revision. No exact deployed-commit claim is made.",
+    "authorization": "After the zero-request blocked preflight and disclosure of the limitation, the user requested try again. One functional test was performed with the limitation retained; the earlier preflight was not counted as an AI scenario run."
+  },
+  "environment": {
+    "browser": "Headless Chrome 158.0.8127.36",
+    "automation": "Playwright through terminal tools",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "fresh_isolated_browser_context": true,
+    "provider_model": "Project configuration: Ollama Cloud / deepseek-v4.1-flash. Returned model identity was not exposed by the student report."
+  },
+  "method": "All three questions, the unchanged recommendation and the Coach request were sent through the actual deployed Streamlit UI. No local backend generation, mock response or older AI output was substituted. Pydantic was used offline only to validate the downloaded genuine feedback structure.",
+  "script_reference": "../scripts/conversation_scenarios.json",
+  "scripted_student_inputs": {
+    "questions": [
+      "How much business cash is available and what payments are due?",
+      "What preferences or restrictions do you have about financing?",
+      "Business Flex Credit is an interest-bearing revolving line. Would that work for you?"
+    ],
+    "summary": "Maryam has a short-term cash gap and requires Sharia-compliant arrangements.",
+    "recommendations": [
+      {
+        "product_id": "business-flex-credit",
+        "justification": "A flexible credit line can cover upcoming bills despite the stated preference."
+      }
+    ]
+  },
+  "turns": [
+    {
+      "index": 0,
+      "question": "How much business cash is available and what payments are due?",
+      "response": "The business currently has QAR 25,000 in available cash, with QAR 40,000 in supplier and payroll payments due over the next three weeks. That timing gap is one of the things I’d like to work through.",
+      "started_at": "2026-11-20T15:17:43.673Z",
+      "duration_seconds": 4.686,
+      "completed_at": "2026-11-20T15:17:48.368Z",
+      "counter": {
+        "questions": 1,
+        "requests": 1
+      },
+      "prefix_preserved": true,
+      "message_count": 2,
+      "status": "SUCCESS"
+    },
+    {
+      "index": 1,
+      "question": "What preferences or restrictions do you have about financing?",
+      "response": "I’d decline a conventional interest-bearing credit facility. I prefer Sharia-compliant banking, and I’d want to understand how the structure works before I consider any financing.",
+      "started_at": "2026-11-20T15:17:48.374Z",
+      "duration_seconds": 1.102,
+      "completed_at": "2026-11-20T15:17:49.481Z",
+      "counter": {
+        "questions": 2,
+        "requests": 2
+      },
+      "prefix_preserved": true,
+      "message_count": 4,
+      "status": "SUCCESS"
+    },
+    {
+      "index": 2,
+      "question": "Business Flex Credit is an interest-bearing revolving line. Would that work for you?",
+      "response": "No, that wouldn’t work for me because it’s interest-bearing. I’d rather look at a Sharia-compliant option, but I’d need the structure explained clearly before I consider it.",
+      "started_at": "2026-11-20T15:17:49.486Z",
+      "duration_seconds": 1.473,
+      "completed_at": "2026-11-20T15:17:50.963Z",
+      "counter": {
+        "questions": 3,
+        "requests": 3
+      },
+      "prefix_preserved": true,
+      "message_count": 6,
+      "status": "SUCCESS"
+    }
+  ],
+  "downloaded_student_report": {
+    "report_type": "student_interview",
+    "session_id": "245f7d05-90d4-4ea0-8b07-7ac6c9ac4137",
+    "status": "completed",
+    "client": {
+      "id": "maryam",
+      "name": "Maryam Al-Kuwari",
+      "age": 35,
+      "occupation": "Small business owner",
+      "background": "Maryam owns a growing distribution business in Doha, Qatar, that supplies packaging to cafes and retailers.",
+      "public_financial_situation": "The business has regular customer receipts and supplier payments. Maryam wants to explore banking services that support day-to-day operations and growth.",
+      "interview_opening_context": "Maryam has booked a meeting to review the business's banking arrangements as she considers taking on larger retail orders."
+    },
+    "transcript": [
+      {
+        "role": "student",
+        "content": "How much business cash is available and what payments are due?",
+        "timestamp": "2026-11-20T15:17:44.240493Z"
+      },
+      {
+        "role": "client",
+        "content": "The business currently has QAR 25,000 in available cash, with QAR 40,000 in supplier and payroll payments due over the next three weeks. That timing gap is one of the things I’d like to work through.",
+        "timestamp": "2026-11-20T15:17:47.881393Z"
+      },
+      {
+        "role": "student",
+        "content": "What preferences or restrictions do you have about financing?",
+        "timestamp": "2026-11-20T15:17:48.888464Z"
+      },
+      {
+        "role": "client",
+        "content": "I’d decline a conventional interest-bearing credit facility. I prefer Sharia-compliant banking, and I’d want to understand how the structure works before I consider any financing.",
+        "timestamp": "2026-11-20T15:17:49.413752Z"
+      },
+      {
+        "role": "student",
+        "content": "Business Flex Credit is an interest-bearing revolving line. Would that work for you?",
+        "timestamp": "2026-11-20T15:17:49.991927Z"
+      },
+      {
+        "role": "client",
+        "content": "No, that wouldn’t work for me because it’s interest-bearing. I’d rather look at a Sharia-compliant option, but I’d need the structure explained clearly before I consider it.",
+        "timestamp": "2026-11-20T15:17:50.893091Z"
+      }
+    ],
+    "student_summary": "Maryam has a short-term cash gap and requires Sharia-compliant arrangements.",
+    "recommendations": [
+      {
+        "product_id": "business-flex-credit",
+        "product_name": "Business Flex Credit",
+        "justification": "A flexible credit line can cover upcoming bills despite the stated preference."
+      }
+    ],
+    "coach_feedback": {
+      "what_went_well": [
+        "Asked directly about available cash and upcoming payments, surfacing QAR 25,000 against QAR 40,000 due within three weeks and making the near-term timing gap explicit.",
+        "Asked about financing preferences and drew out both the Sharia-compliant requirement and the refusal of interest-bearing credit, which the summary reflects."
+      ],
+      "what_was_missed": [
+        "Submitted Business Flex Credit, an interest-bearing revolving line, despite Maryam's explicit refusal of conventional interest-bearing credit and her Sharia-compliant requirement; the justification contradicts that stated constraint.",
+        "Did not explore invoice payment timing or the expected receipts, so whether collections could close the shortfall, and when, remained unclear.",
+        "Did not ask which payments are fixed, such as payroll, or whether a supplier quotation or purchase order exists for the larger orders, leaving suitability unclear."
+      ],
+      "how_to_improve": [
+        "Replace the submitted line with a Sharia-compliant route, such as Islamic Trade Finance, used only for a documented eligible purchase: explain its disclosed sale price and payment schedule, and note it cannot fund existing bills or payroll.",
+        "Then address how the near-term obligations will be met without interest-bearing debt, mapping dated payroll and supplier payments against expected receipts to size the gap.",
+        "Optional: Business Cash Management could support invoice tracking and projected balances, though it provides no funding; verify its features before relying on it.",
+        "Next, ask when customers typically pay, how much is expected over four to six weeks, and whether a supplier quote or purchase order exists."
+      ]
+    }
+  },
+  "coach": {
+    "sections_present": {
+      "What went well": true,
+      "What was missed": true,
+      "How to improve": true
+    },
+    "accepted_feedback": {
+      "what_went_well": [
+        "Asked directly about available cash and upcoming payments, surfacing QAR 25,000 against QAR 40,000 due within three weeks and making the near-term timing gap explicit.",
+        "Asked about financing preferences and drew out both the Sharia-compliant requirement and the refusal of interest-bearing credit, which the summary reflects."
+      ],
+      "what_was_missed": [
+        "Submitted Business Flex Credit, an interest-bearing revolving line, despite Maryam's explicit refusal of conventional interest-bearing credit and her Sharia-compliant requirement; the justification contradicts that stated constraint.",
+        "Did not explore invoice payment timing or the expected receipts, so whether collections could close the shortfall, and when, remained unclear.",
+        "Did not ask which payments are fixed, such as payroll, or whether a supplier quotation or purchase order exists for the larger orders, leaving suitability unclear."
+      ],
+      "how_to_improve": [
+        "Replace the submitted line with a Sharia-compliant route, such as Islamic Trade Finance, used only for a documented eligible purchase: explain its disclosed sale price and payment schedule, and note it cannot fund existing bills or payroll.",
+        "Then address how the near-term obligations will be met without interest-bearing debt, mapping dated payroll and supplier payments against expected receipts to size the gap.",
+        "Optional: Business Cash Management could support invoice tracking and projected balances, though it provides no funding; verify its features before relying on it.",
+        "Next, ask when customers typically pay, how much is expected over four to six weeks, and whether a supplier quote or purchase order exists."
+      ]
+    },
+    "feedback_word_count": 228,
+    "duration_seconds": 21.61,
+    "final_validation_exhaustion": false,
+    "final_visible_error": null,
+    "generation_attempts": 2,
+    "bounded_recovery_attempts": 1,
+    "initial_recovery_reason": null,
+    "recovery_note": "Two Coach generations are inferred from the UI count of 5 minus the 3 Client turns. The initial unusable/validation outcome and its reason code were not exposed; no rejected response is captured or invented."
+  },
+  "coach_assessment": {
+    "conflict_in_what_was_missed": true,
+    "conflict_evidence": "Submitted Business Flex Credit, an interest-bearing revolving line, despite Maryam's explicit refusal of conventional interest-bearing credit and her Sharia-compliant requirement; the justification contradicts that stated constraint.",
+    "distinct_correction_in_how_to_improve": true,
+    "correction_evidence": "Replace the submitted line with a Sharia-compliant route, such as Islamic Trade Finance, used only for a documented eligible purchase: explain its disclosed sale price and payment schedule, and note it cannot fund existing bills or payroll.",
+    "unselected_products_not_mandatory": true,
+    "optional_product_evidence": "Optional: Business Cash Management could support invoice tracking and projected balances, though it provides no funding; verify its features before relying on it.",
+    "catalogue_grounding": "Islamic Trade Finance is a conditional example for a documented eligible purchase, explicitly not existing bills/payroll; Business Cash Management is labelled Optional and described as providing no funding. Missing discovery concerns are not framed as mandatory product selections.",
+    "transcript_grounding": "The Client explicitly refused conventional interest-bearing credit twice. The Coach credits only the cash/payment and financing discovery actually present; unasked receipt timing, fixed obligations and purchase documentation remain missed needs.",
+    "financial_clarity": "All stated cash figures are business finances. No personal income or gender-based competence claim is made.",
+    "minor_polish": "Purchase-documentation advice appears in more than one improvement point. This does not change suitability or acceptance; it is optional conciseness polish."
+  },
+  "request_accounting": {
+    "budget": 5,
+    "ai_attempts": 5,
+    "client_attempts": 3,
+    "coach_attempts": 2,
+    "bounded_coach_recovery_attempts": 1,
+    "manual_retries": 0,
+    "additional_scenarios": 0,
+    "repeated_ai_scenario_runs": 0,
+    "prior_blocked_preflight_ai_attempts": 0,
+    "initial_counter": {
+      "questions": 0,
+      "requests": 0
+    },
+    "final_counter": {
+      "questions": 3,
+      "requests": 5
+    },
+    "after_download_counter": {
+      "questions": 3,
+      "requests": 5
+    },
+    "basis": "Website counters: 3 questions, 5 total generations. Provider-side billing/traffic was not independently visible.",
+    "token_usage": null
+  },
+  "duration_measurements": {
+    "client_request_seconds": [
+      4.686,
+      1.102,
+      1.473
+    ],
+    "coach_submission_seconds": 21.61,
+    "scope": "Browser-observed submit/Enter-to-render durations, including network and Streamlit processing. Coach duration includes its bounded recovery; individual provider attempt times are unavailable."
+  },
+  "reliability_checks": {
+    "no_validation_exhaustion_error": true,
+    "transcript_prefixes_preserved": true,
+    "export_matches_all_six_messages": true,
+    "exact_final_submission_preserved": true,
+    "download_succeeded": true,
+    "no_unintended_duplicate_requests_observed": true,
+    "counter_unchanged_after_download": true,
+    "only_selected_justification_visible": true,
+    "no_fabricated_feedback": true,
+    "notes": "One Coach submission triggered the existing bounded recovery. That intentional extra generation is counted, not treated as a duplicate UI submission. No Retry button or scenario replay was used."
+  },
+  "export_privacy": {
+    "unexpected_private_fields_found": false,
+    "top_level_keys": [
+      "report_type",
+      "session_id",
+      "status",
+      "client",
+      "transcript",
+      "student_summary",
+      "recommendations",
+      "coach_feedback"
+    ],
+    "credentials_read_or_extracted": false,
+    "raw_prompts_private_records_or_reasoning_observed": false,
+    "scope": "Allowlisted student export was checked. Fictional facts disclosed in the conversation and educational feedback are expected; raw hidden-needs records, disclosure rules and developer metadata are not."
+  },
+  "validation_diagnostics": {
+    "server_only_metadata_available_to_tester": false,
+    "reason_code": null,
+    "failed_section": null,
+    "rule_id": null,
+    "attempt_index": null,
+    "note": "No final validation failure occurred. The first Coach attempt required bounded recovery, but its private diagnostic reason/section/rule was not exposed. Owner Cloud log access was unavailable; no codes are guessed."
+  },
+  "browser_errors": [
+    {
+      "type": "console",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    }
+  ],
+  "http_errors": [
+    {
+      "host": "sdk.us.heap-api.com",
+      "path": "/js/heap-.js",
+      "status": 404
+    },
+    {
+      "host": "bank-client-discovery-simulator.streamlit.app",
+      "path": "/api/v1/app/event/open",
+      "status": 403
+    },
+    {
+      "host": "bank-client-discovery-simulator.streamlit.app",
+      "path": "/api/v2/user/details",
+      "status": 404
+    },
+    {
+      "host": "bank-client-discovery-simulator.streamlit.app",
+      "path": "/api/v2/user/details",
+      "status": 404
+    },
+    {
+      "host": "bank-client-discovery-simulator.streamlit.app",
+      "path": "/api/v2/user/details",
+      "status": 404
+    },
+    {
+      "host": "bank-client-discovery-simulator.streamlit.app",
+      "path": "/api/v2/user/details",
+      "status": 404
+    },
+    {
+      "host": "bank-client-discovery-simulator.streamlit.app",
+      "path": "/api/v2/user/details",
+      "status": 404
+    }
+  ],
+  "comparison_with_previous_failure": {
+    "previous_verdict": "FAIL",
+    "previous_coach_feedback": null,
+    "previous_coach_attempts": 2,
+    "previous_total_attempts": 5,
+    "previous_coach_seconds": 12.332,
+    "current_verdict": "PASS",
+    "current_coach_attempts": 2,
+    "current_total_attempts": 5,
+    "current_coach_seconds": 21.61,
+    "outcome": "Genuine accepted feedback now delivered under the same five-attempt budget and unchanged student inputs. No timeout or validation-exhaustion error occurred."
+  },
+  "preserved_preflight": {
+    "status": "BLOCKED_DEPLOYMENT_VERIFICATION",
+    "started_at": "2026-11-20T18:01:32.822000+03:00",
+    "finished_at": "2026-11-20T18:10:07.053000+03:00",
+    "ai_attempts": 0,
+    "summary": "The initial preflight stopped because the exact deployed revision was unavailable. No AI scenario was run. The user subsequently requested try again after that limitation was disclosed.",
+    "retention_note": "Standalone zero-call preflight reports and screenshot were removed during repository cleanup; this summary retains their relevant findings."
+  },
+  "evidence_files": [
+    "af01_final_deployed_acceptance_assets/submission.png",
+    "af01_final_deployed_acceptance_assets/coach-result.png",
+    "af01_final_deployed_acceptance_assets/student-report.json"
+  ],
+  "remaining_limitations": [
+    "Exact deployed commit SHA is not independently verified.",
+    "A bounded Coach recovery was necessary; its triggering reason is unavailable through the public interface.",
+    "One successful run is not a guarantee of universal model accuracy or availability.",
+    "The other three previously passing scenarios were not rerun in this task."
+  ],
+  "remaining_application_must_fix_issues_observed": [],
+  "changes": "Reports and evidence only. No application code, deployment settings, commits, pushes or redeployment. Browser closed; no calls after the completed scenario."
+}
