@@ -12,13 +12,14 @@ dependencies = [
     "pydantic>=2.12,<3",
     "python-dotenv>=1,<2",
     "openai>=2,<3",
+    "streamlit>=1.49,<2",
 ]
 
 [project.optional-dependencies]
 test = ["pytest>=8,<10"]
 
 [tool.setuptools]
-packages = ["bank_simulator", "bank_simulator.agents", "bank_simulator.services", "bank_simulator.data"]
+packages = ["bank_simulator", "bank_simulator.agents", "bank_simulator.services", "bank_simulator.ui", "bank_simulator.data"]
 package-dir = {"" = "src", "bank_simulator.data" = "data"}
 
 [tool.setuptools.package-data]
