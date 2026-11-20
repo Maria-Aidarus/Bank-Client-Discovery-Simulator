@@ -1,5 +1,6 @@
 import json
 import traceback
+from types import SimpleNamespace
 
 import httpx
 import pytest
@@ -134,6 +135,35 @@ def test_smoke_mode_disables_transient_retry(make_adapter):
     with pytest.raises(AIServiceError, match="temporarily unavailable"):
         adapter.complete([])
     assert adapter.request_count == 1
+
+
+@pytest.mark.parametrize("failure_type,phase", [(httpx.ReadTimeout, "ReadTimeout"), (httpx.ConnectTimeout, "ConnectTimeout")])
+def test_single_timeout_records_safe_elapsed_time_without_sdk_or_adapter_retry(make_adapter, monkeypatch, failure_type, phase):
+    clock = iter((100.0, 160.648))
+    monkeypatch.setattr("bank_simulator.agents.api_adapter.time", SimpleNamespace(monotonic=lambda: next(clock)))
+    events = []
+    adapter, requests = make_adapter([failure_type("synthetic-key private-prompt private-reasoning")],
+                                     max_retries=0, diagnostics=events.append)
+    messages = [{"role": "user", "content": "private-profile"}]
+    with pytest.raises(AIServiceError, match="timed out") as error:
+        adapter.complete(messages)
+    assert len(requests) == adapter.request_count == 1
+    assert events[0]["elapsed_seconds"] == 60.648
+    assert events[0]["api_exception_type"] == "APITimeoutError"
+    assert events[0]["validation_failure_category"] == "timeout"
+    assert events[0]["timeout_phase"] == phase
+    safe_output = json.dumps(events) + "".join(traceback.format_exception(error.value))
+    for marker in ("synthetic-key", "private-profile", "private-prompt", "private-reasoning"):
+        assert marker not in safe_output
+
+
+def test_successful_request_diagnostics_include_elapsed_time(make_adapter, monkeypatch):
+    clock = iter((10.0, 10.125))
+    monkeypatch.setattr("bank_simulator.agents.api_adapter.time", SimpleNamespace(monotonic=lambda: next(clock)))
+    events = []
+    adapter, _ = make_adapter([(200, completion())], diagnostics=events.append)
+    adapter.complete([])
+    assert events[0]["elapsed_seconds"] == 0.125
 
 
 def test_incomplete_response_and_echoed_credentials_are_rejected(make_adapter):

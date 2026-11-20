@@ -126,6 +126,31 @@ def test_failed_question_is_preserved_and_retried_once(web):
     assert state.failed_question is None and state.error is None
 
 
+def test_timeout_after_a_valid_turn_preserves_history_and_only_retries_on_click(web):
+    app, adapter, _ = web
+    adapter.responses.extend(["I have QAR 1,200 in emergency savings.",
+                              AIServiceError("The AI request timed out. Please try again."),
+                              "I need access the same day."])
+    _start(app, "mohamed")
+    app.chat_input[0].set_value("How much emergency money is set aside?").run()
+    snapshot = app.session_state["workspace"].session
+    question = "How quickly would you need access to that money?"
+    app.chat_input[0].set_value(question).run()
+    app.run()
+    state = app.session_state["workspace"]
+    assert state.session == snapshot and len(app.chat_message) == 2
+    assert state.requests == len(adapter.calls) == 2
+    assert state.failed_question == question and "timed out" in _visible(app)
+    app.button(key="retry_question").click().run()
+    app.run()
+    state = app.session_state["workspace"]
+    assert not app.exception
+    assert state.requests == len(adapter.calls) == 3
+    assert len(app.chat_message) == len(state.session.transcript) == 4
+    assert state.session.transcript[:2] == snapshot.transcript
+    assert [message.content for message in state.session.transcript].count(question) == 1
+
+
 @pytest.mark.parametrize("kind", ["summary", "products", "justification"])
 def test_submission_rejects_missing_fields_without_calling_coach(web, kind):
     app, adapter, _ = web

@@ -2,6 +2,7 @@
 
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass, field
+import logging
 from typing import TypeVar
 
 from openai.types.chat import ChatCompletionMessageParam
@@ -23,6 +24,7 @@ MAX_MESSAGE_CHARS = 2000
 MAX_SUMMARY_CHARS = 8000
 MAX_JUSTIFICATION_CHARS = 4000
 T = TypeVar("T")
+_LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
@@ -74,9 +76,27 @@ class _BudgetedAdapter:
         return self._adapter.complete(messages, max_tokens=max_tokens, temperature=temperature, json_mode=json_mode)
 
 
+def _log_request_failure(metadata: dict[str, object]) -> None:
+    """Allowlist failure timing for Cloud logs; never log the response or context."""
+    category = metadata.get("validation_failure_category")
+    if category not in {"timeout", "connection", "http_error", "invalid_api_response",
+                        "truncated", "reasoning_only", "empty_content", "missing_choices",
+                        "unsupported_finish", "unsupported_content", "sensitive_content"}:
+        return
+    elapsed = metadata.get("elapsed_seconds")
+    status = metadata.get("http_status")
+    phase = metadata.get("timeout_phase")
+    _LOGGER.warning(
+        "AI request failed: category=%s elapsed_seconds=%s http_status=%s timeout_phase=%s",
+        category, elapsed if type(elapsed) in (float, int) else None,
+        status if type(status) is int else None,
+        phase if phase in {"ConnectTimeout", "ReadTimeout", "WriteTimeout", "PoolTimeout", "unknown"} else None,
+    )
+
+
 def create_adapter() -> OllamaCloudAdapter:
     """Open a short-lived connection only for an explicit student action."""
-    return OllamaCloudAdapter(max_retries=0)
+    return OllamaCloudAdapter(max_retries=0, diagnostics=_log_request_failure)
 
 
 class WebController:

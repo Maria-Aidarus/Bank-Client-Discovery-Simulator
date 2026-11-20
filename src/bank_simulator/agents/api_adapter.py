@@ -75,20 +75,25 @@ class OllamaCloudAdapter:
     ) -> str:
         for attempt in range(self._max_retries + 1):
             self.request_count += 1
+            started_at = time.monotonic()
             try:
                 response_format = {"response_format": {"type": "json_object"}} if json_mode else {}
                 response = self._client.chat.completions.create(
                     model=self.model, messages=list(messages), max_tokens=max_tokens,
                     temperature=temperature, **response_format,
                 )
-            except APITimeoutError:
-                self._report_exception("APITimeoutError", "timeout", max_tokens)
+            except APITimeoutError as exc:
+                phase = type(exc.__cause__).__name__
+                self._report_exception(
+                    "APITimeoutError", "timeout", max_tokens, started_at=started_at,
+                    timeout_phase=phase if phase in {"ConnectTimeout", "ReadTimeout", "WriteTimeout", "PoolTimeout"} else "unknown",
+                )
                 error = "The AI request timed out. Please try again."
             except APIConnectionError:
-                self._report_exception("APIConnectionError", "connection", max_tokens)
+                self._report_exception("APIConnectionError", "connection", max_tokens, started_at=started_at)
                 error = "Could not connect to Ollama Cloud. Please try again."
             except APIStatusError as exc:
-                self._report_exception(type(exc).__name__, "http_error", max_tokens, exc.status_code)
+                self._report_exception(type(exc).__name__, "http_error", max_tokens, exc.status_code, started_at=started_at)
                 if exc.status_code in (401, 403):
                     raise AIServiceError("Ollama Cloud authentication failed. Check AI_API_KEY and access.") from None
                 if exc.status_code == 404:
@@ -99,10 +104,11 @@ class OllamaCloudAdapter:
                 if exc.status_code == 429:
                     error = "Ollama Cloud rate limit reached. Please try again later."
             except APIError as exc:
-                self._report_exception(type(exc).__name__, "invalid_api_response", max_tokens)
+                self._report_exception(type(exc).__name__, "invalid_api_response", max_tokens, started_at=started_at)
                 raise AIServiceError("Ollama Cloud returned an invalid API response.") from None
             else:
                 metadata = self._response_metadata(response, max_tokens)
+                metadata["elapsed_seconds"] = round(time.monotonic() - started_at, 3)
                 for field, count in cast(dict[str, int], metadata["usage"]).items():
                     self.token_usage[field] = self.token_usage.get(field, 0) + count
                 reported_model = metadata["model"]
@@ -164,11 +170,16 @@ class OllamaCloudAdapter:
             self._diagnostics({**metadata, "validation_failure_category": category})
         raise AIServiceError(message, category=category)
 
-    def _report_exception(self, exception: str, category: str, max_tokens: int, status: int | None = None) -> None:
+    def _report_exception(
+        self, exception: str, category: str, max_tokens: int, status: int | None = None,
+        *, started_at: float, timeout_phase: str | None = None,
+    ) -> None:
         if self._diagnostics:
             self._diagnostics({
                 "stage": "api_response", "request_number": self.request_count, "max_tokens": max_tokens,
                 "api_exception_type": exception, "http_status": status, "validation_failure_category": category,
+                "elapsed_seconds": round(time.monotonic() - started_at, 3),
+                "timeout_phase": timeout_phase,
             })
 
     def close(self) -> None:

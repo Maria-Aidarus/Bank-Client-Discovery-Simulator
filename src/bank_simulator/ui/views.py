@@ -96,6 +96,11 @@ STYLES = """<style>
 .st-key-feedback_improvements [data-testid="stVerticalBlock"] {gap: .65rem;}
 
 @media (max-width: 640px) {
+    /* Reserve a scrollable area above mobile hosting badges on client selection.
+       This styles our app, without hiding or targeting the hosting controls. */
+    .stApp:has([class*="st-key-client_card_"]) {
+        bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
+    }
     .block-container {padding-top: 3.5rem;}
     .journey {grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem;}
     .journey li {border-radius: 8px; padding: .55rem .65rem; font-size: .78rem;}
