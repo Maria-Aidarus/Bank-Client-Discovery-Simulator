@@ -1,0 +1,71 @@
+{
+  "report_type": "student_interview",
+  "session_id": "7aa2f2fd-523e-4867-85fb-f87f74ebbf04",
+  "status": "completed",
+  "client": {
+    "id": "mohamed",
+    "name": "Mohamed Al-Ansari",
+    "age": 35,
+    "occupation": "Salaried professional",
+    "background": "Mohamed has stable employment in Doha, Qatar, and wants to manage his finances more effectively.",
+    "public_financial_situation": "Mohamed receives a regular monthly salary and uses one account for income, bills, and savings. He wants to improve how he plans expenses and sets money aside.",
+    "interview_opening_context": "Mohamed has booked a meeting to review how his accounts could support a more structured savings plan."
+  },
+  "transcript": [
+    {
+      "role": "student",
+      "content": "Tell me a little about yourself and what you'd like help with today.",
+      "timestamp": "2026-11-19T22:03:37.032062Z"
+    },
+    {
+      "role": "client",
+      "content": "I’m Mohamed, a salaried professional in Doha with a steady monthly income, and I currently use one account for bills, spending, and savings. I’d like to understand how my accounts could support a more structured savings plan, while being careful about what I can realistically set aside once we’ve looked at my regular expenses.",
+      "timestamp": "2026-11-19T22:03:39.273920Z"
+    },
+    {
+      "role": "student",
+      "content": "What are you saving for and by when? How much emergency savings do you already have? How much could you comfortably save each month, and is that contribution affordable yet?",
+      "timestamp": "2026-11-19T22:03:39.844982Z"
+    },
+    {
+      "role": "client",
+      "content": "I’m aiming to save QAR 9,000 over 18 months for professional certification course and exam fees, kept separate from my emergency fund. I currently have QAR 1,200 in emergency savings. I’d like to check whether averaging about QAR 500 a month is feasible, but I can’t yet say it’s comfortably affordable until we account for irregular expenses and my emergency cushion—and I’d want some flexibility to adjust or pause contributions.",
+      "timestamp": "2026-11-19T22:03:42.116706Z"
+    },
+    {
+      "role": "student",
+      "content": "Goal Saver Account lets you adjust or pause transfers, but early withdrawals take several business days and may forfeit a bonus. How would that work for your emergency money and certification goal, and what would you want to check?",
+      "timestamp": "2026-11-19T22:03:42.671652Z"
+    },
+    {
+      "role": "client",
+      "content": "For the certification goal, keeping it separate with a target, progress tracking, and transfers I can adjust or pause sounds useful—especially in months with irregular bills—but I’d want to confirm how pausing affects the goal and any bonus conditions. I wouldn’t use the Goal Saver for my emergency money because I need same-day access, and early withdrawals take several business days; I’d keep that reserve elsewhere. I’d also check the early-withdrawal and possible bonus-forfeiture terms, then review whether around QAR 500 a month is genuinely affordable after my regular and irregular expenses.",
+      "timestamp": "2026-11-19T22:03:45.332007Z"
+    }
+  ],
+  "student_summary": "Mohamed has QAR 1,200 in emergency savings and wants QAR 9,000 for certification in 18 months, separately from his emergency fund. The target requires an average of QAR 500 per month, but affordability needs checking against his budget, irregular expenses and emergency saving. Emergency money needs same-day access; planned savings need flexible contributions.",
+  "recommendations": [
+    {
+      "product_id": "everyday-access-account",
+      "product_name": "Everyday Access Account",
+      "justification": "Keep emergency money accessible the same day in its instant-access space. Check any relevant transfer limits."
+    }
+  ],
+  "coach_feedback": {
+    "what_went_well": [
+      "Quickly surfaced the core goal and deadline: QAR 9,000 in 18 months, with QAR 1,200 already held as emergency savings.",
+      "Tested product fit rather than assuming: Goal Saver’s adjustable or pausable transfers suited the planned certification fund, while its several-business-day early withdrawals ruled it out for same-day emergency money.",
+      "Kept affordability conditional and captured Mohamed’s preference for separate goal visibility, flexible contributions, and same-day emergency access; the Everyday Access Account recommendation matches that reserve, with transfer limits flagged for checking."
+    ],
+    "what_was_missed": [
+      "The budget baseline is missing: the transcript does not establish take-home income or fixed monthly outgoings, so the QAR 500 average is not tested against money actually left after essentials.",
+      "Irregular costs were acknowledged only generically; car maintenance and family travel were not explored, so the risk to a fixed contribution is only partially understood.",
+      "The final submission recommends only the Everyday Access Account, leaving the QAR 9,000 certification goal without a selected savings product despite Goal Saver being discussed."
+    ],
+    "how_to_improve": [
+      "Ask for take-home income and an itemized fixed-bill total, then calculate what remains before groceries and irregular costs.",
+      "Follow up with examples and rough frequency or amounts for car maintenance and family travel, then check whether QAR 500 remains feasible after emergency top-ups and irregular expenses.",
+      "In the final plan, pair the Everyday Access emergency reserve with Goal Saver for the certification target, contingent on confirming how pausing affects the goal and bonus; Optional: retain Goal Saver only if those terms are acceptable."
+    ]
+  }
+}

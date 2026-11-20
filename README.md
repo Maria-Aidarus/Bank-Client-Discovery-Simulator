@@ -1,10 +1,10 @@
 # Bank Client Discovery Simulator
 
-**Phase 2.6 · AI quality checks and human behavioral review**
+**Phase 3 · Streamlit student interview and coaching interface**
 
 The simulator is a banking education project. Students interview a fictional client, identify financial needs and constraints, and justify one or more product recommendations. The assignment assesses discovery skills, including how students follow up on incomplete answers and explain trade-offs in their recommendations.
 
-Phase 1 provides validated content, interview state, and recommendation services. Phase 2 adds a real AI Client, an AI Coach, a shared Ollama Cloud adapter using the official OpenAI Python SDK, and a disclosure controller. Phase 2.5 refines question relevance, conversational follow-ups, product discussions, and coaching fairness. Phase 2.6 adds concise coaching guidance, targeted contextual matching, systematic scenario coverage, and explicit human review records. The adapter connects directly to the cloud through its OpenAI-compatible endpoint. See [Ollama API compatibility](https://docs.ollama.com/api/openai-compatibility). Phase 3 will add the Streamlit interface, followed by deployment in Phase 4 and end-to-end testing and submission in Phase 5.
+Phase 1 provides validated content, interview state, and recommendation services. Phase 2 adds a real AI Client, an AI Coach, a shared Ollama Cloud adapter using the official OpenAI Python SDK, and a disclosure controller. Phase 2.5 refines question relevance, conversational follow-ups, product discussions, and coaching fairness. Phase 2.6 adds concise coaching guidance, targeted contextual matching, systematic scenario coverage, and explicit human review records. Phase 3 provides the Streamlit web interface using those services directly. The adapter connects directly to the cloud through its OpenAI-compatible endpoint. See [Ollama API compatibility](https://docs.ollama.com/api/openai-compatibility). Public deployment remains Phase 4, followed by final end-to-end testing and submission in Phase 5. The application has not been publicly deployed.
 
 ## Setup
 
@@ -18,6 +18,56 @@ python -m pytest
 ```
 
 After dependency installation, the test suite runs offline and requires no API key. The editable install lets you import the backend from outside the repository and reflects edits to the source and JSON files.
+
+Streamlit is included in the package dependencies and installed by `requirements.txt`. After configuring AI access below, start the website from the repository root:
+
+```sh
+python -m streamlit run app.py
+```
+
+Open the local URL printed by Streamlit, usually `http://localhost:8501`. Browsing public clients and the product catalogue does not initialize an AI connection. Sending a question or requesting coaching requires valid Ollama Cloud configuration.
+
+### Student workflow
+
+1. **Select client.** Read Maryam's or Mohamed's public background and start an interview.
+2. **Interview.** Ask your own questions in the chat. The sidebar catalogue contains all five fictional products, their features, eligibility, limitations, and restrictions. End the interview when ready.
+3. **Recommend.** Write a financial-needs summary, select one or more products, and complete the corresponding justification boxes. Only selected products require a justification. The form preserves your wording, including spacing. Financially unsuitable choices remain valid submissions for the Coach to evaluate.
+4. **Review coaching.** Submit once to request real feedback under What went well, What was missed, and How to improve. Review your submission and transcript alongside the feedback. Revising a submission explicitly requests new coaching when resubmitted.
+
+Failed questions remain visible as unanswered drafts with an explicit **Retry question** button. The saved transcript contains only completed turns, so retrying does not duplicate a student message. A failed Coach request leaves the completed interview and exact submission intact; use **Retry coaching** to try again. Opening expanders, downloading a report, and ordinary reruns do not generate responses.
+
+### Session behavior, limits, and privacy
+
+Each browser connection owns its `Workspace` in Streamlit session state. Backend `InterviewSession` and `CoachFeedback` models remain immutable. Restarting or choosing another client discards the current attempt and resets its allowance. A page reload, disconnection, or server restart can lose session state; download your report before leaving. There is no database, account system, shared interview store, or automatic persistence.
+
+AI actions run synchronously with a busy guard. Streamlit fast reruns are disabled so queued widget events wait for the current script rather than interrupting a request midway through replacing a session snapshot. Wait for the response before sending another question or restarting.
+
+Each interview allows 30 completed student questions and at most 40 attempted AI generations, including failures and the Coach's bounded recovery. Two requests are reserved from the chat allowance for coaching. Questions are limited to 2,000 characters, summaries to 8,000, and individual justifications to 4,000. Transport retries are disabled in the web app; the existing Coach may make its single controlled recovery request. Students can end an interview and download their work after reaching a limit. **Per-interview limits do not provide a global API spending cap**: new sessions and restarts receive fresh allowances. Configure provider-side spending controls before public deployment.
+
+**Download interview report** produces JSON containing only the selected client's public identity/profile, the observed transcript, the student's submitted summary, selected product names/IDs and justifications, and any validated Coach feedback. It also works before coaching succeeds. Final coaching can discuss missed needs as part of the learning exercise. Reports never serialize private profile objects, disclosure rules, system prompts, developer benchmarks, SDK exceptions, diagnostics, or credentials. No interview report is written to the server by a download.
+
+The UI never imports private evaluation packets or publishes `samples/` as assets. Static file serving is explicitly disabled in `.streamlit/config.toml`; keep it disabled and keep developer review packets out of student views. Developer toolbar actions and raw uncaught-exception details are hidden from the student page. Expected AI failures use sanitized messages with explicit retries. Only static application CSS is rendered as HTML. Conversation and feedback text is displayed as plain text. `.env` and `.streamlit/secrets.toml` remain ignored by Git.
+
+### Web interface testing
+
+```sh
+python -m pytest -q
+python -m pytest tests/test_web_app.py tests/test_web_state.py -q
+```
+
+The [Streamlit AppTest](https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest) tests run the actual `app.py` entry point with mocked AI adapters. They cover public startup, both clients, catalogue terms, multi-turn chat, form validation, unsuitable and multiple recommendations, feedback, explicit retries, revisions, session isolation, restart/switching, and reruns without duplicate requests. Controller and export tests cover request budgets, recovery exhaustion, exact wording, error privacy, and allowlisted downloads. All automated tests block network access and require no API key. AppTest interaction tests are distinct from visual browser testing and real-model behavioral evaluation.
+
+For manual testing, ask an introduction, a relevant financial follow-up, and a banking-preference question; inspect gradual disclosure, then submit a summary and justified recommendations. Download the result and compare the feedback with the transcript and catalogue. Run only one controlled live interview when needed: three questions plus coaching normally use four generations, or five if the Coach needs its recovery. Do not assume valid JSON proves correct coaching. The latest product-term instructions still require ongoing human review.
+
+### Phase 3 verification
+
+The complete offline suite has **232 passing tests**, retaining the original 207 and adding 25 web interaction, state, limit, and export tests. The UI was also exercised in headless Chrome 158 with Streamlit 1.67.0 at desktop and mobile widths. Browser checks covered startup, mobile sidebar navigation, client selection, forms, feedback display, downloads, restart, and switching clients.
+
+One controlled real interview with Mohamed used **four Ollama Cloud requests**, configured with `deepseek-v4.1-flash`: three Client replies and one successful Coach generation. The [genuine student report](samples/phase3_live_student_report.json) contains the actual conversation, submitted summary, recommendation, and validated feedback. Mohamed did not volunteer private amounts in his introduction. After relevant questions, he distinguished the QAR 1,200 emergency balance from the QAR 9,000 future target over 18 months and made the QAR 500 monthly average conditional on affordability. His product response treated unspecified bonus conditions as details to verify.
+
+The live report contains one actual recommendation, Everyday Access Account. The Coach credited its emergency-liquidity fit and identified the unresolved certification plan and budget discovery. The first browser driver intended two selections but failed an assertion after downloading this valid result: it had filled the second product search without clicking the dropdown first. That [initial diagnostic record](samples/phase3_browser_verification.json) is retained. Correcting the driver focus sequence allowed both products to be selected and submitted in a separate browser run with all API requests disabled. That run also verified failure/retry preservation and navigation using the saved genuine interview. **No additional paid calls were made.** See the [final browser review](samples/phase3_browser_review.json) for the distinction between live checks and offline follow-up checks.
+
+These observations verify this short workflow, not exhaustive model accuracy. No numerical human quality ratings have been assigned. The student UI does not collect provider token usage. AI feedback can still be incomplete, overly long, repetitive, or factually wrong despite valid structure.
 
 ### Configuration
 
@@ -60,6 +110,8 @@ AI_MODEL = "deepseek-v4.1-flash"
 
 Streamlit exposes root-level secrets as environment variables. These entries belong at the TOML root, so the backend can continue using `load_settings()` without importing Streamlit. A local `.streamlit/secrets.toml` is an optional file managed by Streamlit, while this backend's local setup reads `.env`. See [Streamlit secrets management](https://docs.streamlit.io/develop/concepts/connections/secrets-management) and [Community Cloud secrets settings](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
+For Phase 4, use `app.py` as the Community Cloud entry point and install `requirements.txt`. Enter the real credential only in the app's Secrets settings. Keep static serving disabled, review provider quotas and spending controls, and repeat browser and live behavior checks after deployment. No deployment is performed in Phase 3.
+
 ## Architecture
 
 ### Phase 2.5 review findings
@@ -74,6 +126,10 @@ src/bank_simulator/
   models.py                      Content, session, and agent models
   data_loader.py                 JSON schema, identifier, and reference checks
   evaluation.py                  Offline feedback measurements and human review packets
+  ui/
+    controller.py                Browser-owned state, explicit actions, request budgets
+    views.py                     Native Streamlit chat, forms, catalogue, and feedback
+    export.py                    Allowlisted student report JSON
   services/
     content_service.py           Public catalogue and private client lookup
     interview_service.py         Client selection, transcript, and session lifecycle
@@ -98,6 +154,8 @@ scripts/conversation_scenarios.json Scripted student inputs for ten evaluation c
 .env.example                     Optional AI settings template
 pyproject.toml                   Package metadata and test configuration
 requirements.txt                 Editable install with test dependencies
+app.py                           Streamlit website entry point
+.streamlit/config.toml           Light theme, static serving disabled
 ```
 
 ### Editing content
@@ -145,7 +203,7 @@ finally:
 - **AI Client.** `OllamaClientAgent` implements `AIClientAgent.respond()`. The workflow builds the private context internally, the agent filters it, and `InterviewService` records the generated response. User messages map to API `user` messages and previous client replies map to `assistant` messages. The prompt favors around 1–3 natural sentences for ordinary questions and longer answers when a multipart question warrants them. Editable personality guidance distinguishes the clients. The client uses a temperature of 0.5 and keeps its verified 2,048-token ceiling, including any model reasoning. The coach uses 0.1 and its verified 8,192-token ceiling.
 - **AI Coach.** `OllamaCoachAgent` implements `AICoachAgent.evaluate()`. The workflow requires a completed interview, a summary, and recommendations before assembling the complete private context. A separate coaching prompt asks for transcript evidence, missed and partially discovered needs, and suitability analysis of the actual submitted choices against the full catalogue. Feedback validates as `CoachFeedback` with **What went well**, **What was missed**, and **How to improve**. The coach requests JSON-object mode with an 8,192-token completion ceiling, then independently validates the three sections with Pydantic. Markdown JSON fences are accepted. There is one shared recovery allowance for truncation, an absent final answer, or JSON/schema repair. A second failure raises an error. Partial completions and reasoning text are excluded from feedback parsing.
 - **Failure and retry behavior.** The adapter uses a 60-second timeout per request and one retry with a short backoff for connection errors, timeouts, HTTP 408/409/429, and server errors. `max_retries` accepts zero through two. SDK retries are disabled so the request count includes every attempt. Authentication, unavailable model/endpoint, and other permanent errors fail immediately. Generation recovery belongs to the coach, with at most two generation requests per evaluation. Each can also use the adapter's configured transport retry budget. Raw provider error bodies and credentials are excluded from application errors. `send_student_message()` returns an updated snapshot only after a successful full turn, allowing a caller to retry from the original snapshot. If a caller already recorded the question, use `respond_to_pending()` to avoid recording it twice.
-- **Streamlit integration.** Store the latest `InterviewSession` in `st.session_state`, replacing it with the snapshot returned by each service call. `reset_interview()` starts a new attempt with a new session ID and the selected client, if there is one. Render public content, transcript messages, and coach feedback. Keep private context builders and disclosure diagnostics on the server side. Share the adapter between the two agents, and close it when its application lifecycle ends.
+- **Streamlit integration.** `app.py` renders `ui.views.main()`. A `Workspace` in `st.session_state` holds the latest immutable session snapshot, feedback, a failed-question draft, and request accounting. `WebController` delegates to the existing interview/recommendation services and `AIWorkflow`; it creates a short-lived adapter shared by the two agents for each explicit AI action and closes it afterward. There are no globally cached session objects or credentials. `ui.export.student_report()` uses a public-field allowlist. Private context builders and disclosure diagnostics stay on the server.
 
 ### How private disclosure works
 
