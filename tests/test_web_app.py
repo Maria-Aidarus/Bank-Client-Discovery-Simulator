@@ -47,7 +47,8 @@ def _end(app):
 
 def _fill_submission(app, summary="A general banking review.", products=("business-flex-credit",), justification="My original reasoning."):
     app.text_area[0].set_value(summary)
-    app.multiselect[0].set_value(list(products))
+    app.multiselect[0].set_value(list(products)).run()
+    assert not app.exception
     for product_id in products:
         field = next(field for field in app.text_area if field.key.endswith(f"_why_{product_id}"))
         field.set_value(justification)
@@ -225,3 +226,112 @@ def test_browser_sessions_do_not_share_interviews(web):
     assert other.session_state["workspace"].session is None
     assert app.session_state["workspace"].session.client_id == "maryam"
     assert len(adapter.calls) == 1
+
+
+@pytest.mark.parametrize("products", [
+    ("business-flex-credit",), ("goal-saver-account", "everyday-access-account"),
+])
+def test_only_selected_products_have_immediately_visible_justification_fields(web, products):
+    app, adapter, _ = web
+    _start(app)
+    _end(app)
+    assert [field.label for field in app.text_area] == ["Financial needs summary"]
+    app.multiselect[0].set_value(list(products)).run()
+    assert not app.exception
+    assert len(app.text_area) == 1 + len(products)
+    assert {field.key.rsplit("_why_", 1)[-1] for field in app.text_area[1:]} == set(products)
+    assert not any(expander.label.startswith("Justification") for expander in app.expander)
+    assert "Briefly explain why this product fits the client's needs. Mention any important limitations." in _visible(app)
+    assert adapter.calls == []
+
+
+def test_one_word_justification_is_valid_without_a_minimum_word_count(web):
+    app, adapter, _ = web
+    adapter.responses.append(json.dumps(FEEDBACK))
+    _start(app, "mohamed")
+    _end(app)
+    _fill_submission(app, products=("goal-saver-account",), justification="Fits.")
+    state = app.session_state["workspace"]
+    assert state.stage == 4 and state.feedback is not None
+    assert state.session.selected_recommendations[0].justification == "Fits."
+    assert len(adapter.calls) == 1
+
+
+def test_missing_justification_has_a_product_specific_inline_error(web):
+    app, adapter, _ = web
+    _start(app)
+    _end(app)
+    app.multiselect[0].set_value(["goal-saver-account", "everyday-access-account"]).run()
+    app.text_area[0].set_value("A needs summary.")
+    next(field for field in app.text_area if field.key.endswith("_why_goal-saver-account")).set_value("For a dated goal.")
+    next(button for button in app.button if button.label == "Submit & get coaching").click().run()
+    assert not app.exception
+    assert len(app.error) == 1
+    assert app.error[0].value == "Add a brief justification for Everyday Access Account."
+    assert app.session_state["workspace"].session.student_summary is None
+    assert adapter.calls == []
+
+
+def test_changing_product_selections_preserves_summary_and_hidden_drafts(web):
+    app, adapter, _ = web
+    _start(app)
+    _end(app)
+    app.multiselect[0].set_value(["goal-saver-account"]).run()
+    app.text_area[0].set_value("  Draft summary.\n")
+    next(field for field in app.text_area if field.key.endswith("_why_goal-saver-account")).set_value("  First draft.\n")
+    app.multiselect[0].set_value(["goal-saver-account", "everyday-access-account"]).run()
+    assert app.text_area[0].value == "  Draft summary.\n"
+    assert next(field for field in app.text_area if field.key.endswith("_why_goal-saver-account")).value == "  First draft.\n"
+    next(field for field in app.text_area if field.key.endswith("_why_everyday-access-account")).set_value("  Second draft.\n")
+    app.multiselect[0].set_value(["everyday-access-account"]).run()
+    assert len(app.text_area) == 2
+    app.run()
+    app.multiselect[0].set_value([]).run()
+    assert len(app.text_area) == 1
+    app.multiselect[0].set_value(["goal-saver-account", "everyday-access-account"]).run()
+    assert not app.exception
+    assert app.text_area[0].value == "  Draft summary.\n"
+    assert next(field for field in app.text_area if field.key.endswith("_why_goal-saver-account")).value == "  First draft.\n"
+    assert next(field for field in app.text_area if field.key.endswith("_why_everyday-access-account")).value == "  Second draft.\n"
+    assert adapter.calls == []
+
+
+def test_deselected_product_draft_is_excluded_from_coaching_and_export(web, content):
+    from bank_simulator.ui.export import student_report
+
+    app, adapter, _ = web
+    adapter.responses.append(json.dumps(FEEDBACK))
+    _start(app)
+    _end(app)
+    app.multiselect[0].set_value(["goal-saver-account", "everyday-access-account"]).run()
+    app.text_area[0].set_value("The student's actual summary.")
+    next(field for field in app.text_area if field.key.endswith("_why_goal-saver-account")).set_value("Retained selected explanation.")
+    hidden_draft = "A deselected draft that must not be submitted."
+    next(field for field in app.text_area if field.key.endswith("_why_everyday-access-account")).set_value(hidden_draft)
+    app.multiselect[0].set_value(["goal-saver-account"]).run()
+    next(button for button in app.button if button.label == "Submit & get coaching").click().run()
+    assert not app.exception
+    state = app.session_state["workspace"]
+    assert [choice.product_id for choice in state.session.selected_recommendations] == ["goal-saver-account"]
+    assert state.justification_drafts["everyday-access-account"] == hidden_draft
+    assert hidden_draft not in json.dumps(adapter.calls)
+    assert hidden_draft not in student_report(state.session, state.feedback, content)
+    assert len(adapter.calls) == 1
+
+
+@pytest.mark.parametrize("action", ["restart", "choose_another"])
+def test_starting_a_fresh_interview_clears_justification_drafts(web, action):
+    app, adapter, _ = web
+    _start(app)
+    _end(app)
+    app.multiselect[0].set_value(["goal-saver-account"]).run()
+    next(field for field in app.text_area if field.key.endswith("_why_goal-saver-account")).set_value("Previous client's draft.").run()
+    assert app.session_state["workspace"].justification_drafts
+    app.button(key=action).click().run()
+    if action == "choose_another":
+        _start(app, "mohamed")
+    assert app.session_state["workspace"].justification_drafts == {}
+    _end(app)
+    app.multiselect[0].set_value(["goal-saver-account"]).run()
+    assert next(field for field in app.text_area if field.key.endswith("_why_goal-saver-account")).value == ""
+    assert adapter.calls == []

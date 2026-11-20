@@ -138,8 +138,6 @@ def _catalogue(content: ContentService) -> None:
 def _sidebar(controller: WebController) -> None:
     state = controller.state
     with st.sidebar:
-        st.subheader("Client discovery")
-        st.caption("Classroom exercise · Doha, Qatar")
         st.divider()
         if state.session:
             profile = controller.content.get_client(state.session.client_id)
@@ -238,30 +236,47 @@ def _recommendations(controller: WebController) -> None:
         _transcript(state, controller.content.get_client(session.client_id).name)
     prefix = f"work_{session.session_id}"
     previous_choices = {choice.product_id: choice.justification for choice in session.selected_recommendations}
-    with st.form(f"recommendations_{session.session_id}", border=False):
-        summary = st.text_area("Financial needs summary", value=session.student_summary or "",
-                               key=f"{prefix}_summary", max_chars=MAX_SUMMARY_CHARS, height=150)
-        selected = st.multiselect("Recommended products", [product.id for product in products],
-                                  default=list(previous_choices),
-                                  format_func=lambda product_id: controller.content.get_product(product_id).name,
-                                  key=f"{prefix}_products", placeholder="Select at least one fictional product")
-        st.caption("Complete a justification for each selected product. Leave other boxes blank.")
-        justifications = {}
-        for product in products:
-            with st.expander(f"Justification · {product.name}"):
-                justifications[product.id] = st.text_area(
-                    f"Why {product.name}?", value=previous_choices.get(product.id, ""), key=f"{prefix}_why_{product.id}",
-                    max_chars=MAX_JUSTIFICATION_CHARS,
-                )
-        submitted = st.form_submit_button("Submit & get coaching", type="primary", disabled=state.busy)
+    # Capture the previous widget values before Streamlit removes deselected widgets.
+    # Drafts live outside widget keys so reselecting a product restores its exact text.
+    for product in products:
+        widget_key = f"{prefix}_why_{product.id}"
+        if widget_key in st.session_state:
+            state.justification_drafts[product.id] = st.session_state[widget_key]
+    for product_id, justification in previous_choices.items():
+        state.justification_drafts.setdefault(product_id, justification)
+
+    # Regular widgets rerun on edits; the explicit submit button is the only AI trigger.
+    summary = st.text_area("Financial needs summary", value=session.student_summary or "",
+                           key=f"{prefix}_summary", max_chars=MAX_SUMMARY_CHARS, height=150)
+    summary_error = st.empty()
+    selected = st.multiselect("Recommended products", [product.id for product in products],
+                              default=list(previous_choices),
+                              format_func=lambda product_id: controller.content.get_product(product_id).name,
+                              key=f"{prefix}_products", placeholder="Select at least one fictional product")
+    selection_error = st.empty()
+    justifications = {}
+    justification_errors = {}
+    for product_id in selected:
+        product = controller.content.get_product(product_id)
+        with st.container(key=f"justification_{product_id}"):
+            justifications[product_id] = st.text_area(
+                f"Why {product.name}?", value=state.justification_drafts.get(product_id, ""),
+                key=f"{prefix}_why_{product_id}", max_chars=MAX_JUSTIFICATION_CHARS, height=110,
+            )
+            state.justification_drafts[product_id] = justifications[product_id]
+            st.caption("Briefly explain why this product fits the client's needs. Mention any important limitations.")
+            justification_errors[product_id] = st.empty()
+    submitted = st.button("Submit & get coaching", key=f"{prefix}_submit", type="primary", disabled=state.busy)
     if submitted:
+        missing_justifications = [product_id for product_id in selected if not justifications[product_id].strip()]
         if not summary.strip():
-            st.error("Enter a financial needs summary.")
-        elif not selected:
-            st.error("Select at least one product.")
-        elif any(not justifications[product_id].strip() for product_id in selected):
-            st.error("Provide a justification for every selected product.")
-        else:
+            summary_error.error("Enter a financial needs summary.")
+        if not selected:
+            selection_error.error("Select at least one product.")
+        for product_id in missing_justifications:
+            product = controller.content.get_product(product_id)
+            justification_errors[product_id].error(f"Add a brief justification for {product.name}.")
+        if summary.strip() and selected and not missing_justifications:
             try:
                 controller.submit(summary, [ProductRecommendation(product_id=product_id, justification=justifications[product_id])
                                             for product_id in selected])

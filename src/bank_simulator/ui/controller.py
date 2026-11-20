@@ -1,7 +1,7 @@
 """Caller-owned web state and bounded actions, independent of Streamlit rendering."""
 
 from collections.abc import Callable, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import TypeVar
 
 from openai.types.chat import ChatCompletionMessageParam
@@ -36,6 +36,7 @@ class Workspace:
     requests: int = 0
     busy: bool = False
     editing: bool = False
+    justification_drafts: dict[str, str] = field(default_factory=dict)
 
     @property
     def stage(self) -> int:
@@ -96,6 +97,7 @@ class WebController:
         self.state.error = None
         self.state.requests = 0
         self.state.editing = False
+        self.state.justification_drafts.clear()
 
     def choose_another(self) -> None:
         if not self.state.busy:
@@ -105,6 +107,7 @@ class WebController:
             self.state.error = None
             self.state.requests = 0
             self.state.editing = False
+            self.state.justification_drafts.clear()
 
     def send(self, message: str) -> bool:
         if self.state.busy:
