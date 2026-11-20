@@ -12,3 +12,8 @@ build/
 dist/
 .coverage
 .DS_Store
+
+# Keep only the two submission examples; local evaluation output stays untracked.
+/samples/*
+!/samples/phase3_live_student_report.json
+!/samples/maryam_live_interview.json

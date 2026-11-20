@@ -143,7 +143,7 @@ The example includes:
 
 Student inputs were scripted for testing. AI Client responses and AI Coach feedback were generated using the configured AI model.
 
-The [final deployed acceptance report](samples/af01_final_deployed_acceptance.md) includes a genuine Maryam interview, the student's unsuitable recommendation, and the Coach's corrective feedback.
+An [additional genuine Maryam interview](samples/maryam_live_interview.json) includes the conversation, student recommendations, and AI Coach feedback. Development evaluations, diagnostics, and screenshots are archived locally outside the repository.
 
 ## Notes
 
